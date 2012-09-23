@@ -23,12 +23,11 @@ has been already checked-out/cloned into `PROJECT` directory):
 Next, calculate the volatility, using our custom PHP script. For Git
 repository:
 
-> $ git --git-dir PROJECT/.git log --format=short --stat=1000 \
->     --stat-name-width=950 | php volatility.php --git > vol.json
+> $ git --git-dir PROJECT/.git log --format=short --stat=1000 --stat-name-width=950 | php volatility.php --git > vol.json
 
 for Subversion repository:
 
 > $ svn log -r1:HEAD -v PROJECT | php volatility.php --svn > vol.json
 
 That's it. Please sends us that `cloc.xml`
-and `vol.json` files by email.
+and `vol.json` to [yegor@tpc2.com](mailto:yegor@tpc2.com?subject=volatility of).
