@@ -23,7 +23,9 @@ has been already checked-out/cloned into `PROJECT` directory):
 Next, calculate the volatility, using our custom PHP script. For Git
 repository:
 
-> $ git --git-dir PROJECT/.git log --format=short --stat=1000 --stat-name-width=950 | php volatility.php --git > vol.json
+> $ git --git-dir PROJECT/.git log \
+>    --reverse --format=short --stat=1000 --stat-name-width=950 | \
+>    php volatility.php --git > vol.json
 
 for Subversion repository:
 

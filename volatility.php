@@ -144,15 +144,15 @@ class GitInput implements Input {
                 if (preg_match('/^commit +([a-f0-9]{40})$/', $next, $matches) === 1) {
                     $commit = $matches[1];
                 }
-                if (preg_match('/^Author: +(.*)$/', $next, $matches) === 1) {
-                    $author = $matches[1];
+                if (preg_match('/^Author:(.*)$/', $next, $matches) === 1) {
+                    $author = trim($matches[1]);
                 }
                 if (preg_match('/^ (.*) \|/', $next, $matches) !== 1) {
                     break;
                 }
                 $files[] = trim($matches[1]);
             }
-            if (isset($commit)) {
+            if (!empty($files)) {
                 $data->add($commit, $author, $files);
             }
         }
