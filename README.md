@@ -3,7 +3,7 @@ Source Code Volatility calculator
 
 It's an experimental way to calculate how "volatile" is a project
 source code repository. More or less detailed theoretical summary
-is in theory.pdf.
+is in [theory.pdf](https://github.com/downloads/yegor256/volatility/theory.pdf).
 
 Prerequisites:
 
