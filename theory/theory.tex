@@ -1,0 +1,99 @@
+% Copyright (c) 2012, Yegor Bugayenko
+% All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met: 1) Redistributions of source code must retain the above
+% copyright notice, this list of conditions and the following
+% disclaimer. 2) Redistributions in binary form must reproduce the above
+% copyright notice, this list of conditions and the following
+% disclaimer in the documentation and/or other materials provided
+% with the distribution. 3) Neither the name of Yegor Bugayenko nor
+% the names of other contributors may be used to endorse or promote
+% products derived from this software without specific prior written
+% permission.
+%
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+% NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+% FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+% THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+% INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+% SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+% STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+% ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+% OF THE POSSIBILITY OF SUCH DAMAGE.
+%
+\documentclass[12pt]{article}
+	\usepackage{tikz}
+		\usetikzlibrary{shapes,arrows,shadows,plotmarks}
+		\usetikzlibrary{decorations.pathmorphing}
+		\usetikzlibrary{positioning}
+		\usetikzlibrary{fit}
+
+\begin{document}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{1em}
+
+\title{Volatility of Source Code}
+\author{Yegor Bugayenko}
+\maketitle
+
+\section{Introduction}
+
+    Volatility of source code is an experimental metric that
+    shows how big is the difference between actively and rarely changed (dead)
+    code. It is to prove that a big percentage of dead code is
+    an indicator of knowledge transfer problems in a project.
+
+\section{Details}
+
+    Volatility is calculated as variance of file changing
+
+    First, it is observed how often every source code file $F_i$ was changed
+    during a lifetime of a project. Consider an example project with 16 files,
+    where the most frequently changed file $F_{10}$ was changed nine times
+    ($C_{10} = 9$):
+
+    \immediate\write18{php ./observed.php > fig-1.tex}
+    \input{fig-1.tex}
+
+    Then, files are numbered and reordered according to their popularity.
+    The most popular file $F_{10}$ becomes $F_0$ because $C_{10}$ is
+    the maximum, etc.:
+
+    \immediate\write18{php ./ordered.php > fig-2.tex}
+    \input{fig-2.tex}
+
+    Then, $F$ and $C$ are translated to $X$ and $p$ numbers in $[0, 1]$ ranges:
+
+    \immediate\write18{php ./normalized.php > fig-3.tex}
+    \input{fig-3.tex}
+
+    Then, mean $\mu$ is calculated as:
+
+        $$\mu = \frac{\displaystyle\sum\limits^N_i {X_i \times p_i}}{\displaystyle\sum\limits^N_i p_i}$$
+
+    Finally, variance is calculated as:
+
+        $$Var(X) = \frac{\displaystyle\sum\limits {(X_i - \mu)^2 \times p_i}}{\displaystyle\sum\limits p_i}$$
+
+    For the example above the numbers are:
+
+    \immediate\write18{php ./numbers.php > fig-4.tex}
+    \input{fig-4.tex}
+
+    Variance $Var(X)$ is called ``source code volatility''.
+
+\section{Alternatives}
+
+    Similar calculations can be done:
+
+    \begin{itemize}
+        \item with lines of code instead of files;
+        \item with unique file editors instead of file changes.
+    \end{itemize}
+
+\end{document}
