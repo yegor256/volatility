@@ -2,9 +2,8 @@ Source Code Volatility calculator
 ======
 
 It's an experimental way to calculate how "volatile" is a project
-source code repository. First, we observe how many times every
-file has been touched during the life time of a repository. Than we
-sort files by
+source code repository. More or less detailed theoretical summary
+is in theory.pdf.
 
 Prerequisites:
 
