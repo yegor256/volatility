@@ -37,7 +37,10 @@
  * More details here: https://github.com/yegor256/volatility
  */
 
-class Data {
+final class VolatilityException extends Exception {
+}
+
+final class Data {
     private $_changes;
     private $_authors;
     public function __construct() {
@@ -79,7 +82,7 @@ class Data {
     }
     private function _calculate(array $values) {
         if (empty($values)) {
-            throw new Exception('empty set of values');
+            throw new VolatilityException('empty set of values');
         }
         rsort($values);
         $numbers = count($values);
@@ -109,14 +112,14 @@ class Data {
     }
 }
 
-class Stdin {
+final class Stdin {
     private $_stdin;
     public function __construct() {
         $this->_stdin = fopen('php://stdin', 'r');
     }
     public function next() {
         if ($this->eof()) {
-            throw new Exception('end of file');
+            throw new VolatilityException('end of file');
         }
         $line = fgets($this->_stdin);
         return rtrim($line);
@@ -130,7 +133,7 @@ interface Input {
     function data();
 }
 
-class GitInput implements Input {
+final class GitInput implements Input {
     private $_in;
     public function __construct(Stdin $in) {
         $this->_in = $in;
@@ -160,7 +163,7 @@ class GitInput implements Input {
     }
 }
 
-class SvnInput implements Input {
+final class SvnInput implements Input {
     private $_in;
     public function __construct(Stdin $in) {
         $this->_in = $in;
@@ -191,20 +194,19 @@ class SvnInput implements Input {
     }
 }
 
-foreach ($argv as $arg) {
-    if ($arg == '--git') {
-        $input = new GitInput(new Stdin());
+if (!defined('TESTING')) {
+    foreach ($argv as $arg) {
+        if ($arg == '--git') {
+            $input = new GitInput(new Stdin());
+        }
+        if ($arg == '--svn') {
+            $input = new SvnInput(new Stdin());
+        }
     }
-    if ($arg == '--svn') {
-        $input = new SvnInput(new Stdin());
+    if (!isset($input)) {
+        throw new VolatilityException('specify either --git or --svn');
     }
+    $data = $input->data();
+    $metrics = $data->metrics();
+    echo json_encode($metrics);
 }
-
-if (!isset($input)) {
-    throw new Exception('specify either --git or --svn');
-}
-
-$data = $input->data();
-$metrics = $data->metrics();
-echo json_encode($metrics);
-
