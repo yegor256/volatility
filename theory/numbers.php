@@ -18,5 +18,8 @@ foreach ($nums as $x=>$c) {
 $var = $sum / array_sum($nums);
 ?>
 %
-$$\mu \approx <?=sprintf('%0.3f', $mu)?>$$
-$$Var(X) \approx <?=sprintf('%0.4f', $var)?>$$
+\begin{eqnarray}
+\mu & \approx & <?=sprintf('%0.3f', $mu)?> \\
+Var(X) & \approx & <?=sprintf('%0.4f', $var)?>
+\end{eqnarray}
+

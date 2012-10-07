@@ -112,7 +112,7 @@ final class Data {
     }
 }
 
-final class Stdin {
+class Stdin {
     private $_stdin;
     public function __construct() {
         $this->_stdin = fopen('php://stdin', 'r');

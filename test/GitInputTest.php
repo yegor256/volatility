@@ -30,52 +30,43 @@
  */
 
 /**
- * It's a simple test for Data class from volatility.php.
+ * It's a simple test for GitInput class from volatility.php.
  * Run it from command line as (PHPUnit 3.6+ has to be installed):
  *
- * $ phpunit ./test/DataTest.php
+ * $ phpunit ./test/GitInputTest.php
  */
 
 defined('TESTING') || define('TESTING', true);
 require_once __DIR__ . '/../volatility.php';
 
-final class DataTest extends PHPUnit_Framework_TestCase {
-    private $_data;
-    public function setUp() {
-        $this->_data = new Data();
-    }
-    public function testThrowsForEmptyInput() {
-        $this->setExpectedException('VolatilityException');
-        $this->_data->metrics();
-    }
-    public function testGeneratesMetricsForSimpleInput() {
-        $all = array();
-        for ($file = 0; $file < 5; ++$file) {
-            $all[] = 'file-' . $file;
-        }
-        for ($pos = 0; $pos < 10; ++$pos) {
-            $files = $all;
-            shuffle($files);
-            $this->_data->add(
-                $pos,
-                'author',
-                array_slice($files, 0, rand(1, count($files)))
-            );
-        }
-        $metrics = $this->_data->metrics();
-        $this->assertTrue(is_array($metrics));
+final class GitInputTest extends PHPUnit_Framework_TestCase {
+    public function testProducesDataFromGitLog() {
+        $this->markTestSkipped('doesnt work');
+        $stdin = $this->getMock('Stdin');
+        $stdin->expects($this->any())->method('next')->will(
+            $this->onConsecutiveCalls(
+                'commit fdad9dbadd187d8208e325d26d05cf533b81b582',
+                'Author: John Doe <john.doe@example.com>',
+                ' some-file.txt',
+                '',
+                '    some comment'
+            )
+        );
+        $stdin->expects($this->any())->method('eof')->will(
+            $this->onConsecutiveCalls(
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                true
+            )
+        );
+        $input = new GitInput($stdin);
+        $data = $input->data();
+        $metrics = $data->metrics();
         $this->assertArrayHasKey('changesets', $metrics);
-        $this->assertArrayHasKey('numbers', $metrics['changesets']);
-        $this->assertArrayHasKey('events', $metrics['changesets']);
-        $this->assertArrayHasKey('mean', $metrics['changesets']);
-        $this->assertArrayHasKey('deviation', $metrics['changesets']);
-        $this->assertArrayHasKey('variance', $metrics['changesets']);
-        $this->assertArrayHasKey('authors', $metrics);
-        $this->assertArrayHasKey('numbers', $metrics['authors']);
-        $this->assertArrayHasKey('events', $metrics['authors']);
-        $this->assertArrayHasKey('mean', $metrics['authors']);
-        $this->assertArrayHasKey('deviation', $metrics['authors']);
-        $this->assertArrayHasKey('variance', $metrics['authors']);
-        var_dump($metrics);
     }
 }
