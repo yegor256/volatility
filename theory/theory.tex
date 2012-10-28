@@ -59,44 +59,56 @@
     c(f_{10}) &=& 9
     \end{eqnarray}
 
+    \begin{figure}[ht]
+    \centering
     \immediate\write18{php ./observed.php > fig-1.tex}
     \input{fig-1.tex}
+    \end{figure}
 
     Then, files are reordered according to their popularity into a new set $F'$,
     where the most popular file $f_{10}$ takes leading position because $c(f_{10})$ is
     the maximum, etc.:
 
+    \begin{figure}[ht]
+    \centering
     \immediate\write18{php ./ordered.php > fig-2.tex}
     \input{fig-2.tex}
+    \end{figure}
 
-    Then, $j$ and $c(x)$ are transformed into $X_i$ and $p(x)$ as:
+    Then, $j$ and $c(x)$ are transformed into $x$ and $p(x)$ as:
 
     \begin{eqnarray}
-    X_i &=& j / \mbox{max}(j) \\
-    p(x) &=& c(x) / \mbox{max}(c(x))
+    x &=& j / \lceil j \rceil \\
+    p(x) &=& c(f'_{x \gets j}) / \lceil c(f) \rceil
     \end{eqnarray}
 
+    \begin{figure}[ht]
+    \centering
     \immediate\write18{php ./normalized.php > fig-3.tex}
     \input{fig-3.tex}
+    \end{figure}
 
     Then, mean $\mu$ is calculated as:
 
     \begin{eqnarray}
-    \mu = \frac{\displaystyle\sum {X_i \times p(X_i)}}{\displaystyle\sum p(X_i)}
+    \mu = \frac{\displaystyle\sum {x \times p(x)}}{\displaystyle\sum p(x)}
     \end{eqnarray}
 
     Finally, variance is calculated as:
 
     \begin{eqnarray}
-    Var(X) = \frac{\displaystyle\sum {|X_i - \mu|^2 \times p(X_i)}}{\displaystyle\sum p(X_i)}
+    Var(x) = \frac{\displaystyle\sum {|x - \mu|^2 \times p(x)}}{\displaystyle\sum p(x)}
     \end{eqnarray}
 
     For the example above the numbers are:
 
+    \begin{figure}[ht]
+    \centering
     \immediate\write18{php ./numbers.php > fig-4.tex}
     \input{fig-4.tex}
+    \end{figure}
 
-    Variance $Var(X)$ is called ``source code volatility''.
+    Variance $Var(x)$ is called ``source code volatility''.
 
 \section{Alternatives}
 

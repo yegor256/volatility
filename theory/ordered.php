@@ -16,7 +16,7 @@ $changes = max(array_map(function($f) { return $f['c']; }, $files));
         --
         node[midway, above, rotate=90] {changes per file}
         (0,<?=($changes+1)/2?>)
-        node[above] {$c(f_j)$};
+        node[above] {$c(f'_j)$};
     \draw[ycomb, line width=0.25cm, xshift=1pt] plot coordinates {
         <? foreach ($files as $i=>$f): ?>
             (<?=$i/2?>, <?=$f['c']/2?>)
