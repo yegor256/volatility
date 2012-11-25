@@ -29,16 +29,13 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * It's a simple test for Data class from volatility.php.
- * Run it from command line as (PHPUnit 3.6+ has to be installed):
- *
- * $ phpunit ./test/DataTest.php
- */
-
 defined('TESTING') || define('TESTING', true);
 require_once __DIR__ . '/../volatility.php';
 
+/**
+ * It's a simple test for Data class from volatility.php.
+ * @author Yegor Bugayenko <yegor@tpc2.com>
+ */
 final class DataTest extends PHPUnit_Framework_TestCase
 {
     private $_data;
@@ -80,6 +77,5 @@ final class DataTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('mean', $metrics['authors']);
         $this->assertArrayHasKey('deviation', $metrics['authors']);
         $this->assertArrayHasKey('variance', $metrics['authors']);
-        var_dump($metrics);
     }
 }

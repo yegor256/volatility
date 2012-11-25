@@ -29,8 +29,30 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-error_reporting(E_ALL);
-
-final class Repository
+/**
+ * One repository.
+ * @author Yegor Bugayenko <yegor@tpc2.com>
+ */
+interface Repository
 {
+    /**
+     * Name of the repo.
+     * @return string Unique name of it
+     */
+    function name();
+    /**
+     * Checkout and return its directory.
+     * @return string Absolute location of its directory
+     */
+    function checkout();
+    /**
+     * Get lines of code metric from this repo.
+     * @return Loc Lines of Java code, total
+     */
+    function loc();
+    /**
+     * Get volatility of the project.
+     * @return Scv Volatility metric
+     */
+    function scv();
 }

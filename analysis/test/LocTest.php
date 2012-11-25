@@ -29,43 +29,23 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-defined('TESTING') || define('TESTING', true);
-require_once __DIR__ . '/../volatility.php';
+require_once __DIR__ . '/../src/GitRepository.php';
+require_once __DIR__ . '/../src/Loc.php';
 
 /**
- * It's a simple test for GitInput class from volatility.php.
+ * Test case fo {@link Loc}.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitInputTest extends PHPUnit_Framework_TestCase
+final class LocTest extends PHPUnit_Framework_TestCase
 {
-    public function testProducesDataFromGitLog()
+    public function testCalculatesLocForItself()
     {
-        $this->markTestSkipped('doesnt work');
-        $stdin = $this->getMock('Stdin');
-        $stdin->expects($this->any())->method('next')->will(
-            $this->onConsecutiveCalls(
-                'commit fdad9dbadd187d8208e325d26d05cf533b81b582',
-                'Author: John Doe <john.doe@example.com>',
-                ' some-file.txt',
-                '',
-                '    some comment'
-            )
+        $repo = new GitRepository(
+            'self',
+            'git@github.com:yegor256/volatility.git'
         );
-        $stdin->expects($this->any())->method('eof')->will(
-            $this->onConsecutiveCalls(
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                true
-            )
-        );
-        $input = new GitInput($stdin);
-        $data = $input->data();
-        $metrics = $data->metrics();
-        $this->assertArrayHasKey('changesets', $metrics);
+        $loc = new Loc($repo);
+        $this->assertGreaterThan(0, $loc->code('PHP'));
+        $this->assertGreaterThan(0, $loc->comments('PHP'));
     }
 }

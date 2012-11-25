@@ -29,43 +29,25 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-defined('TESTING') || define('TESTING', true);
-require_once __DIR__ . '/../volatility.php';
-
 /**
- * It's a simple test for GitInput class from volatility.php.
+ * BASH.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitInputTest extends PHPUnit_Framework_TestCase
+final class Bash
 {
-    public function testProducesDataFromGitLog()
+    /**
+     * Exec and return it's output.
+     * @param string $cmd The command to call
+     * @return string Full output
+     */
+    public static function exec($cmd)
     {
-        $this->markTestSkipped('doesnt work');
-        $stdin = $this->getMock('Stdin');
-        $stdin->expects($this->any())->method('next')->will(
-            $this->onConsecutiveCalls(
-                'commit fdad9dbadd187d8208e325d26d05cf533b81b582',
-                'Author: John Doe <john.doe@example.com>',
-                ' some-file.txt',
-                '',
-                '    some comment'
-            )
-        );
-        $stdin->expects($this->any())->method('eof')->will(
-            $this->onConsecutiveCalls(
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                true
-            )
-        );
-        $input = new GitInput($stdin);
-        $data = $input->data();
-        $metrics = $data->metrics();
-        $this->assertArrayHasKey('changesets', $metrics);
+        $output = array();
+        $code = 0;
+        exec($cmd, $output, $code);
+        if ($code != 0) {
+            echo implode($output, "\n");
+            throw new Exception("failed to execute '{$cmd}'");
+        }
     }
 }

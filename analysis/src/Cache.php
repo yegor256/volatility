@@ -29,43 +29,22 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-defined('TESTING') || define('TESTING', true);
-require_once __DIR__ . '/../volatility.php';
-
 /**
- * It's a simple test for GitInput class from volatility.php.
+ * Cached files.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitInputTest extends PHPUnit_Framework_TestCase
+final class Cache
 {
-    public function testProducesDataFromGitLog()
+    /**
+     * Create an absolute name of the file/dir.
+     * @param string $name Name of file/dir
+     * @return string Absolute path
+     */
+    public static function path($name)
     {
-        $this->markTestSkipped('doesnt work');
-        $stdin = $this->getMock('Stdin');
-        $stdin->expects($this->any())->method('next')->will(
-            $this->onConsecutiveCalls(
-                'commit fdad9dbadd187d8208e325d26d05cf533b81b582',
-                'Author: John Doe <john.doe@example.com>',
-                ' some-file.txt',
-                '',
-                '    some comment'
-            )
-        );
-        $stdin->expects($this->any())->method('eof')->will(
-            $this->onConsecutiveCalls(
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                true
-            )
-        );
-        $input = new GitInput($stdin);
-        $data = $input->data();
-        $metrics = $data->metrics();
-        $this->assertArrayHasKey('changesets', $metrics);
+        if (!defined('VOLATILITY_CACHE')) {
+            define('VOLATILITY_CACHE', '/tmp/volatility-cache');
+        }
+        return VOLATILITY_CACHE . '/' . $name;
     }
 }

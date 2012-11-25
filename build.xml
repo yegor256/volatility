@@ -5,16 +5,17 @@
         <delete dir="${basedir}/build"/>
     </target>
     <target name="phpunit" description="Run unit tests with PHPUnit">
-        <exec dir="${basedir}" executable="phpunit" failonerror="false">
+        <exec dir="${basedir}" executable="phpunit" failonerror="true">
             <arg value="--no-configuration"/>
             <arg value="--colors"/>
+            <arg value="--testdox"/>
             <arg value="--verbose"/>
             <arg value="-d memory_limit=2096M"/>
             <arg value="."/>
         </exec>
     </target>
     <target name="theory" description="Build theory.pdf">
-        <exec dir="${basedir}/theory" executable="pdflatex" failonerror="false">
+        <exec dir="${basedir}/theory" executable="pdflatex" failonerror="true">
             <arg value="--shell-escape"/>
             <arg value="--enable-write18"/>
             <arg value="theory.tex"/>
