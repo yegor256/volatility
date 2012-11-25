@@ -34,10 +34,10 @@ require_once __DIR__ . '/Bash.php';
 require_once __DIR__ . '/Cache.php';
 
 /**
- * Git repository.
+ * Subversion repository.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitRepository extends AbstractRepository
+final class SvnRepository extends AbstractRepository
 {
     /**
      * Public ctor.
@@ -55,19 +55,21 @@ final class GitRepository extends AbstractRepository
      */
     public function checkout()
     {
-        $dir = Cache::path('export-git-' . $this->name());
+        $dir = Cache::path('export-svn-' . $this->name());
         if (file_exists($dir) && count(scandir($dir))) {
-            echo "% directory {$dir} already exists, no need to checkout\n";
+            echo "% SVN directory {$dir} already exists, no need to checkout\n";
         } else {
             Bash::exec(
                 'rm -rf '
                 . ' ' . escapeshellcmd($dir)
-                . ' && git clone --quiet '
-                . ' ' . escapeshellcmd($this->_url)
+                . ' && svn export --non-interactive --quiet --trust-server-cert'
+                . ' ' . escapeshellcmd(
+                    str_replace('{/trunk}', '/trunk', $this->_url)
+                )
                 . ' ' . escapeshellcmd($dir)
             );
             if (!file_exists($dir)) {
-                throw new Exception("failed to Git checkout '{$this}'");
+                throw new Exception("failed to SVN checkout '{$this}'");
             }
             echo "% checked out {$this->_url} into {$dir}\n";
         }

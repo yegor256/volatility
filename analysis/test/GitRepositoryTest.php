@@ -29,48 +29,20 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once __DIR__ . '/AbstractRepository.php';
-require_once __DIR__ . '/Bash.php';
-require_once __DIR__ . '/Cache.php';
+require_once __DIR__ . '/../src/GitRepository.php';
 
 /**
- * Git repository.
+ * Test case fo {@link GitRepository}.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitRepository extends AbstractRepository
+final class GitRepositoryTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Public ctor.
-     * @param string $name Name of the repo
-     * @param string $url Git URL of the repo
-     */
-    public function __construct($name, $url)
+    public function testChecksOutItself()
     {
-        parent::__construct($name);
-        $this->_url = $url;
-    }
-    /**
-     * Checkout directory.
-     * @return string Absolute location of its dir
-     */
-    public function checkout()
-    {
-        $dir = Cache::path('export-git-' . $this->name());
-        if (file_exists($dir) && count(scandir($dir))) {
-            echo "% directory {$dir} already exists, no need to checkout\n";
-        } else {
-            Bash::exec(
-                'rm -rf '
-                . ' ' . escapeshellcmd($dir)
-                . ' && git clone --quiet '
-                . ' ' . escapeshellcmd($this->_url)
-                . ' ' . escapeshellcmd($dir)
-            );
-            if (!file_exists($dir)) {
-                throw new Exception("failed to Git checkout '{$this}'");
-            }
-            echo "% checked out {$this->_url} into {$dir}\n";
-        }
-        return $dir;
+        $repo = new GitRepository(
+            'self',
+            'git@github.com:yegor256/volatility.git'
+        );
+        $this->assertTrue(file_exists($repo->checkout() . '/build.xml'));
     }
 }

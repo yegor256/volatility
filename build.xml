@@ -8,7 +8,6 @@
         <exec dir="${basedir}" executable="phpunit" failonerror="true">
             <arg value="--no-configuration"/>
             <arg value="--colors"/>
-            <arg value="--testdox"/>
             <arg value="--verbose"/>
             <arg value="-d memory_limit=2096M"/>
             <arg value="."/>
