@@ -37,17 +37,21 @@
  * More details here: https://github.com/yegor256/volatility
  */
 
-final class VolatilityException extends Exception {
+final class VolatilityException extends Exception
+{
 }
 
-final class Data {
+final class Data
+{
     private $_changes;
     private $_authors;
-    public function __construct() {
+    public function __construct()
+    {
         $this->_changes = array();
         $this->_authors = array();
     }
-    public function add($commit, $author, array $files) {
+    public function add($commit, $author, array $files)
+    {
         foreach ($files as $file) {
             if (!isset($this->_changes[$file])) {
                 $this->_changes[$file] = 0;
@@ -59,7 +63,8 @@ final class Data {
             $this->_authors[$file][$author] = true;
         }
     }
-    public function move($from, $to) {
+    public function move($from, $to)
+    {
         if (isset($this->_changes[$from])) {
             $count = $this->_changes[$from];
             unset($this->_changes[$from]);
@@ -70,7 +75,8 @@ final class Data {
             unset($this->_authors[$from]);
         }
     }
-    public function metrics() {
+    public function metrics()
+    {
         $authors = array();
         foreach ($this->_authors as $names) {
             $authors[] = count($names);
@@ -80,7 +86,8 @@ final class Data {
             'authors' => $this->_calculate($authors),
         );
     }
-    private function _calculate(array $values) {
+    private function _calculate(array $values)
+    {
         if (empty($values)) {
             throw new VolatilityException('empty set of values');
         }
@@ -99,7 +106,9 @@ final class Data {
         $deviation = $mods / $events;
         $squares = 0;
         foreach ($values as $value=>$frequency) {
-            $squares += pow(abs($mean - ($value / ($numbers - 1))), 2) * $frequency;
+            $squares += pow(
+                abs($mean - ($value / ($numbers - 1))), 2
+            ) * $frequency;
         }
         $variance = $squares / $events;
         return array(
@@ -112,39 +121,48 @@ final class Data {
     }
 }
 
-class Stdin {
+class Stdin
+{
     private $_stdin;
-    public function __construct() {
+    public function __construct()
+    {
         $this->_stdin = fopen('php://stdin', 'r');
     }
-    public function next() {
+    public function next()
+    {
         if ($this->eof()) {
             throw new VolatilityException('end of file');
         }
         $line = fgets($this->_stdin);
         return rtrim($line);
     }
-    public function eof() {
+    public function eof()
+    {
         return feof($this->_stdin);
     }
 }
 
-interface Input {
+interface Input
+{
     function data();
 }
 
-final class GitInput implements Input {
+final class GitInput implements Input
+{
     private $_in;
-    public function __construct(Stdin $in) {
+    public function __construct(Stdin $in)
+    {
         $this->_in = $in;
     }
-    public function data() {
+    public function data()
+    {
         $data = new Data();
         while (!$this->_in->eof()) {
             $files = array();
             while (!$this->_in->eof()) {
                 $next = $this->_in->next();
-                if (preg_match('/^commit +([a-f0-9]{40})$/', $next, $matches) === 1) {
+                if (preg_match('/^commit +([a-f0-9]{40})$/', $next, $matches)
+                    === 1) {
                     $commit = $matches[1];
                 }
                 if (preg_match('/^Author:(.*)$/', $next, $matches) === 1) {
@@ -163,22 +181,30 @@ final class GitInput implements Input {
     }
 }
 
-final class SvnInput implements Input {
+final class SvnInput implements Input
+{
     private $_in;
-    public function __construct(Stdin $in) {
+    public function __construct(Stdin $in)
+    {
         $this->_in = $in;
     }
-    public function data() {
+    public function data()
+    {
         $data = new Data();
         while (!$this->_in->eof()) {
             $files = array();
             while (!$this->_in->eof()) {
                 $next = $this->_in->next();
-                if (preg_match('/^(r\d+) \| (.*?) \|/', $next, $matches) === 1) {
+                if (preg_match('/^(r\d+) \| (.*?) \|/', $next, $matches)
+                    === 1) {
                     $commit = $matches[1];
                     $author = $matches[2];
                 }
-                if (preg_match('/^   [A-Z] (.*?)(?: \(from (.*?):\d+\))?$/', $next, $matches) !== 1) {
+                if (preg_match(
+                    '/^   [A-Z] (.*?)(?: \(from (.*?):\d+\))?$/',
+                    $next,
+                    $matches
+                ) !== 1) {
                     break;
                 }
                 if (isset($matches[2])) {

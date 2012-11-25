@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="volatility" default="main" basedir=".">
+    <target name="main" depends="clean, phpunit, theory, phplint, phpcs" description="Run all tests in pre-defined order"/>
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build"/>
+    </target>
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec dir="${basedir}" executable="phpunit" failonerror="false">
+            <arg value="--no-configuration"/>
+            <arg value="--colors"/>
+            <arg value="--verbose"/>
+            <arg value="-d memory_limit=2096M"/>
+            <arg value="."/>
+        </exec>
+    </target>
+    <target name="theory" description="Build theory.pdf">
+        <exec dir="${basedir}/theory" executable="pdflatex" failonerror="false">
+            <arg value="--shell-escape"/>
+            <arg value="--enable-write18"/>
+            <arg value="theory.tex"/>
+        </exec>
+    </target>
+    <target name="phplint" description="Check  syntax errors in PHP files">
+        <apply dir="${basedir}" executable="php" failonerror="true">
+            <arg value="-l"/>
+            <fileset dir="${basedir}">
+                <patternset>
+                    <include name="**/*.php"/>
+                </patternset>
+            </fileset>
+        </apply>
+    </target>
+    <target name="phpcs" description="Check code style of all PHP files">
+        <exec dir="${basedir}" executable="phpcs" failonerror="true" logError="true">
+            <arg value="--standard=Zend"/>
+            <arg value="--encoding=UTF-8"/>
+            <arg value="--extensions=php"/>
+            <arg value="--ignore=${basedir}/build"/>
+            <arg value="-p"/>
+            <arg value="."/>
+        </exec>
+    </target>
+</project>

@@ -39,16 +39,20 @@
 defined('TESTING') || define('TESTING', true);
 require_once __DIR__ . '/../volatility.php';
 
-final class DataTest extends PHPUnit_Framework_TestCase {
+final class DataTest extends PHPUnit_Framework_TestCase
+{
     private $_data;
-    public function setUp() {
+    public function setUp()
+    {
         $this->_data = new Data();
     }
-    public function testThrowsForEmptyInput() {
+    public function testThrowsForEmptyInput()
+    {
         $this->setExpectedException('VolatilityException');
         $this->_data->metrics();
     }
-    public function testGeneratesMetricsForSimpleInput() {
+    public function testGeneratesMetricsForSimpleInput()
+    {
         $all = array();
         for ($file = 0; $file < 5; ++$file) {
             $all[] = 'file-' . $file;
