@@ -97,7 +97,9 @@ final class Loc
             );
         }
         if (!file_exists($cache) || filesize($cache) == 0) {
-            throw new Exception("failed to count '{$this->repo}' into {$cache}");
+            throw new Exception(
+                "failed to count '{$this->repo}' into {$cache}"
+            );
         }
         echo "% project javadoc metrics loaded from {$cache}\n";
         return $cache;
