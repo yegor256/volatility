@@ -44,6 +44,7 @@ final class Cache
     {
         if (!defined('VOLATILITY_CACHE')) {
             define('VOLATILITY_CACHE', '/tmp/volatility-cache');
+            echo "% using /tmp folder for Volatility cache\n";
         }
         return VOLATILITY_CACHE . '/' . $name;
     }

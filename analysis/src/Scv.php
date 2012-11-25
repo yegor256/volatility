@@ -112,6 +112,7 @@ final class Scv
         if (!file_exists($cache)) {
             throw new Exception("failed to fetch logs for '{$this->_repo}'");
         }
+        echo "% log of {$this->_repo} exists in {$cache}";
         return $cache;
     }
     /**
@@ -120,7 +121,6 @@ final class Scv
      */
     private function _json()
     {
-        $dir = $this->_repo->checkout();
         $cache = Cache::path('vol-' . $this->_repo->name() . '.json');
         if (file_exists($cache) && filesize($cache) != 0) {
             echo "% vol cache file {$cache} already exists\n";
@@ -155,7 +155,7 @@ final class Scv
         if ($data == null) {
             throw new Exception("empty JSON for '{$this->_repo}'");
         }
-        echo "% project volatility metrics loaded from {$cache}\n";
+        echo "% volatility metrics exist in {$cache}\n";
         return $cache;
     }
     /**

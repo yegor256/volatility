@@ -84,7 +84,6 @@ final class Loc
      */
     private function _cloc()
     {
-        $dir = $this->_repo->checkout();
         $cache = Cache::path('cloc-' . $this->_repo->name() . '.xml');
         if (file_exists($cache) && filesize($cache) != 0) {
             echo "% cache file {$cache} already exists\n";
@@ -92,7 +91,7 @@ final class Loc
             Bash::exec(
                 escapeshellcmd(CLOC_PERL)
                 . ' --xml --quiet --progress-rate=0 '
-                . escapeshellcmd($dir)
+                . escapeshellcmd($this->_repo->checkout())
                 . ' > ' . escapeshellarg($cache)
             );
         }
@@ -101,7 +100,7 @@ final class Loc
                 "failed to count '{$this->repo}' into {$cache}"
             );
         }
-        echo "% project javadoc metrics loaded from {$cache}\n";
+        echo "% CLOC metrics are ready in {$cache}\n";
         return $cache;
     }
 }

@@ -29,58 +29,34 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once __DIR__ . '/Loc.php';
-require_once __DIR__ . '/Repository.php';
-require_once __DIR__ . '/Scv.php';
+require_once __DIR__ . '/../src/GitRepository.php';
+require_once __DIR__ . '/../src/TikzGraph.php';
 
 /**
- * Base repository.
+ * Test case fo {@link TikzGraph}.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-abstract class AbstractRepository implements Repository
+final class TikzGraphTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Name of the repo.
-     */
-    private $_name;
-    /**
-     * Public ctor.
-     * @param string $name Name of the repo
-     */
-    protected function __construct($name)
+    public function testCalculatesTikzGraphForItself()
     {
-        $this->_name = $name;
-    }
-    /**
-     * Make it string.
-     * @return string The text
-     */
-    public function __toString()
-    {
-        return $this->_name;
-    }
-    /**
-     * Unique name of it.
-     * @return string Name of it
-     */
-    public function name()
-    {
-        return $this->_name;
-    }
-    /**
-     * Get lines of code metric from this repo.
-     * @return Loc Lines of Java code, total
-     */
-    public function loc()
-    {
-        return new Loc($this);
-    }
-    /**
-     * Get volatility of the project.
-     * @return Scv Volatility metric
-     */
-    public function scv()
-    {
-        return new Scv($this);
+        $repo = new GitRepository(
+            'self',
+            'git@github.com:yegor256/volatility.git'
+        );
+        $graph = new TikzGraph(
+            array($repo),
+            function ($r) {
+                return $r->loc()->comments('PHP');
+            },
+            function ($r) {
+                return $r->scv()->commits();
+            },
+            function ($r) {
+                return '';
+            }
+        );
+        $tex = $graph->tikz();
+        $this->assertTrue(strpos($tex, '\node') != false, $tex);
     }
 }
