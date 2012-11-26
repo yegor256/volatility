@@ -44,25 +44,40 @@ require_once __DIR__ . '/Repository.php';
 final class TikzGraph
 {
     /**
-     * Repositories.
+     * Width.
+     * @var int
+     */
+    private $_width = 8;
+    /**
+     * Height.
+     * @var int
+     */
+    private $_height = 5;
+    /**
+     * Plots to draw.
      * @var array
      */
-    private $_repos;
+    private $_plots;
     /**
-     * X-function.
-     * @var function
+     * Max X.
+     * @var float
      */
-    private $_xf;
+    private $_maxX;
     /**
-     * Y-function.
-     * @var function
+     * Max Y.
+     * @var float
      */
-    private $_yf;
+    private $_maxY;
     /**
-     * Style-function.
-     * @var function
+     * Min X.
+     * @var float
      */
-    private $_stylef;
+    private $_minX;
+    /**
+     * Min Y.
+     * @var float
+     */
+    private $_minY;
     /**
      * Public ctor.
      * @param array $repos Array of repositories
@@ -72,10 +87,35 @@ final class TikzGraph
      */
     public function __construct(array $repos, $xf, $yf, $stylef)
     {
-        $this->_repos = $repos;
-        $this->_xf = $xf;
-        $this->_yf = $yf;
-        $this->_stylef = $stylef;
+        $this->_maxX = 0;
+        $this->_minX = 100000;
+        $this->_maxY = 0;
+        $this->_minY = 100000;
+        $this->_plots = array();
+        foreach ($repos as $id => $repo) {
+            $x = call_user_func($xf, $repo);
+            $y = call_user_func($yf, $repo);
+            $this->_plots[] = array(
+                'x' => $x,
+                'y' => $y,
+                'style' => call_user_func($stylef, $repo),
+                'name' => $id,
+            );
+            $this->_maxX = max($x, $this->_maxX);
+            $this->_minX = min($x, $this->_minX);
+            $this->_maxY = max($y, $this->_maxY);
+            $this->_minY = min($y, $this->_minY);
+        }
+        foreach ($this->_plots as &$plot) {
+            $plot['x'] = $this->_width * ($plot['x'] - $this->_minX);
+            if ($this->_maxX - $this->_minX != 0) {
+                $plot['x'] /= $this->_maxX - $this->_minX;
+            }
+            $plot['y'] = $this->_height * ($plot['y'] - $this->_minY);
+            if ($this->_maxY - $this->_minY != 0) {
+                $plot['y'] /= $this->_maxY - $this->_minY;
+            }
+        }
     }
     /**
      * Build TikZ graph (in LaTeX).
@@ -84,53 +124,33 @@ final class TikzGraph
      */
     public function tikz()
     {
-        $maxX = 0;
-        $minX = 100000;
-        $maxY = 0;
-        $minY = 100000;
         $SumX = 0;
         $SumY = 0;
         $SumX2 = 0;
         $SumXY = 0;
-        foreach ($this->_repos as $repo) {
-            $x = call_user_func($this->_xf, $repo);
-            $y = call_user_func($this->_yf, $repo);
-            $maxX = max($x, $maxX);
-            $minX = min($x, $minX);
-            $maxY = max($y, $maxY);
-            $minY = min($y, $minY);
-            $SumX += $x;
-            $SumY += $y;
-            $SumX2 += $x * $x;
-            $SumXY += $x * $y;
+        foreach ($this->_plots as $plot) {
+            $SumX += $plot['x'];
+            $SumY += $plot['y'];
+            $SumX2 += $plot['x'] * $plot['x'];
+            $SumXY += $plot['x'] * $plot['y'];
         }
-        $XMean = $SumX / count($this->_repos);
-        $YMean = $SumY / count($this->_repos);
-        $Slope = ($SumXY - $SumX * $YMean) / ($SumX2 - $SumX * $XMean);
-        $YInt = $YMean - $Slope * $XMean;
-        $width = 8;
-        $height = 5;
-        $tex = "\\begin{tikzpicture}\n";
-        $tex .= "\\draw[help lines] (0,0) grid ({$width},{$height});\n";
-        $tex .= "\\draw[domain=0:${width},color=grey] plot (\x,{ ${Slope} * \x + ${YInt} });\n";
-        $tex .= "\\node[anchor=east] at (0,0) {" . $minY . "};\n";
-        $tex .= "\\node[anchor=east] at (0,{$height}) {" . $maxY . "};\n";
-        $tex .= "\\node[anchor=north] at (0,-0.2) {" . $minX . "};\n";
-        $tex .= "\\node[anchor=north] at ({$width},-0.2) {" . $maxX . "};\n";
-        foreach ($this->_repos as $id => $repo) {
-            $x = call_user_func($this->_xf, $repo);
-            $y = call_user_func($this->_yf, $repo);
-            $x = $width * ($x - $minX);
-            if ($maxX - $minX != 0) {
-                $x /= $maxX - $minX;
-            }
-            $y = $height * ($y - $minY);
-            if ($maxY - $minY != 0) {
-                $y /= $maxY - $minY;
-            }
-            $tex .= "\\node["
-                . call_user_func($this->_stylef, $repo)
-                . "] at ({$x},{$y}) {{$id}};\n";
+        $XMean = $SumX / count($this->_plots);
+        $YMean = $SumY / count($this->_plots);
+        $Slope = sprintf('%.4f', ($SumXY - $SumX * $YMean) / ($SumX2 - $SumX * $XMean));
+        $YInt = sprintf('%.4f', $YMean - $Slope * $XMean);
+        $tex = "\\begin{tikzpicture}\n"
+            . "\\draw[help lines] (0,0) grid"
+            . " ({$this->_width},{$this->_height});\n"
+            . "\\draw[domain=0:{$this->_width},color=gray,ultra thick]"
+            . " plot (\x,{ ${Slope} * \x + ${YInt} });\n"
+            . "\\node[anchor=east] at (0,0) {{$this->_minY}};\n"
+            . "\\node[anchor=east] at (0,{$this->_height}) {{$this->_maxY}};\n"
+            . "\\node[anchor=north] at (0,-0.2) {{$this->_minX}};\n"
+            . "\\node[anchor=north] at ({$this->_width},-0.2)"
+            . " {{$this->_maxX}};\n";
+        foreach ($this->_plots as $plot) {
+            $tex .= "\\node[{$plot['style']}]"
+                . " at ({$plot['x']},{$plot['y']}) {{$plot['name']}};\n";
         }
         $tex .= "\\end{tikzpicture}\n";
         return $tex;
