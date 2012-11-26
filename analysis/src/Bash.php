@@ -42,12 +42,14 @@ final class Bash
      */
     public static function exec($cmd)
     {
-        $output = array();
+        $lines = array();
         $code = 0;
-        exec($cmd, $output, $code);
+        exec($cmd, $lines, $code);
+        $output = implode($lines, "\n");
+        echo "% " . str_replace("\n", "\n% ", $output) . "\n";
         if ($code != 0) {
-            echo implode($output, "\n");
             throw new Exception("failed to execute '{$cmd}'");
         }
+        return $output;
     }
 }

@@ -59,10 +59,11 @@ final class SvnRepository extends AbstractRepository
         if (file_exists($dir) && count(scandir($dir))) {
             echo "% SVN directory {$dir} already exists, no need to checkout\n";
         } else {
+            echo "% SVN checking out ${dir}...\n";
             Bash::exec(
                 'rm -rf '
                 . ' ' . escapeshellcmd($dir)
-                . ' && svn export --non-interactive --quiet --trust-server-cert'
+                . ' && svn co --non-interactive --quiet --trust-server-cert'
                 . ' ' . escapeshellcmd(
                     str_replace('{/trunk}', '/trunk', $this->_url)
                 )

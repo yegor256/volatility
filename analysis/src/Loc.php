@@ -97,7 +97,7 @@ final class Loc
         }
         if (!file_exists($cache) || filesize($cache) == 0) {
             throw new Exception(
-                "failed to count '{$this->repo}' into {$cache}"
+                "failed to count '{$this->_repo}' into {$cache}"
             );
         }
         echo "% CLOC metrics are ready in {$cache}\n";

@@ -40,12 +40,17 @@ final class TikzGraphTest extends PHPUnit_Framework_TestCase
 {
     public function testCalculatesTikzGraphForItself()
     {
-        $repo = new GitRepository(
-            'self',
-            'git@github.com:yegor256/volatility.git'
-        );
         $graph = new TikzGraph(
-            array($repo),
+            array(
+                new GitRepository(
+                    'repo1',
+                    'git@github.com:yegor256/volatility.git'
+                ),
+                new SvnRepository(
+                    'repo2',
+                    'svn://svn.phprack.com/phpRack/tags/0.1/phpRack/Suite'
+                )
+            ),
             function ($r) {
                 return $r->loc()->comments('PHP');
             },

@@ -59,6 +59,7 @@ final class GitRepository extends AbstractRepository
         if (file_exists($dir) && count(scandir($dir))) {
             echo "% directory {$dir} already exists, no need to checkout\n";
         } else {
+            echo "% Git cloning ${dir}...\n";
             Bash::exec(
                 'rm -rf '
                 . ' ' . escapeshellcmd($dir)

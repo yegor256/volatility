@@ -80,6 +80,7 @@ final class TikzGraph
     /**
      * Build TikZ graph (in LaTeX).
      * @return string TeX code
+     * @see http://faculty.cs.niu.edu/~hutchins/csci230/best-fit.htm
      */
     public function tikz()
     {
@@ -87,6 +88,10 @@ final class TikzGraph
         $minX = 100000;
         $maxY = 0;
         $minY = 100000;
+        $SumX = 0;
+        $SumY = 0;
+        $SumX2 = 0;
+        $SumXY = 0;
         foreach ($this->_repos as $repo) {
             $x = call_user_func($this->_xf, $repo);
             $y = call_user_func($this->_yf, $repo);
@@ -94,11 +99,20 @@ final class TikzGraph
             $minX = min($x, $minX);
             $maxY = max($y, $maxY);
             $minY = min($y, $minY);
+            $SumX += $x;
+            $SumY += $y;
+            $SumX2 += $x * $x;
+            $SumXY += $x * $y;
         }
+        $XMean = $SumX / count($this->_repos);
+        $YMean = $SumY / count($this->_repos);
+        $Slope = ($SumXY - $SumX * $YMean) / ($SumX2 - $SumX * $XMean);
+        $YInt = $YMean - $Slope * $XMean;
         $width = 8;
         $height = 5;
         $tex = "\\begin{tikzpicture}\n";
-        $tex .= "\\draw [help lines] (0,0) grid ({$width},{$height});\n";
+        $tex .= "\\draw[help lines] (0,0) grid ({$width},{$height});\n";
+        $tex .= "\\draw[domain=0:${width},color=grey] plot (\x,{ ${Slope} * \x + ${YInt} });\n";
         $tex .= "\\node[anchor=east] at (0,0) {" . $minY . "};\n";
         $tex .= "\\node[anchor=east] at (0,{$height}) {" . $maxY . "};\n";
         $tex .= "\\node[anchor=north] at (0,-0.2) {" . $minX . "};\n";
