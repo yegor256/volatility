@@ -34,10 +34,10 @@ require_once __DIR__ . '/Bash.php';
 require_once __DIR__ . '/Cache.php';
 
 /**
- * Git repository.
+ * Mercurial repository.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-final class GitRepository extends AbstractRepository
+final class HgRepository extends AbstractRepository
 {
     /**
      * Public ctor.
@@ -55,20 +55,20 @@ final class GitRepository extends AbstractRepository
      */
     public function checkout()
     {
-        $dir = Cache::path('export-git-' . $this->name());
+        $dir = Cache::path('export-hg-' . $this->name());
         if (file_exists($dir) && count(scandir($dir))) {
             echo "% directory {$dir} already exists, no need to checkout\n";
         } else {
-            echo "% Git cloning ${dir}...\n";
+            echo "% Hg cloning ${dir}...\n";
             Bash::exec(
                 'rm -rf '
                 . ' ' . escapeshellcmd($dir)
-                . ' && git clone --quiet '
+                . ' && hg clone '
                 . ' ' . escapeshellcmd($this->_url)
                 . ' ' . escapeshellcmd($dir)
             );
             if (!file_exists($dir)) {
-                throw new Exception("failed to Git checkout '{$this}'");
+                throw new Exception("failed to Hg checkout '{$this}'");
             }
             echo "% checked out {$this->_url} into {$dir}\n";
         }
@@ -83,12 +83,10 @@ final class GitRepository extends AbstractRepository
         return new Scv(
             $this,
             function ($repo) {
-                return 'git --git-dir '
-                    . escapeshellarg($repo->checkout() . '/.git')
-                    . ' log --format=short --reverse --stat=1000'
-                    . ' --stat-name-width=950';
+                return 'hg log --follow '
+                    . escapeshellarg($repo->checkout());
             },
-            '--git'
+            '--hg'
         );
     }
 }

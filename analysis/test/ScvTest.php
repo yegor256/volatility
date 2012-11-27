@@ -44,7 +44,16 @@ final class ScvTest extends PHPUnit_Framework_TestCase
             'self',
             'git@github.com:yegor256/volatility.git'
         );
-        $loc = new Scv($repo);
+        $loc = new Scv(
+            $repo,
+            function ($repo) {
+                return 'git --git-dir '
+                    . escapeshellarg($repo->checkout() . '/.git')
+                    . ' log --format=short --reverse --stat=1000'
+                    . ' --stat-name-width=950';
+            },
+            '--git'
+        );
         $this->assertGreaterThan(0, $loc->byChanges());
         $this->assertGreaterThan(0, $loc->byAuthors());
         $this->assertGreaterThan(0, $loc->commits());

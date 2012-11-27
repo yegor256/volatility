@@ -29,70 +29,20 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once __DIR__ . '/Loc.php';
-require_once __DIR__ . '/Repository.php';
-require_once __DIR__ . '/Scv.php';
+require_once __DIR__ . '/../src/HgRepository.php';
 
 /**
- * Base repository.
+ * Test case fo {@link HgRepository}.
  * @author Yegor Bugayenko <yegor@tpc2.com>
  */
-abstract class AbstractRepository implements Repository
+final class HgRepositoryTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Name of the repo.
-     */
-    private $_name;
-    /**
-     * Public ctor.
-     * @param string $name Name of the repo
-     */
-    protected function __construct($name)
+    public function testChecksOutItself()
     {
-        $this->_name = $name;
-    }
-    /**
-     * Make a repository by type, name, and URL.
-     * @param string $type Type of it
-     * @param string $name Name of the repo
-     * @param string $url URL
-     * @return Repository The repository just created
-     */
-    public static function factory($type, $name, $url)
-    {
-        if ($type == 'svn') {
-            $repo = new SvnRepository($name, $url);
-        } elseif ($type == 'git') {
-            $repo = new GitRepository($name, $url);
-        } elseif ($type == 'hg') {
-            $repo = new HgRepository($name, $url);
-        } else {
-            throw new Exception('unknown SCM type');
-        }
-        return $repo;
-    }
-    /**
-     * Make it string.
-     * @return string The text
-     */
-    public function __toString()
-    {
-        return $this->_name;
-    }
-    /**
-     * Unique name of it.
-     * @return string Name of it
-     */
-    public function name()
-    {
-        return $this->_name;
-    }
-    /**
-     * Get lines of code metric from this repo.
-     * @return Loc Lines of Java code, total
-     */
-    public function loc()
-    {
-        return new Loc($this);
+        $repo = new HgRepository(
+            'hg-test',
+            'https://code.google.com/p/hg-test/'
+        );
+        $this->assertTrue(file_exists($repo->checkout() . '/test.txt'));
     }
 }

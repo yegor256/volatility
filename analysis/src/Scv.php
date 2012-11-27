@@ -49,12 +49,24 @@ final class Scv
      */
     private $_repo;
     /**
+     * Log retrieving function.
+     * @var function
+     */
+    private $_logf;
+    /**
+     * Volatility retrieving argument.
+     * @var string
+     */
+    private $_vol;
+    /**
      * Public ctor.
      * @param Repository $repo The repository to checkout from
      */
-    public function __construct(Repository $repo)
+    public function __construct(Repository $repo, $logf, $vol)
     {
         $this->_repo = $repo;
+        $this->_logf = $logf;
+        $this->_vol = $vol;
     }
     /**
      * By changesets.
@@ -91,23 +103,10 @@ final class Scv
         if (file_exists($cache) && filesize($cache) != 0) {
             echo "% logs exist already in {$cache}";
         } else {
-            if ($this->_repo instanceof SvnRepository) {
-                Bash::exec(
-                    'svn log -r1:HEAD -v '
-                    . escapeshellarg($this->_repo->checkout())
-                    . ' > ' . escapeshellarg($cache)
-                );
-            } elseif ($this->_repo instanceof GitRepository) {
-                Bash::exec(
-                    'git --git-dir '
-                    . escapeshellarg($this->_repo->checkout() . '/.git')
-                    . ' log --format=short --reverse --stat=1000'
-                    . ' --stat-name-width=950'
-                    . ' > ' . escapeshellarg($cache)
-                );
-            } else {
-                throw new Exception("'{$this->_repo}' is in Git or SVN?");
-            }
+            Bash::exec(
+                call_user_func($this->_logf, $this->_repo)
+                . ' > ' . escapeshellarg($cache)
+            );
         }
         if (!file_exists($cache)) {
             throw new Exception("failed to fetch logs for '{$this->_repo}'");
@@ -125,23 +124,13 @@ final class Scv
         if (file_exists($cache) && filesize($cache) != 0) {
             echo "% vol cache file {$cache} already exists\n";
         } else {
-            if ($this->_repo instanceof SvnRepository) {
-                Bash::exec(
-                    '/usr/bin/php ' . VOLATILITY_PHP . ' --svn < '
-                    . escapeshellarg($this->_log())
-                    . ' > '
-                    . escapeshellarg($cache)
-                );
-            } elseif ($this->_repo instanceof GitRepository) {
-                Bash::exec(
-                    '/usr/bin/php ' . VOLATILITY_PHP . ' --git < '
-                    . escapeshellarg($this->_log())
-                    . ' > '
-                    . escapeshellarg($cache)
-                );
-            } else {
-                throw new Exception("'{$this->_repo}' is in Git or SVN?");
-            }
+            Bash::exec(
+                '/usr/bin/php ' . VOLATILITY_PHP
+                . ' ' . $this->_vol . ' < '
+                . escapeshellarg($this->_log())
+                . ' > '
+                . escapeshellarg($cache)
+            );
             if (!file_exists($cache) || filesize($cache) == 0) {
                 throw new Exception(
                     "failed to collect VOLATILITY stats for '{$this->repo}'"

@@ -76,4 +76,19 @@ final class SvnRepository extends AbstractRepository
         }
         return $dir;
     }
+    /**
+     * Get volatility of the project.
+     * @return Scv Volatility metric
+     */
+    public function scv()
+    {
+        return new Scv(
+            $this,
+            function ($repo) {
+                return 'svn log -r1:HEAD -v '
+                    . escapeshellarg($repo->checkout());
+            },
+            '--svn'
+        );
+    }
 }
