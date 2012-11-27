@@ -61,10 +61,13 @@ abstract class AbstractRepository implements Repository
     public static function factory($type, $name, $url)
     {
         if ($type == 'svn') {
+            require_once __DIR__ . '/SvnRepository.php';
             $repo = new SvnRepository($name, $url);
         } elseif ($type == 'git') {
+            require_once __DIR__ . '/GitRepository.php';
             $repo = new GitRepository($name, $url);
         } elseif ($type == 'hg') {
+            require_once __DIR__ . '/HgRepository.php';
             $repo = new HgRepository($name, $url);
         } else {
             throw new Exception('unknown SCM type');

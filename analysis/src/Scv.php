@@ -86,12 +86,21 @@ final class Scv
     }
     /**
      * Total number of made commits.
-     * @return int Total number of events (commits) in the repo
+     * @return int Total number of commits in the repo
      */
     public function commits()
     {
         $data = json_decode(file_get_contents($this->_json()), true);
         return $data['changesets']['numbers'];
+    }
+    /**
+     * Total number of made changes.
+     * @return int Total number of changes
+     */
+    public function changes()
+    {
+        $data = json_decode(file_get_contents($this->_json()), true);
+        return $data['changesets']['events'];
     }
     /**
      * Log of SCM.

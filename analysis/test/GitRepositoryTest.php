@@ -29,7 +29,7 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once __DIR__ . '/../src/GitRepository.php';
+require_once __DIR__ . '/../src/AbstractRepository.php';
 
 /**
  * Test case fo {@link GitRepository}.
@@ -39,7 +39,8 @@ final class GitRepositoryTest extends PHPUnit_Framework_TestCase
 {
     public function testChecksOutItself()
     {
-        $repo = new GitRepository(
+        $repo = AbstractRepository::factory(
+            'git',
             'self',
             'git@github.com:yegor256/volatility.git'
         );
