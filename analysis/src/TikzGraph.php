@@ -119,10 +119,12 @@ final class TikzGraph
     }
     /**
      * Build TikZ graph (in LaTeX).
+     * @param $xa Text for x-axis
+     * @param $ya Text for x-axis
      * @return string TeX code
      * @see http://faculty.cs.niu.edu/~hutchins/csci230/best-fit.htm
      */
-    public function tikz()
+    public function tikz($xa = '', $ya = '')
     {
         $SumX = 0;
         $SumY = 0;
@@ -147,6 +149,10 @@ final class TikzGraph
             . "\\node[anchor=east] at (0,{$this->_height}) {{$this->_maxY}};\n"
             . "\\node[anchor=north] at (0,-0.2) {{$this->_minX}};\n"
             . "\\node[anchor=north] at ({$this->_width},-0.2)"
+            . "\\node[anchor=south,rotate=90] at (-0.2,"
+            . ($this->_height / 2) . ")\n"
+            . "\\node[anchor=north] at ("
+            . ($this->_width / 2) . ", -0.2)\n"
             . " {{$this->_maxX}};\n";
         foreach ($this->_plots as $plot) {
             $tex .= "\\node[{$plot['style']}]"
