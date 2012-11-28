@@ -149,11 +149,11 @@ final class TikzGraph
             . "\\node[anchor=east] at (0,{$this->_height}) {{$this->_maxY}};\n"
             . "\\node[anchor=north] at (0,-0.2) {{$this->_minX}};\n"
             . "\\node[anchor=north] at ({$this->_width},-0.2)"
+            . " {{$this->_maxX}};\n"
             . "\\node[anchor=south,rotate=90] at (-0.2,"
-            . ($this->_height / 2) . ")\n"
+            . ($this->_height / 2) . ") {{$ya}};\n"
             . "\\node[anchor=north] at ("
-            . ($this->_width / 2) . ", -0.2)\n"
-            . " {{$this->_maxX}};\n";
+            . ($this->_width / 2) . ", -0.2) {{$xa}};\n";
         foreach ($this->_plots as $plot) {
             $tex .= "\\node[{$plot['style']}]"
                 . " at ({$plot['x']},{$plot['y']}) {{$plot['name']}};\n";
