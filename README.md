@@ -1,5 +1,13 @@
-Source Code Volatility calculator
-======
+[![Made By Teamed.io](http://img.teamed.io/btn.svg)](http://www.teamed.io)
+[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/volatility)](http://www.rultor.com/p/yegor256/volatility)
+
+[![Build Status](https://travis-ci.org/yegor256/volatility.svg)](https://travis-ci.org/yegor256/volatility)
+[![Build status](https://ci.appveyor.com/api/projects/status/3i9r5lak77mmfbr0?svg=true)](https://ci.appveyor.com/project/yegor256/volatility-1rwvv)
+
+[![Gem Version](https://badge.fury.io/rb/volatility.svg)](http://badge.fury.io/rb/volatility)
+[![Dependency Status](https://gemnasium.com/yegor256/volatility.svg)](https://gemnasium.com/yegor256/volatility)
+[![Code Climate](http://img.shields.io/codeclimate/github/yegor256/volatility.svg)](https://codeclimate.com/github/yegor256/volatility)
+[![Coverage Status](https://coveralls.io/repos/yegor256/volatility/badge.svg)](https://coveralls.io/r/yegor256/volatility)
 
 It's an experimental way to calculate how "volatile" is a project
 source code repository. More or less detailed theoretical summary

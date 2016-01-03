@@ -34,12 +34,12 @@ module Volatility
       version = `git --version`.split(/ /)[2]
       fail "git version #{version} is too old, upgrade it to 2.0+" unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
-      data().calculate
+      metrics(files())
     end
 
     private
 
-    def data
+    def files
       cmd = [
         "cd #{@dir} && git",
         'log', '--reverse', '--format=short',
@@ -50,37 +50,23 @@ module Volatility
         '--', '.',
       ].join(' ')
       files = []
-      data = Data.new()
-      commit = ''
-      author = ''
       `#{cmd}`.split(/\n/).each do |line|
-        if match = line.match(/^commit +([a-f0-9]{40})$/)
-          commit = match.captures
-        end
-        if match = line.match(/^Author:(.*)$/)
-          author = match.captures
-        end
-        if match = line.match(/^ (.*) \|/)
-          files.push match.captures
-        else
-          data.add(commit, author, files) unless files.empty?
-          files = []
+        match = line.match(/^ (.*) \| +(\d+)/)
+        if match
+          file, changes = match.captures
+          files[file] = changes + (files[file] || 0)
         end
       end
-      data
+      files
     end
-  end
 
-  private
-
-  class Data
-    def add(commit, author, files)
-      puts commit
-      puts author
-      puts files
-    end
-    def calculate
+    def metrics(numbers)
+      numbers.sort.reverse
+      count = numbers.size
+      events = numbers.inject(:+)
+      sum = numbers.inject{ |sum, x| }
       {
+        files: files.size,
         time: Time.now(),
         variance: 0.4
       }
