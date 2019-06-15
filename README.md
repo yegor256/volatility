@@ -8,25 +8,18 @@ source code repository, by comparing the amount of dead code (rarely touched)
 with the amount of actively modified one. More or less detailed theoretical summary
 is in [theory.pdf](https://github.com/downloads/yegor256/volatility/theory.pdf).
 
-Prerequisites:
-
-* [cloc.pl](http://sourceforge.net/projects/cloc/files/) &mdash;
-  a Perl script that counts total lines of code in a code base by
-  programming language;
-
-* [volatility.php](https://github.com/yegor256/volatility/blob/master/volatility.php) &mdash;
-  our custom PHP 5.3 script that collects statistical information from SVN and
-  Git logs.
+You need to have [cloc.pl](http://sourceforge.net/projects/cloc/files/) installed first.
+Also, you need PHP 5.3+.
 
 First, collect lines-of-code data (we assume that your source code
-has been already checked-out/cloned into `PROJECT` directory):
+has been already checked-out/cloned into the `PROJECT` directory):
 
 ```bash
-$ ./cloc-1.56.pl --xml --quiet --progress-rate=0 PROJECT > cloc.xml
+$ ./cloc.pl --xml --quiet --progress-rate=0 PROJECT > cloc.xml
 ```
 
-Next, calculate the volatility, using our custom PHP script. For Git
-repository:
+Next, calculate the volatility, using `volatility.php` script.
+For a Git repository:
 
 ```
 $ git --git-dir PROJECT/.git log --reverse --format=short --stat=1000 --stat-name-width=950 | \
