@@ -23,10 +23,28 @@
 module Volatility
   # Metrics.
   class Metrics
-    def initialize(date, total)
-      @date = date
-      @total = total
+    def initialize(repo)
+      @repo = repo
     end
-    attr_reader :date, :total
+
+    def all
+      ordered = ordered
+      events = ordered.inject(:+)
+      sum = ordered.inject{ |sum, x| }
+      mean = sum / events
+      {
+        files: files.size,
+        time: Time.now(),
+        variance: 0.4,
+        mean: mean
+      }
+    end
+
+    private
+
+    def ordered
+      files = @repo.files
+      files.sort.reverse
+    end
   end
 end

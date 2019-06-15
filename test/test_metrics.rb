@@ -20,34 +20,23 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require 'minitest/autorun'
 require 'volatility/metrics'
-require 'volatility/git'
 
-# Volatility main module.
+# Metrics test.
 # Author:: Yegor Bugayenko (yegor@teamed.io)
 # Copyright:: Copyright (c) 2012-2016 Yegor Bugayenko
 # License:: MIT
 module Volatility
-  # Code base abstraction
-  class Base
-    # Ctor.
-    # +opts+:: Options
-    def initialize(opts)
-      @dir = opts[:dir]
-      fail "only \"int\" format is supported now" unless
-        opts[:format].nil? || opts[:format] == 'int'
-      @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
+  class TestMetrics < Minitest::Test
+    def test_basic_algorithm
+      all = Metrics.new(FakeRepo.new).all
+      assert_equal 4, all[:mean]
     end
-
-    # Generate metrics.
-    def report
-      repo = nil
-      if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir)
-      else
-        fail 'only Git repositories supported now'
-      end
-      Metrics.new(repo).all[:variance]
+  end
+  class FakeRepo
+    def files
+      {'a.txt' => 5, 'b.txt' => 3, 'c.txt' => 21}
     end
   end
 end

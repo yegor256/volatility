@@ -28,60 +28,59 @@ require 'tmpdir'
 # Author:: Yegor Bugayenko (yegor@teamed.io)
 # Copyright:: Copyright (c) 2012-2016 Yegor Bugayenko
 # License:: MIT
-class TestGit < Minitest::Test
-  def test_parsing
-    skip if Gem.win_platform?
-    Dir.mktmpdir 'test' do |dir|
-      fail unless system("
-        set -e
-        cd '#{dir}'
-        git init .
-        git config user.email test@teamed.io
-        git config user.name test
-        echo 'hello, world!' > test.txt
-        git add test.txt
-        git commit -am 'add line'
-        echo 'good bye, world!' > test.txt
-        git commit -am 'modify line'
-        rm test.txt
-        git commit -am 'delete line'
-      ")
-      metrics = Volatility::Git.new(dir).metrics
-      assert_equal 4, metrics[:variance]
+module Volatility
+  class TestGit < Minitest::Test
+    def test_parsing
+      skip if Gem.win_platform?
+      Dir.mktmpdir 'test' do |dir|
+        fail unless system("
+          set -e
+          cd '#{dir}'
+          git init .
+          git config user.email test@teamed.io
+          git config user.name test
+          echo 'hello, world!' > test.txt
+          git add test.txt
+          git commit -am 'add line'
+          echo 'good bye, world!' > test.txt
+          git commit -am 'modify line'
+          rm test.txt
+          git commit -am 'delete line'
+        ")
+        assert_equal 4, Git.new(dir).files.size
+      end
     end
-  end
 
-  def test_parsing_with_empty_git
-    skip if Gem.win_platform?
-    Dir.mktmpdir 'test' do |dir|
-      fail unless system("
-        set -e
-        cd '#{dir}'
-        git init .
-      ")
-      metrics = Volatility::Git.new(dir).metrics
-      assert_equal 0, metrics[:variance]
+    def test_parsing_with_empty_git
+      skip if Gem.win_platform?
+      Dir.mktmpdir 'test' do |dir|
+        fail unless system("
+          set -e
+          cd '#{dir}'
+          git init .
+        ")
+        assert_equal 4, Git.new(dir).files.size
+      end
     end
-  end
 
-  def test_ignores_binary_files
-    skip if Gem.win_platform?
-    Dir.mktmpdir 'test' do |dir|
-      fail unless system("
-        set -e
-        cd '#{dir}'
-        git init .
-        git config user.email test@teamed.io
-        git config user.name test
-        dd if=/dev/urandom of=test.dat bs=1 count=65536
-        git add test.dat
-        git commit -am 'binary file'
-        dd if=/dev/urandom of=test.dat bs=1 count=65536
-        git add test.dat
-        git commit -am 'binary file modified'
-      ")
-      metrics = Volatility::Git.new(dir).metrics
-      assert_equal 0, metrics[:variance]
+    def test_ignores_binary_files
+      skip if Gem.win_platform?
+      Dir.mktmpdir 'test' do |dir|
+        fail unless system("
+          set -e
+          cd '#{dir}'
+          git init .
+          git config user.email test@teamed.io
+          git config user.name test
+          dd if=/dev/urandom of=test.dat bs=1 count=65536
+          git add test.dat
+          git commit -am 'binary file'
+          dd if=/dev/urandom of=test.dat bs=1 count=65536
+          git add test.dat
+          git commit -am 'binary file modified'
+        ")
+        assert_equal 4, Git.new(dir).files.size
+      end
     end
   end
 end

@@ -30,16 +30,10 @@ module Volatility
       @dir = dir
     end
 
-    def metrics
+    def files
       version = `git --version`.split(/ /)[2]
       fail "git version #{version} is too old, upgrade it to 2.0+" unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
-      metrics(files())
-    end
-
-    private
-
-    def files
       cmd = [
         "cd #{@dir} && git",
         'log', '--reverse', '--format=short',
@@ -49,27 +43,15 @@ module Volatility
         '--find-copies-harder', '-M', '--diff-filter=ACDM',
         '--', '.',
       ].join(' ')
-      files = []
+      files = {}
       `#{cmd}`.split(/\n/).each do |line|
         match = line.match(/^ (.*) \| +(\d+)/)
         if match
           file, changes = match.captures
-          files[file] = changes + (files[file] || 0)
+          files[file] = changes.to_i + (files[file] || 0)
         end
       end
       files
-    end
-
-    def metrics(numbers)
-      numbers.sort.reverse
-      count = numbers.size
-      events = numbers.inject(:+)
-      sum = numbers.inject{ |sum, x| }
-      {
-        files: files.size,
-        time: Time.now(),
-        variance: 0.4
-      }
     end
   end
 end
