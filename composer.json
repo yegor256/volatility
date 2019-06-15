@@ -1,0 +1,23 @@
+{
+    "name": "yegor256/volatility",
+    "description": "Volatility metric",
+    "keywords": ["metric", "volatility"],
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "version": "1.0-beta",
+    "authors": [
+        {
+            "name": "Yegor Bugayenko",
+            "homepage": "https://github.com/yegor256"
+        }
+    ],
+    "homepage": "https://github.com/yegor256/volatility",
+    "require": {
+        "php":">=5.2.0"
+    },
+    "require-dev": {
+        "phing/phing": "2.10.1",
+        "phpmd/phpmd": "2.2.1",
+        "phpunit/phpunit": "4.5.0"
+    }
+}
