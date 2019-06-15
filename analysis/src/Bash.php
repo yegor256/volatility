@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2012-2016, Yegor Bugayenko
+ * Copyright (c) 2012-2019, Yegor Bugayenko
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
