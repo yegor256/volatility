@@ -22,33 +22,15 @@
 
 
 import subprocess
-import os
 import matplotlib.pyplot as plt
 
 
-def downloadrepos():
-    parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('--repos', type=int, required=False, default=100)
-    args = parser.parse_args()
-    numrepos = args.repos
-    repos = 'target/01'
-    if not os.path.isdir(repos):
-        os.makedirs(repos)
-    result = r.get('https://github.com/trending/java?since=daily')
-    soup = BeautifulSoup(result.text)
-    for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
-        if numrepos <= 0:
-            break
-        numrepos = numrepos - 1
-        path = city.a['href'].split('/')
-        if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
-            os.makedirs(os.path.join(repos, path[len(path) - 2]))
-        if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
-            subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
-                           cwd=os.path.join(repos, path[len(path) - 2]))
-
 def calculate(dir):
-    result = subprocess.run(['git', '--git-dir', dir + '/.git', 'log', '--reverse', '--format=short', '--stat=1000', '--stat-name-width=950'], stdout=subprocess.PIPE)
+    result = subprocess.run(['git', '--git-dir', dir + '/.git', 'log',
+                             '--reverse',
+                             '--format=short',
+                             '--stat=1000', '--stat-name-width=950'],
+                            stdout=subprocess.PIPE)
     parse(result.stdout.decode("utf-8"))
 
 
@@ -66,6 +48,7 @@ def find_next_commit(pos1, input):
 def show_histogram(values):
     plt.hist(values, bins=10)
     plt.show()
+
 
 def parse(input):
     files = {}
@@ -98,7 +81,7 @@ def parse(input):
 
     show_histogram(list(files.values()))
 
+
 if __name__ == "__main__":
-    dir = '/home/zuoqin/volatility'
-    #dir = '/home/zuoqin/mayorka'
+    dir = 'D:\\Data\\volatility'
     calculate(dir)
