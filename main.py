@@ -23,6 +23,7 @@
 
 import subprocess
 import matplotlib.pyplot as plt
+import re
 
 
 def calculate(dir):
@@ -35,18 +36,20 @@ def calculate(dir):
 
 
 def find_next_commit(pos1, input):
-    pos1 = input.find('commit ', pos1)
-    pos2 = input.find('\n', pos1)
-    pos2 = input.find('\n', pos2+1)
-    pos2 = input.find('\n', pos2+1)
-    pos2 = input.find('\n', pos2+1)
-    pos2 = input.find('\n', pos2+1)
-    pos1 = pos2 + 1
+    while(True):
+        pos1 = input.find('commit ', pos1)
+        pos2 = input.find('Author: ', pos1)
+        pos2 = input.find('\n', pos2+1)
+        pos2 = input.find('\n', pos2+1)
+        pos2 = input.find('\n', pos2+1)
+        pos2 = input.find('\n', pos2+1)
+        pos1 = pos2 + 1
+        if input[pos1: pos1 + 6] != 'commit':
+            break
     return pos1
 
 
 def show_histogram(values):
-    fig = plt.figure()
     plt.xlabel('Changes', fontsize=18)
     plt.ylabel('Files count', fontsize=16)
     plt.hist(values, bins=10)
@@ -66,19 +69,32 @@ def parse(input):
                 pos1 = find_next_commit(pos1, input)
                 continue
             else:
-                print(files)
+                with open('out.txt', 'w+') as the_file:
+                    the_file.write(str(files))
                 break
         else:
             file = input[pos1:pos2].strip()
-            if file in files:
-                files[file] = files[file] + 1
+            if "=>" in file:
+                f = file.split("=>")
+                if f[0] in files:
+                    prev = files[f[0]]
+                    del files[f[0]]
+                    files[f[1]] = prev
+                    res = re.findall(r'\d+', input[pos2 + 1:pos3])
+                    if int(res[0]) > 0:
+                        files[f[1]] = prev + 1
             else:
-                files[file] = 1
+                if file in files:
+                    files[file] = files[file] + 1
+                else:
+                    files[file] = 1
         pos1 = pos3 + 1
 
     show_histogram(list(files.values()))
 
 
 if __name__ == "__main__":
-    dir = '../volatility'
+    # dir = '/home/zuoqin/Algorithms'
+    # dir = '../volatility'
+    # dir = '/home/zuoqin/mayorka'
     calculate(dir)
