@@ -46,6 +46,9 @@ def find_next_commit(pos1, input):
 
 
 def show_histogram(values):
+    fig = plt.figure()
+    plt.xlabel('Changes', fontsize=18)
+    plt.ylabel('Files count', fontsize=16)
     plt.hist(values, bins=10)
     plt.show()
 
@@ -54,7 +57,6 @@ def parse(input):
     files = {}
     line = ''
     pos1 = find_next_commit(0, input)
-    count = 0
     while(True):
         pos2 = input.find('|', pos1)
         pos3 = input.find('\n', pos1)
@@ -67,21 +69,16 @@ def parse(input):
                 print(files)
                 break
         else:
-            print('Count {}            {}'.format(count, input[pos1:pos2]))
             file = input[pos1:pos2].strip()
             if file in files:
                 files[file] = files[file] + 1
             else:
                 files[file] = 1
         pos1 = pos3 + 1
-        count = count + 1
-        if count > 10000:
-            print(files)
-            break
 
     show_histogram(list(files.values()))
 
 
 if __name__ == "__main__":
-    dir = 'D:\\Data\\volatility'
+    dir = '../volatility'
     calculate(dir)
