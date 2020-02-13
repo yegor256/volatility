@@ -32,18 +32,26 @@ files = {}
 token = ''
 
 
+def process_file(name):
+    import json
+    with open(name) as json_file:
+        data = json.load(json_file)
+        show_histogram(list(data.values()))
+
+
 def start(url):
-    r = requests.get('{}{}{}'.format('https://api.github.com/repos/', url,
-                                     '/commits?per_page=100'),
+    prev = '{}{}{}'.format('https://api.github.com/repos/', url,
+                           '/commits?per_page=100')
+    r = requests.get(prev,
                      headers={'Content-Type': 'application/json',
                               'Authorization': 'token {}'.format(token)})
     data = r.json()
-    links = r.headers['Link'].split(', ')
-    prev = None
-    for link in links:
-        t = link.split('; ')
-        if t[1] == 'rel="last"':
-            prev = t[0].replace('<', '').replace('>', '')
+    if 'Link' in r.headers:
+        links = r.headers['Link'].split(', ')
+        for link in links:
+            t = link.split('; ')
+            if t[1] == 'rel="last"':
+                prev = t[0].replace('<', '').replace('>', '')
 
     while(prev is not None):
         print(prev)
@@ -53,12 +61,13 @@ def start(url):
         data = r.json()
         if len(data) == 0:
             break
-        links = r.headers['Link'].split(', ')
         prev = None
-        for link in links:
-            t = link.split('; ')
-            if t[1] == 'rel="prev"':
-                prev = t[0].replace('<', '').replace('>', '')
+        if 'Link' in r.headers:
+            links = r.headers['Link'].split(', ')
+            for link in links:
+                t = link.split('; ')
+                if t[1] == 'rel="prev"':
+                    prev = t[0].replace('<', '').replace('>', '')
         get_commits(data)
     print('\n', '\n', '\n', '\n', '\n', '\n', '\n', files)
     show_histogram(list(files.values()))
@@ -117,6 +126,9 @@ def find_next_commit(pos1, input):
 
 
 def show_histogram(values):
+    cnt = len(values)
+    values.sort()
+    values = values[:-(int(0.05*cnt))]
     plt.xlabel('Changes', fontsize=18)
     plt.ylabel('Files count', fontsize=16)
     plt.hist(values, bins=10)
