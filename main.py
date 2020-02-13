@@ -24,6 +24,73 @@
 import subprocess
 import matplotlib.pyplot as plt
 import re
+import requests
+import argparse
+
+
+files = {}
+token = ''
+
+
+def start(url):
+    r = requests.get('{}{}{}'.format('https://api.github.com/repos/', url,
+                                     '/commits?per_page=100'),
+                     headers={'Content-Type': 'application/json',
+                              'Authorization': 'token {}'.format(token)})
+    data = r.json()
+    links = r.headers['Link'].split(', ')
+    prev = None
+    for link in links:
+        t = link.split('; ')
+        if t[1] == 'rel="last"':
+            prev = t[0].replace('<', '').replace('>', '')
+
+    while(prev is not None):
+        print(prev)
+        r = requests.get('{}'.format(prev),
+                         headers={'Content-Type': 'application/json',
+                                  'Authorization': 'token {}'.format(token)})
+        data = r.json()
+        if len(data) == 0:
+            break
+        links = r.headers['Link'].split(', ')
+        prev = None
+        for link in links:
+            t = link.split('; ')
+            if t[1] == 'rel="prev"':
+                prev = t[0].replace('<', '').replace('>', '')
+        get_commits(data)
+    print('\n', '\n', '\n', '\n', '\n', '\n', '\n', files)
+    show_histogram(list(files.values()))
+
+
+def get_commits(data):
+    for commit in reversed(data):
+        r1 = requests.get(commit['url'],
+                          headers={'Content-Type': 'application/json',
+                                   'Authorization': 'token {}'.format(token)}
+                          )
+        thecommit = r1.json()
+        if 'files' not in thecommit:
+            print('{}{}'.format(commit['url'], ' does not have files'))
+        else:
+            for file in thecommit['files']:
+                if 'previous_filename' in file and \
+                   file['previous_filename'] != file['filename']:
+                    prev = 0
+                    if file['filename'] in files and \
+                       files[file['filename']] > prev:
+                        prev = files[file['filename']]
+                    if file['previous_filename'] in files:
+                        prev = files[file['previous_filename']]
+                        del files[file['previous_filename']]
+                    files[file['filename']] = prev
+                if file['additions'] > 0 or file['deletions'] > 0 or \
+                   file['changes'] > 0:
+                    if file['filename'] in files:
+                        files[file['filename']] = files[file['filename']] + 1
+                    else:
+                        files[file['filename']] = 1
 
 
 def calculate(dir):
@@ -94,7 +161,8 @@ def parse(input):
 
 
 if __name__ == "__main__":
-    # dir = '/home/zuoqin/Algorithms'
-    # dir = '../volatility'
-    # dir = '/home/zuoqin/mayorka'
-    calculate(dir)
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--token', type=str, required=True, default='')
+    args = parser.parse_args()
+    token = args.token
+    start('yegor256/volatility')
