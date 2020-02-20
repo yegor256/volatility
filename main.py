@@ -26,10 +26,12 @@ import matplotlib.pyplot as plt
 import re
 import requests
 import argparse
+import logging
 
 
 files = {}
 token = ''
+logging.basicConfig(level=logging.DEBUG)
 
 
 def process_file(name):
@@ -112,16 +114,18 @@ def calculate(dir):
 
 
 def find_next_commit(pos1, input):
-    while(True):
-        pos1 = input.find('commit ', pos1)
-        pos2 = input.find('Author: ', pos1)
-        pos2 = input.find('\n', pos2+1)
-        pos2 = input.find('\n', pos2+1)
-        pos2 = input.find('\n', pos2+1)
-        pos2 = input.find('\n', pos2+1)
-        pos1 = pos2 + 1
-        if input[pos1: pos1 + 6] != 'commit':
-            break
+    pos2 = input.find('commit ', pos1)
+    if pos2 < 0 or pos2 < pos1:
+        return -1
+    pos1 = pos2
+    pos2 = input.find('Author: ', pos1)
+    pos2 = input.find('\n', pos2+1)
+    pos2 = input.find('\n', pos2+1)
+    pos2 = input.find('\n', pos2+1)
+    pos2 = input.find('\n', pos2+1)
+    if pos2 < 0:
+        return pos2
+    pos1 = pos2 + 1
     return pos1
 
 
@@ -138,14 +142,20 @@ def show_histogram(values):
 def parse(input):
     files = {}
     line = ''
+    num = 1
     pos1 = find_next_commit(0, input)
-    while(True):
+    logging.info('Commit: {}'.format(num))
+    num = num + 1
+
+    while(pos1 < len(input) and pos1 >= 0):
         pos2 = input.find('|', pos1)
         pos3 = input.find('\n', pos1)
         line = input[pos1:pos3]
-        if 'changed,' in line:
-            if input.find('commit', pos1) > 0:
+        if 'changed,' in line or 'commit' in line:
+            if input.find('commit', pos1+1) > 0:
                 pos1 = find_next_commit(pos1, input)
+                logging.info('Commit: {}'.format(num))
+                num = num + 1
                 continue
             else:
                 with open('out.txt', 'w+') as the_file:
@@ -168,13 +178,25 @@ def parse(input):
                 else:
                     files[file] = 1
         pos1 = pos3 + 1
+    return files
 
+
+def run_application():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--token', type=str, required=False, default='')
+    parser.add_argument('--folder', type=str, required=False, default='')
+    args = parser.parse_args()
+    token = args.token
+    folder = args.folder
+    if len(token) > 0:
+        start('yegor256/volatility')
+    elif len(folder) > 0:
+        calculate(folder)
+    else:
+        print('Either --token or --folder parameter should be set')
+        return 0
     show_histogram(list(files.values()))
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('--token', type=str, required=True, default='')
-    args = parser.parse_args()
-    token = args.token
-    start('yegor256/volatility')
+    run_application()
