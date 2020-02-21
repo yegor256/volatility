@@ -1,0 +1,257 @@
+commit a8965aa7f0be2e68b9a82b723196b480fb96db57
+Author: michaelpradel <michael@binaervarianz.de>
+
+    Initial commit
+
+ LICENSE   | 21 +++++++++++++++++++++
+ README.md |  2 ++
+ 2 files changed, 23 insertions(+)
+
+commit 3e025e788cafdc7f891ec8e828b618915940270c
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    initial release of code
+
+ .gitignore                                        |     22 +
+ .project                                          |     17 +
+ .pydevproject                                     |      8 +
+ README.md                                         |     91 +-
+ data/js/programs_50/file1082.js                   |   7675 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ data/js/programs_50/file1083.js                   |     39 +
+ data/js/programs_50/file1084.js                   |    250 +++
+ data/js/programs_50/file1085.js                   |     18 +
+ data/js/programs_50/file1086.js                   |      9 +
+ data/js/programs_50/file1087.js                   |     26 +
+ data/js/programs_50/file1088.js                   |    134 ++
+ data/js/programs_50/file1089.js                   |      1 +
+ data/js/programs_50/file1090.js                   |     46 +
+ data/js/programs_50/file1092.js                   |     29 +
+ data/js/programs_50/file1093.js                   |    208 ++
+ data/js/programs_50/file1094.js                   |     58 +
+ data/js/programs_50/file1095.js                   |    503 +++++
+ data/js/programs_50/file1096.js                   |     96 +
+ data/js/programs_50/file1097.js                   |     35 +
+ data/js/programs_50/file1098.js                   |    154 ++
+ data/js/programs_50/file1099.js                   |    155 ++
+ data/js/programs_50/file1100.js                   |     19 +
+ data/js/programs_50/file1101.js                   |     90 +
+ data/js/programs_50/file1102.js                   |      7 +
+ data/js/programs_50/file1103.js                   |    397 ++++
+ data/js/programs_50/file1104.js                   |     51 +
+ data/js/programs_50/file1105.js                   |     13 +
+ data/js/programs_50/file1106.js                   |     76 +
+ data/js/programs_50/file1107.js                   |    852 ++++++++
+ data/js/programs_50/file1108.js                   |    867 +++++++++
+ data/js/programs_50/file1109.js                   |     16 +
+ data/js/programs_50/file1110.js                   |    101 +
+ data/js/programs_50/file1112.js                   |    121 ++
+ data/js/programs_50/file1113.js                   |      5 +
+ data/js/programs_50/file1114.js                   |    121 ++
+ data/js/programs_50/file1115.js                   |    105 +
+ data/js/programs_50/file1116.js                   |    293 +++
+ data/js/programs_50/file1117.js                   |     55 +
+ data/js/programs_50/file1118.js                   |    763 ++++++++
+ data/js/programs_50/file1119.js                   |     28 +
+ data/js/programs_50/file1120.js                   |   1293 +++++++++++++
+ data/js/programs_50/file1121.js                   |    365 ++++
+ data/js/programs_50/file1124.js                   |     60 +
+ data/js/programs_50/file1125.js                   |      4 +
+ data/js/programs_50/file1126.js                   |    124 ++
+ data/js/programs_50/file1128.js                   |    145 ++
+ data/js/programs_50/file1129.js                   |    136 ++
+ data/js/programs_50/file1130.js                   |    111 ++
+ data/js/programs_50/file1131.js                   |   2063 ++++++++++++++++++++
+ data/js/programs_50/file1132.js                   |    139 ++
+ data/js/programs_50/file1133.js                   |     43 +
+ data/js/programs_50/file1134.js                   |      8 +
+ data/js/programs_50/file1135.js                   |     54 +
+ data/js/programs_50/file1136.js                   |    362 ++++
+ data/js/programs_50_eval.txt                      |     21 +
+ data/js/programs_50_training.txt                  |     29 +
+ data/js/programs_eval.txt                         |  50000 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ data/js/programs_training.txt                     | 100000 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ javascript/astWalkTest.js                         |     99 +
+ javascript/extractFromJS.js                       |    158 ++
+ javascript/extractorOfAssignments.js              |     54 +
+ javascript/extractorOfBinOps.js                   |     58 +
+ javascript/extractorOfCalls.js                    |    135 ++
+ javascript/extractorOfIdsLitsWithASTFamily.js     |     94 +
+ javascript/extractorOfIdsLitsWithIds.js           |     61 +
+ javascript/extractorOfIdsLitsWithTokens.js        |     41 +
+ javascript/extractorOfTokens.js                   |     23 +
+ javascript/jsExtractionUtil.js                    |    175 ++
+ javascript/modifyArgumentOrder.js                 |     42 +
+ javascript/rb-nodeify.sh                          |     19 +
+ javascript/seedBugs.js                            |    171 ++
+ javascript/tokenize.js                            |      9 +
+ python/ASTEmbeddingLearner.py                     |    162 ++
+ python/ASTEmbeddingLearnerPerLocation.py          |    225 +++
+ python/AccuracyMetricTest.py                      |     40 +
+ python/AnomalyDetector2.py                        |    215 +++
+ python/BinOpContextToEmbedding.py                 |     47 +
+ python/CallContextToEmbedding.py                  |     59 +
+ python/CallPerCalleeCounter.py                    |     33 +
+ python/CallPerFileCounter.py                      |     33 +
+ python/EmbeddingEvaluator.py                      |     68 +
+ python/EmbeddingLearner.py                        |    151 ++
+ python/EmbeddingLearnerWord2Vec.py                |     61 +
+ python/EmbeddingModelValidator.py                 |     81 +
+ python/LearningDataBinOperator.py                 |     86 +
+ python/LearningDataIncorrectAssignment.py         |     88 +
+ python/LearningDataIncorrectBinaryOperand.py      |    119 ++
+ python/LearningDataSwappedArgs.py                 |    112 ++
+ python/LearningDataSwappedBinOperands.py          |     82 +
+ python/LocationBasedEmbeddingEvaluator.py         |    141 ++
+ python/RandomEmbeddingLearner.py                  |     61 +
+ python/TokenWithASTContextPerLocationToNumbers.py |    213 ++
+ python/TokenWithASTContextToNumbers.py            |    209 ++
+ python/TokenWithContextStats.py                   |     80 +
+ python/TokenWithContextToNumbers.py               |    179 ++
+ python/TokensToTopTokens.py                       |    153 ++
+ python/Util.py                                    |     68 +
+ python/__init__.py                                |      0
+ python/tools/anomalyAnalyzer.py                   |    209 ++
+ 99 files changed, 172623 insertions(+), 2 deletions(-)
+
+commit 8e3d6e1d421f42b21963d28fcc9f99433bf517c4
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    link to technical report
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d04e3433c3406fa76d4a940391c33cdf49c31476
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    adding type_to_vector.json and node_type_to_vector.json files
+
+ .gitignore               |   6 +++++-
+ node_type_to_vector.json | 312 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ type_to_vector.json      |  58 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 375 insertions(+), 1 deletion(-)
+
+commit 0f1348dca4a2b4da20b38a14944eef29fba6e5b7
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    bug fix to re-enable token extraction
+
+ javascript/extractFromJS.js | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit caff34941803939dccf4ff6e4bdd40f305d1922d
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    revised version of the approach; various minor improvements and some bug fixed; now based on Word2Vec
+
+ .gitignore                                             |   2 ++
+ README.md                                              |  23 +++++++++++------------
+ javascript/extractFromJS.js                            |   8 +++++---
+ javascript/extractorOfAssignments.js                   |   1 +
+ javascript/extractorOfAssignments2.js                  | 104 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ javascript/extractorOfCallsMissingArg.js               | 134 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ javascript/extractorOfIdsLitsWithASTFamily.js          |   2 +-
+ node_type_to_vector.json                               |  12 +++++++++++-
+ python/AnomalyDetector2.py                             |  27 ++++++++++++++++-----------
+ python/EmbeddingEvaluator.py                           |   1 -
+ python/EmbeddingEvaluatorWord2Vec.py                   |  30 ++++++++++++++++++++++++++++++
+ python/EmbeddingLearnerWord2Vec.py                     |   9 ++++-----
+ python/LearningDataIncorrectAssignment.py              |  75 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------
+ python/LearningDataIncorrectAssignment_with_parents.py |  92 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ python/LearningDataMissingArg.py                       | 161 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ python/TokenWithContextToNumbers.py                    |   6 ++++--
+ python/TokensToTopTokens.py                            |  12 ++++++++++--
+ python/tools/anomalyAnalyzer.py                        |  20 ++++++++++++++++----
+ 18 files changed, 666 insertions(+), 53 deletions(-)
+
+commit 7aebeab0495cc4addc3427f5ab711fe66c6a76bc
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    added missing token_to_vector.json file
+
+ .gitignore           |       1 -
+ token_to_vector.json | 2005862 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 2005862 insertions(+), 1 deletion(-)
+
+commit d2c1582f14f3fe49d0b998d5ee7f1139bcd5c8f0
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    link to OOPSLA paper
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8985306a8235f99e2da421589e30133b28af27e3
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    minor improvements
+
+ .gitignore                                   |  2 ++
+ javascript/compareWarnings.js                | 69 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ python/AnomalyDetector2.py                   | 22 +++++++++++++++++++++-
+ python/EmbeddingEvaluatorWord2Vec.py         | 31 ++++++++++++++++++++++++++++++-
+ python/LearningDataBinOperator.py            |  3 +++
+ python/LearningDataIncorrectBinaryOperand.py |  3 +++
+ python/LearningDataSwappedArgs.py            | 10 ++++++++--
+ 7 files changed, 136 insertions(+), 4 deletions(-)
+
+commit 8eadd1ca2aa4cdb9d6df0e29e962bddf015e2547
+Merge: 8985306 d2c1582
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    Merge branch 'master' of https://github.com/michaelpradel/DeepBugs
+
+commit 263ceaa7045fe0af3ee1fcef17e7e2d524a5a6b6
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    renamed bug detection scripts; minor bug fix
+
+ README.md                                       | 4 ++--
+ python/{AnomalyDetector2.py => BugDetection.py} | 6 ++++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit d31142ac7e6a10e7308bc6407cb2bcd0124dd84f
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d81c299e50b7f14689115995353d1dcf6ffc51f8
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    Fixing a typo
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 1d154540807a566cb42585f8edf663cbdc7dd655
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    adding a word2vec embedding for all tokens (not only identifiers and literals)
+
+ token_to_vector_all_tokens.json | 2021618 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 2021618 insertions(+)
+
+commit ce20ff08f05a88da5fd317efa3ae00d785bd8e44
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    Removing old command line options that are not supported anymore.
+
+ javascript/extractFromJS.js | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+commit 6902e4a9bed042027ca0da1c4a46d385eec46a45
+Author: Dr. Shahin Rostami <srostami@bournemoouth.ac.uk>
+
+    extractFromJS.js now supports Windows and UNIX systems
+
+ javascript/extractFromJS.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 39194a5cc8de4820e841f1c7c50772a5e8bd4b8c
+Merge: ce20ff0 6902e4a
+Author: Michael Pradel <michael@binaervarianz.de>
+
+    Merge pull request #9 from shahinrostami/master
