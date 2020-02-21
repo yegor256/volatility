@@ -144,9 +144,11 @@ def parse(input):
     line = ''
     num = 1
     pos1 = find_next_commit(0, input)
-    logging.info('Commit: {}'.format(num))
+    if pos1 >= 0:
+        logging.info('Commit: {}'.format(num))
     num = num + 1
-
+    with open("out.txt","w+") as f:
+        f.write(input)
     while(pos1 < len(input) and pos1 >= 0):
         pos2 = input.find('|', pos1)
         pos3 = input.find('\n', pos1)
