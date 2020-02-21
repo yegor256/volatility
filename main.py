@@ -151,7 +151,7 @@ def parse(input):
         pos2 = input.find('|', pos1)
         pos3 = input.find('\n', pos1)
         line = input[pos1:pos3]
-        if 'changed,' in line or 'commit' in line:
+        if 'changed,' in line or line[0:6] == 'commit':
             if input.find('commit', pos1+1) > 0:
                 pos1 = find_next_commit(pos1, input)
                 logging.info('Commit: {}'.format(num))
