@@ -1,0 +1,4249 @@
+commit e138806403c1b81f67a07005f75d3c97c4522034
+Author: Sumit Chachra <sumit@tivix.com>
+
+    Initial commit
+
+ .gitignore | 54 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LICENSE    | 21 +++++++++++++++++++++
+ README.md  |  2 ++
+ 3 files changed, 77 insertions(+)
+
+commit e1c577d4fd0b06aa701889b93b498c54583bc516
+Author: Sumit Chachra <sumit@tivix.com>
+
+    First commit.
+
+ rest_auth/__init__.py    |   0
+ rest_auth/admin.py       |   3 +++
+ rest_auth/models.py      |   3 +++
+ rest_auth/serializers.py | 118 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests.org.py   | 267 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests.py       | 148 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/urls.py        |  29 +++++++++++++++++++++++++++++
+ rest_auth/utils.py       |  42 ++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/views.py       | 357 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 9 files changed, 967 insertions(+)
+
+commit 93a3de57ff6bd71e551b462447dab960ed109844
+Author: Silin Na <n1207n@gmail.com>
+
+    Created AUTHORS, MANIFEST.in, and setup.py.
+    + Revised README.md.
+    + AutoPEP8 rest_auth python files.
+
+ AUTHORS                  |   1 +
+ MANIFEST.in              |   4 ++++
+ README.md                | 115 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ rest_auth/serializers.py |  12 +++++++++++-
+ rest_auth/tests.org.py   |  75 +++++++++++++++++++++++++++++++++++++++++++++++++++------------------------
+ rest_auth/tests.py       |  22 ++++++++++++++--------
+ rest_auth/urls.py        |  40 +++++++++++++++++++++++-----------------
+ rest_auth/utils.py       |   1 +
+ rest_auth/views.py       |  15 +++++++++++----
+ setup.py                 |  46 ++++++++++++++++++++++++++++++++++++++++++++++
+ 10 files changed, 276 insertions(+), 55 deletions(-)
+
+commit 5a9f5afc3613901de8925a63ca4fb585a69509d1
+Author: Silin Na <n1207n@gmail.com>
+
+    Removed django-rest-swagger from required library. It's only for dev.
+
+ README.md | 2 --
+ setup.py  | 1 -
+ 2 files changed, 3 deletions(-)
+
+commit e19377e0933c704ceb707b377f094100b5f87a27
+Author: Silin Na <n1207n@gmail.com>
+
+    revised README.md.
+
+ README.md | 91 ++++++++++++++++++++++++++++++-------------------------------------------------------------
+ 1 file changed, 30 insertions(+), 61 deletions(-)
+
+commit 4db59642d50045b52d960b5678da0fd6d55aac46
+Author: Silin Na <n1207n@gmail.com>
+
+    Explicitly stated POST parameters for user API endpoint in README.md
+
+ README.md | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+commit 60a0dc8f5499c330c1a2e5b4ab38e2d9b2080338
+Author: Silin Na <n1207n@gmail.com>
+
+    Changed user API endpoint contents in README.md
+
+ README.md | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit c0da444b065d56d83c40df4d394a01798477f6a6
+Author: Silin Na <n1207n@gmail.com>
+
+    Changed ul markdown elements in README.md.
+
+ README.md | 70 +++++++++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 37 insertions(+), 33 deletions(-)
+
+commit 4be5debc5f71070a68db06cffce9e2a58c2a93b2
+Author: Silin Na <n1207n@gmail.com>
+
+    Added urlpattern steps in Installation and changed rest_accounts to rest-auth in README.md
+
+ README.md | 25 ++++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
+
+commit 2bde528074d7e524a8cba732ed4ec86902bcaf95
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    test cleanup
+
+ rest_auth/tests.org.py | 294 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ rest_auth/tests.py     | 124 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ 2 files changed, 115 insertions(+), 303 deletions(-)
+
+commit 9289f135078716c5d60033b8364c1c8dcced743f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add .travis.yml
+
+ .travis.yml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 5ba22d41931f4405fe08020a965420ffb298dea6
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    travis-ci tests trigger
+
+ rest_auth/tests.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 943136269404e9704c19e5100be1688273848793
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    .travis.yml update
+
+ .travis.yml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 1c8d2f6d569486dfd0d6a503376107d553912af4
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    create test_settings
+
+ .travis.yml                |  4 ++--
+ rest_auth/test_settings.py | 17 +++++++++++++++++
+ 2 files changed, 19 insertions(+), 2 deletions(-)
+
+commit 53860acdeb8dd538caa3210945b1f854d87b04cd
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update test_settings
+
+ rest_auth/test_settings.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2faaa3d5c5deb285610524d8a419bc6cfedcaa68
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update test_settings
+
+ rest_auth/test_settings.py | 42 ++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests.py         | 12 ++++--------
+ 2 files changed, 46 insertions(+), 8 deletions(-)
+
+commit 02b1f3aa20530210a5b6a71e61c6c9bd03e1a720
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make 'python setup.py test' working
+
+ rest_auth/test_settings.py | 20 +++++---------------
+ rest_auth/tests.py         | 47 +++++++++++++++++++++++++++++++++++++++++++++--
+ rest_auth/urls.py          |  2 +-
+ setup.py                   |  2 +-
+ 4 files changed, 52 insertions(+), 19 deletions(-)
+
+commit e32e125a650288a698f07d4e21082572d082216e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    missed file
+
+ rest_auth/runtests.py | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit d2f926170399c2aa11cd4dfc480354f53fd4b6c6
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update test_settings
+
+ rest_auth/test_settings.py | 21 ++++++++++-----------
+ 1 file changed, 10 insertions(+), 11 deletions(-)
+
+commit 7e24165c828a64389d593c63299df4ff22dcb881
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    disable swagger docs for tests
+
+ rest_auth/urls.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 11cca48391892ef22fc22a4f23a5cbab9676d1bd
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make compatible with django 1.5
+
+ rest_auth/views.py | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+commit 6e86871f58a70f0bf3711ea6bb9fa3486945933a
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Update README.md
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 1cf6052a31657ffabe6d8a8fb3681bef4a8c3bbe
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    move definition of registration view and user profile model to runtest script
+
+ rest_auth/runtests.py | 42 ++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests.py    | 38 --------------------------------------
+ 2 files changed, 42 insertions(+), 38 deletions(-)
+
+commit d33bbc80218bb81b96b67844c74bf93451eb0cfe
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    enhancements in PasswordResetConfirm and Register views
+
+ rest_auth/serializers.py | 4 ++++
+ rest_auth/views.py       | 7 +++++--
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+commit 6993e98282b7c3b7260b1f3f2597d17d0c0f4d3c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    test for password reset process
+
+ rest_auth/runtests.py      |  7 +++++++
+ rest_auth/test_settings.py |  2 +-
+ rest_auth/tests.py         | 57 +++++++++++++++++++++++++++++++++++++++++++++++++++------
+ rest_auth/urls.py          |  6 +++++-
+ rest_auth/views.py         | 11 ++++++-----
+ 5 files changed, 70 insertions(+), 13 deletions(-)
+
+commit 1d9379c43b9317c234da060b3f33e53ea86be30f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    remove unnecessary settings from tests
+
+ .travis.yml        | 4 ++--
+ rest_auth/tests.py | 8 --------
+ 2 files changed, 2 insertions(+), 10 deletions(-)
+
+commit 6fe14dacd7fd639fdacf9a04acf6a5ac4465896e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version change
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7ba7ca0b815b5d4b0ca4ceae2d4951957dbf258c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    integration with coveralls
+
+ .travis.yml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit d8fc8bb240a3704970a010decf14de7c72431a05
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    change script section in travis.yml
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit caf6aaf843806f586369b2b8b9afac22bf00d4f3
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 782589046207ce19b4f0d8a78d2c279ddc1959ac
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 44e0f33b25e56434bc28038ca6336e5b0a9d4217
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make IS_TEST not required, enhancement in Login view
+
+ rest_auth/urls.py  | 9 +--------
+ rest_auth/views.py | 6 ++++--
+ 2 files changed, 5 insertions(+), 10 deletions(-)
+
+commit 217b413ba3376d1cba00c93a051d5c6ba736afe1
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.2.1
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0a1d2393741d1522bf96cd10a0f905a98acc49a3
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    v0.2.2: support projects without user profiles and set defaul registration backend
+
+ rest_auth/serializers.py | 82 ++++++++++++++++++++++++++++++++++++++++++++++------------------------------------
+ rest_auth/views.py       | 18 +++++++++++++-----
+ setup.py                 |  2 +-
+ 3 files changed, 60 insertions(+), 42 deletions(-)
+
+commit 445c211ebe38f8797434304275ee1bf30d274cc0
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make UserProfile fully optional; version 0.2.3
+
+ rest_auth/runtests.py    |  12 ++++--------
+ rest_auth/serializers.py |  81 ++++++++++++++++++++++++++++++++++++++++++++++++---------------------------------
+ rest_auth/tests.py       | 179 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------------------------------
+ rest_auth/views.py       |  82 +++++++++++++++++++++++++++++++++++++++++++++-------------------------------------
+ setup.py                 |   2 +-
+ 5 files changed, 231 insertions(+), 125 deletions(-)
+
+commit ee1aedbe2359d9af5c0f9d3f583914fe19337a9c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add serializer_class attribute to UserDetails view
+
+ rest_auth/serializers.py | 6 +++---
+ rest_auth/views.py       | 5 +++++
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+commit bf9d44b74424ec3dd54daabcfbb9dd9898bdabfd
+Author: Joseph Toles <jbtoles@gmail.com>
+
+    Fixed typo in README code
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 17aecc3a0257bcc1b2d08269d7c862714918ef15
+Merge: ee1aedb bf9d44b
+Author: Sumit Chachra <sumit@tivix.com>
+
+    Merge pull request #8 from josephtoles/master
+
+commit 5fccb820ffb2db856a4e8157af3bfe0c9d83e70d
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update README and travis config
+
+ .travis.yml | 4 ++--
+ README.md   | 6 +++++-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+commit c863cfb0e6b3a76d96ab112643bf2b1f064448ef
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    move PasswordResetForm as an attribute of PasswordReset view class
+
+ rest_auth/views.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit dc63dd45413a629866621ec98885f827fe57dab1
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    v0.2.4
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4c611afd7f2965885f1a3ebf660761da0e698999
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add REST_SESSION_LOGIN setting, v0.2.5
+
+ rest_auth/views.py | 6 ++----
+ setup.py           | 2 +-
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
+commit 640ce1b9709dac1828bb0f1fc90a696340c31d5c
+Author: Mateusz Sikora <mateusz.sikora@tivix.com>
+
+    Update README.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f14b3b03f716f36d054abbe3fa8432ecddb5fd6d
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    django-registration replacement
+
+ rest_auth/registration/__init__.py    |   0
+ rest_auth/registration/serializers.py |  17 +++++++++++++++++
+ rest_auth/registration/urls.py        |  10 ++++++++++
+ rest_auth/registration/views.py       |  44 ++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/runtests.py                 |  48 +++---------------------------------------------
+ rest_auth/serializers.py              |  11 -----------
+ rest_auth/test_settings.py            |   8 ++++++--
+ rest_auth/tests.py                    | 108 ++++++++++++++----------------------------------------------------------------------------------------------
+ rest_auth/urls.py                     |  13 ++++++-------
+ rest_auth/views.py                    |  99 ++-------------------------------------------------------------------------------------------------
+ setup.py                              |   2 +-
+ 11 files changed, 103 insertions(+), 257 deletions(-)
+
+commit de1fb3d81f907f6a487041efc0910593d9543b05
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    registration with email verification:
+    - rebuild login view
+    - check email verification in LoginSerializer depends on allauth settings
+    - add test for registration with email verification
+
+ rest_auth/registration/urls.py |  7 +++++++
+ rest_auth/serializers.py       | 18 +++++++++++++++---
+ rest_auth/tests.py             | 45 ++++++++++++++++++++++++++++++++++++++++-----
+ rest_auth/urls.py              |  7 ++++++-
+ rest_auth/views.py             | 33 +++++++++++----------------------
+ 5 files changed, 79 insertions(+), 31 deletions(-)
+
+commit 08fcca9b48b33626e9aa0c8d76c5e11d7cd2c64e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    veirfy email view and test
+
+ rest_auth/registration/urls.py  |  3 +--
+ rest_auth/registration/views.py | 13 ++++++++++---
+ rest_auth/tests.py              | 19 ++++++++++++++++---
+ 3 files changed, 27 insertions(+), 8 deletions(-)
+
+commit 65b5caa3d0e9163618c91bec839d362fd9b268da
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    typo
+
+ rest_auth/tests.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 459d03e30d2399fd17a55882f20a0fc53851423f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    revised user details view
+
+ rest_auth/serializers.py | 98 +++-----------------------------------------------------------------------------------------------
+ rest_auth/tests.py       |  2 +-
+ rest_auth/views.py       | 91 +++++++++++++++++++++++++++++--------------------------------------------------------------
+ 3 files changed, 33 insertions(+), 158 deletions(-)
+
+commit 61cafa3cb617f89104b5018b97b1825d8c6585a1
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix tests for djnago 1.5
+
+ rest_auth/tests.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 34d3627c7c4081c51dba9374f7c960c400c0e481
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    remove unused serializers.py form registration app
+
+ rest_auth/registration/serializers.py | 17 -----------------
+ 1 file changed, 17 deletions(-)
+
+commit ff9fd1c3c1440c7f05c03eb42094079bb6717f16
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    cleanup tests
+
+ rest_auth/tests.py | 75 +++++++++++++++++++++++++++++++--------------------------------------------
+ rest_auth/views.py | 11 +----------
+ 2 files changed, 32 insertions(+), 54 deletions(-)
+
+commit d4bc3a29c7736220dd764b8d528f104f6cfb0ca3
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add django 1.7 and python 3.4 to travis.yml
+
+ .travis.yml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit f0cd45f7be2c21fabad0c2ce52b857347d5dda90
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix tests for django 1.7
+
+ rest_auth/runtests.py      |  5 ++++-
+ rest_auth/test_settings.py | 12 ++++++++++++
+ rest_auth/tests.py         |  8 ++++----
+ 3 files changed, 20 insertions(+), 5 deletions(-)
+
+commit ad1d18936766dab57b513944a30bce1239786aec
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update travis config file
+
+ .travis.yml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 85688940dfb2caf672af348bed987b7bd2f4e678
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    create base view and serializer for social authentication
+
+ rest_auth/registration/serializers.py | 43 +++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/registration/views.py       | 15 +++++++++++++++
+ rest_auth/views.py                    |  6 ++++--
+ 3 files changed, 62 insertions(+), 2 deletions(-)
+
+commit a7be2d178b8dc7252eca52af06c1dacb14b95e92
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    password reset and password change refactoring
+
+ rest_auth/serializers.py |  94 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ rest_auth/tests.py       |   9 +++++----
+ rest_auth/urls.py        |   2 +-
+ rest_auth/views.py       | 125 ++++++++++++++++++++++++-----------------------------------------------------------------------------------------------------
+ 4 files changed, 115 insertions(+), 115 deletions(-)
+
+commit f134d8b1d610cb5326a1a92bdc3e72355614c6b2
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    remove unused utils.py
+
+ rest_auth/utils.py | 43 -------------------------------------------
+ 1 file changed, 43 deletions(-)
+
+commit 40880817077efeffc6b2f7f95ad758ecca2d9308
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add social medial authentication tests, separate test urls
+
+ rest_auth/test_settings.py | 14 ++++++++++++++
+ rest_auth/test_urls.py     | 22 ++++++++++++++++++++++
+ rest_auth/tests.py         | 48 +++++++++++++++++++++++++++++++++++++++++++++++-
+ rest_auth/urls.py          | 50 ++++++++++++++++----------------------------------
+ setup.py                   |  1 +
+ 5 files changed, 100 insertions(+), 35 deletions(-)
+
+commit 489bac6e1f7eb24da5004bffd0fd7a54fc445f16
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    comment out unused part of code in tests
+
+ rest_auth/tests.py | 60 ++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 28 insertions(+), 32 deletions(-)
+
+commit 2b5942c4acbe0aa2210b4e4a787235f678570280
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    custom serializers settings
+
+ rest_auth/app_settings.py | 41 +++++++++++++++++++++++++++++++++++++++++
+ rest_auth/views.py        |  2 +-
+ 2 files changed, 42 insertions(+), 1 deletion(-)
+
+commit 6ecb6a784723048dbdc36082ffecee284f49c10e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix setting name
+
+ rest_auth/app_settings.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 989f3fa7af85cb30784fc7b215def318526a4567
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    minor fixes
+
+ .gitignore                            |  1 +
+ rest_auth/app_settings.py             |  2 +-
+ rest_auth/registration/serializers.py |  4 ++--
+ rest_auth/serializers.py              |  4 +---
+ rest_auth/utils.py                    | 11 +++++++++++
+ 5 files changed, 16 insertions(+), 6 deletions(-)
+
+commit 4c9abe80436b1a3b3e49845af475153604febe0e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    move django-allauth and responses from setup.py to test_requirements.pip
+
+ .travis.yml           | 1 +
+ setup.py              | 4 +---
+ test_requirements.pip | 2 ++
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+
+commit 43257ec308d823f2821f88219b4642e0adac3e20
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix travis config file
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0ac575e603caf84eef01402df33c90fe48789e88
+Merge: 640ce1b 43257ec
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #12 from Tivix/develop
+
+commit cf19e58dc8cb510c74dd5361dca154bafc57c577
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    draft version of documentation
+
+ docs/Makefile          | 177 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ docs/api_endpoints.rst |  43 +++++++++++++++++++++++++++++++++++++++++++
+ docs/changelog.rst     |   2 ++
+ docs/conf.py           | 258 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ docs/configuration.rst |  32 ++++++++++++++++++++++++++++++++
+ docs/index.rst         |  28 ++++++++++++++++++++++++++++
+ docs/installation.rst  | 106 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ docs/introduction.rst  |  20 ++++++++++++++++++++
+ docs/make.bat          | 242 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 9 files changed, 908 insertions(+)
+
+commit 478d10017cac7a521c9c22307dd04a7df105bd42
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update documentation
+
+ docs/api_endpoints.rst | 48 ++++++++++++++++++++++++++++++++++++++++--------
+ docs/changelog.rst     | 16 +++++++++++++++-
+ docs/configuration.rst |  1 -
+ docs/index.rst         |  9 ---------
+ docs/installation.rst  |  9 +--------
+ 5 files changed, 56 insertions(+), 27 deletions(-)
+
+commit 7ed1388b3bb118ad1735540cd04a50f46e6fb273
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add warning about backward incompatibility
+
+ docs/index.rst | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 41a0688b04cbdd3ccaa49819192b7b5ab61dd916
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update configuration doc
+
+ docs/configuration.rst | 36 +++++++++++++++++++-----------------
+ 1 file changed, 19 insertions(+), 17 deletions(-)
+
+commit 9515eb4ff5627a4eb47c651b4a18a5d34caac8d1
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update installation doc
+
+ docs/installation.rst | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+commit 4c6aca298e37043ef64122e9467d942ef0699d4a
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add badges
+
+ docs/index.rst | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+commit 7b85f6e45ac1ba3da2da111ca49d3f0bd726d4b4
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update doc
+
+ docs/installation.rst | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+commit f066a22a8096672211267d3c11b2d105123aff1d
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update README.md
+
+ README.md | 105 +++++----------------------------------------------------------------------------------------------------
+ 1 file changed, 5 insertions(+), 100 deletions(-)
+
+commit af41a28cf7a3801862077cec8b671a28c1e97d85
+Merge: 7b85f6e f066a22
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'develop' of github.com:Tivix/django-rest-auth into develop
+
+commit c6a5b198cc421d84e79c2640f1618540b2fd0821
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update README
+
+ README.md | 30 ++++++++++++++++++++++++++----
+ setup.py  |  2 +-
+ 2 files changed, 27 insertions(+), 5 deletions(-)
+
+commit 58e1f70e03b5e59611b25f2b3163fba4422ea0b1
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    change README extension
+
+ README.md => README.rst | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 034f9f6633c7a9f1a94ec2206f659afa565338fc
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    change README.md to README.rst in setup.py
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit de10f2c75a9e16403a034c417144f3c26fd89439
+Merge: 7b85f6e 034f9f6
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #14 from Tivix/develop
+
+commit 102fcedc82e0cbf4b3550f0d5e2fbb9e4c89082c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    move some test files outside app
+
+ rest_auth/registration/urls.py                 | 12 +++++++++++-
+ rest_auth/test_urls.py                         |  6 +++---
+ rest_auth/runtests.py => runtests.py           |  0
+ setup.py                                       |  2 +-
+ rest_auth/test_settings.py => test_settings.py |  0
+ 5 files changed, 15 insertions(+), 5 deletions(-)
+
+commit 5bd8842c4b9729a9e1528e7932a0380edeea94a0
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    draft demo project
+
+ demo/db.sqlite3          | Bin 0 -> 167936 bytes
+ demo/demo/__init__.py    |   0
+ demo/demo/settings.py    | 100 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ demo/demo/urls.py        |  12 ++++++++++++
+ demo/demo/wsgi.py        |  14 ++++++++++++++
+ demo/manage.py           |  10 ++++++++++
+ demo/templates/home.html | 120 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 7 files changed, 256 insertions(+)
+
+commit 5fd7ea5596b302dd0c8b33213eb2eed37d7f474d
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update demo project - still not finished
+
+ demo/db.sqlite3                                           | Bin 167936 -> 172032 bytes
+ demo/demo/settings.py                                     |   7 +++++++
+ demo/demo/urls.py                                         |  11 +++++++++--
+ demo/templates/base.html                                  |  96 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ demo/templates/email_verification.html                    |   9 +++++++++
+ demo/templates/fragments/email_verification_form.html     |  17 +++++++++++++++++
+ demo/templates/fragments/login_form.html                  |  24 ++++++++++++++++++++++++
+ demo/templates/fragments/password_reset_confirm_form.html |  38 ++++++++++++++++++++++++++++++++++++++
+ demo/templates/fragments/password_reset_form.html         |  16 ++++++++++++++++
+ demo/templates/fragments/signup_form.html                 |  38 ++++++++++++++++++++++++++++++++++++++
+ demo/templates/home.html                                  | 129 +++++++++------------------------------------------------------------------------------------------------------------------------
+ demo/templates/login.html                                 |   8 ++++++++
+ demo/templates/password_reset.html                        |   8 ++++++++
+ demo/templates/password_reset_confirm.html                |   8 ++++++++
+ demo/templates/signup.html                                |  23 +++++++++++++++++++++++
+ docs/api_endpoints.rst                                    |   2 +-
+ rest_auth/registration/urls.py                            |   2 +-
+ 17 files changed, 312 insertions(+), 124 deletions(-)
+
+commit aac42af9918134117701563f6eb31a6d10aea07c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix tests
+
+ rest_auth/tests.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 81a96cfe19b40dda27ff5cc7e8e7d3b41d3d9412
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    final versio of demo project
+
+ .gitignore                                                |   1 +
+ demo/db.sqlite3                                           | Bin 172032 -> 0 bytes
+ demo/demo/urls.py                                         |  26 ++++++++++++++++++++++----
+ demo/templates/base.html                                  |  18 +++++++++---------
+ demo/templates/email_verification.html                    |   1 -
+ demo/templates/fragments/email_verification_form.html     |   3 ++-
+ demo/templates/fragments/login_form.html                  |   2 +-
+ demo/templates/fragments/password_change_form.html        |  25 +++++++++++++++++++++++++
+ demo/templates/fragments/password_reset_confirm_form.html |  20 +++++++++++---------
+ demo/templates/fragments/password_reset_form.html         |   2 +-
+ demo/templates/fragments/signup_form.html                 |   2 +-
+ demo/templates/fragments/user_details_form.html           |  39 +++++++++++++++++++++++++++++++++++++++
+ demo/templates/password_change.html                       |  39 +++++++++++++++++++++++++++++++++++++++
+ demo/templates/password_reset_confirm.html                |  18 ++++++++++++++++++
+ demo/templates/signup.html                                |  15 ---------------
+ demo/templates/user_details.html                          |  58 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 16 files changed, 227 insertions(+), 42 deletions(-)
+
+commit 28da4dc7c876fb7d8749ef31ff6b8847d8f71c78
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add requirements in demo, update doc
+
+ demo/requirements.pip |  3 +++
+ docs/demo.rst         | 15 +++++++++++++++
+ docs/index.rst        |  1 +
+ 3 files changed, 19 insertions(+)
+
+commit 6e76b2e3ee3c84dd52ffeadbd1747bed03b8a9bc
+Merge: 102fced 28da4dc
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #17 from Tivix/develop
+
+commit 87a8e5865a48ce30b3a3bbecaadefbbd4869d9ba
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update demo doc
+
+ docs/demo.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 81f435125bd274e7786cf9e019a768dd1cafc9d3
+Author: Mikkel Madsen <m@madsn.net>
+
+    Fix app_settings import
+
+ rest_auth/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7332c9fb43d7e58f1403b2468393d7130be436b7
+Merge: 87a8e58 81f4351
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #18 from Madsn/patch-1
+
+commit ef3551fc4748a6cd0e7f8c6c95dddd3aa3cb0ad8
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5825fae04805eed74ae0f1a3263382644fae774a
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    define permission classes inside views
+
+ rest_auth/views.py | 28 ++++++++++++----------------
+ 1 file changed, 12 insertions(+), 16 deletions(-)
+
+commit 644c4d28e1b2cc3b67d27c727db2a6f87cbbf6a9
+Merge: 5825fae ef3551f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit be6b65dc555e7c4f3e262efda541fc1d1120808c
+Author: Marc Tudurí marctc@gmail.com <mtuduri@apsl.net>
+
+    modified utils.py in order to work properly with python2 and python3
+
+ rest_auth/utils.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 1732b150412f8e1a651bc8c9e29d5ebb14fa0a60
+Merge: 644c4d2 be6b65d
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #28 from APSL/master
+
+commit bbc9eeee3aab3a99a18e1b32c1c78c70086f94be
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make registration API browsable
+
+ rest_auth/registration/views.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 059b0dcbab287514d4d40d4c7c0fe5876d950bab
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    make all endpoints browsable
+
+ docs/api_endpoints.rst          |  2 +-
+ rest_auth/registration/views.py |  4 ++++
+ rest_auth/views.py              | 10 ++--------
+ 3 files changed, 7 insertions(+), 9 deletions(-)
+
+commit 0fc4d56dae860be87809d8c9368f7cae28e14a44
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add FAQ section in docs
+
+ docs/demo.rst                  |  4 +++-
+ docs/faq.rst                   | 17 +++++++++++++++++
+ docs/index.rst                 |  1 +
+ docs/introduction.rst          | 14 ++++++++++++++
+ rest_auth/registration/urls.py |  4 +---
+ 5 files changed, 36 insertions(+), 4 deletions(-)
+
+commit e8a7b0bdf4472067048088b8b7e92d1e22190fde
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add old_password field in PasswordChangeSerializer, disabled by default
+
+ rest_auth/app_settings.py |  2 --
+ rest_auth/serializers.py  | 21 +++++++++++++++++++--
+ rest_auth/tests.py        | 34 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 53 insertions(+), 4 deletions(-)
+
+commit 86eb741b3468f2c471138a5de2a338bac936495b
+Merge: 1732b15 e8a7b0b
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #30 from Tivix/develop
+
+commit 1b46c3625d5859ed9e310b699da34daf4003c693
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.3.1
+
+ docs/changelog.rst     | 8 ++++++++
+ docs/configuration.rst | 3 +++
+ setup.py               | 2 +-
+ 3 files changed, 12 insertions(+), 1 deletion(-)
+
+commit 986dcd12c093a5eaa5ba13f4483bad984c9801e6
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update demo requirements
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7b7e2d368b69f0eb6f134a955714597189ac02ed
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix bug in PasswordChangeSerializer
+
+ rest_auth/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 064d49fdef6099cecb86c34311b7f256fb6349ae
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    add missed requirement in setup.py
+
+ setup.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 6ef91310606d0ed265594d2727d51255bda5a401
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update install_requires in setup.py
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6be73fd381f1562e72ffa258f4cc27adfed9a541
+Author: Jonathan Batchelor <jmb@users.noreply.github.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 3c5a705dd2aa379ef4cd1fd80338fd88c863f505
+Merge: 6ef9131 6be73fd
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #34 from jmb/patch-1
+
+commit 96002275e522b364c13dcca539e39705e8a6c1ef
+Author: Jonathan Batchelor <jmb@thebatchelors.net>
+
+    Some fixes for the demo app
+
+ demo/demo/settings.py                                 | 8 ++++++++
+ demo/demo/urls.py                                     | 1 +
+ demo/templates/fragments/email_verification_form.html | 2 +-
+ 3 files changed, 10 insertions(+), 1 deletion(-)
+
+commit 72a3ee95ae46e0c084cf7d63727e46efa8f7cb4c
+Merge: 9600227 3c5a705
+Author: Jonathan Batchelor <jmb@thebatchelors.net>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth into demo-fixes
+
+commit b66563d7033f3d745859d28612641e46a090338c
+Author: Jonathan Batchelor <jmb@thebatchelors.net>
+
+    Fixed authentication backend settings for demo
+
+ demo/demo/settings.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ec8b5af3e749c698aba52010800cedae9906c9d2
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.3.2
+
+ docs/changelog.rst | 5 +++++
+ docs/index.rst     | 2 ++
+ setup.py           | 2 +-
+ 3 files changed, 8 insertions(+), 1 deletion(-)
+
+commit 802de89ed7e2be2be0528e734ffe2c2b1c0d4a6a
+Merge: ec8b5af 3c5a705
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit b2d5c221c7993b61d86fe0200831929618042dc2
+Author: Marc <mtuduri@apsl.net>
+
+    Support for custom UserDetailsSerializer on Register view
+
+ rest_auth/registration/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fbb0ba773232fc02d60cfc2c06ac2b5ec5972d81
+Merge: 802de89 b66563d
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #35 from jmb/demo-fixes
+
+commit ed32f907d99a8298b1257d155bb98d28456a7be1
+Merge: fbb0ba7 b2d5c22
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #39 from APSL/master
+
+commit 5d53a0e0a08912ce5270e4bd4c7ac2131522adb0
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix unit tests for social auth - required after changes in allauth v0.19.0
+
+ rest_auth/tests.py | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit e9fee3aa92beebfee3774aa906e7db3942c78583
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Support custom UserDetailsSerializer for registration
+
+ rest_auth/registration/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 01ffd4127b8575cea58b1007a0afb79a3a8cde0f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    support django-rest-framework v3.0
+
+ rest_auth/registration/serializers.py |  7 +++----
+ rest_auth/serializers.py              | 18 +++++++++---------
+ rest_auth/views.py                    |  3 ++-
+ setup.py                              |  4 ++--
+ test_requirements.pip                 |  4 ++--
+ 5 files changed, 18 insertions(+), 18 deletions(-)
+
+commit 7c1fe6fd94571d041877e4e7f73299d172558ea7
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    upgrade demo requirements
+
+ demo/requirements.pip | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit ee8f620e833a927afaadd1f4e4f40f9b5da3a6aa
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.3.3
+
+ docs/changelog.rst | 5 +++++
+ docs/index.rst     | 2 +-
+ setup.py           | 2 +-
+ 3 files changed, 7 insertions(+), 2 deletions(-)
+
+commit ee263cd0034fa0937837f893c1218df913ef4e38
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    udpate DRA version in demo
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 199a4989c59ecd0c698ab3b26828f46be5746e48
+Author: Lele Long <schemacs@gmail.com>
+
+    Adjust for djangorestframework 3
+
+ rest_auth/registration/views.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 43eba15d2bb33a19b2c70155685216563f762ecd
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 60c0f949f4c3d572a442f709cb54d94034eea8e7
+Merge: 43eba15 199a498
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #46 from schemacs/dev
+
+commit 2158fffd2acbf625321227ec0e7bc449d94d5727
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix #47 - PasswordResetConfirm doesn't check token
+
+ rest_auth/serializers.py |  8 ++++----
+ rest_auth/tests.py       | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 34 insertions(+), 4 deletions(-)
+
+commit 3ad70291149a0a3e1018463cefefac07bf8c969e
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.3.4
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 5 +++++
+ docs/index.rst        | 2 +-
+ setup.py              | 2 +-
+ 4 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 65770d2915ba529cf4a047b462ac96a549cd2b64
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dc809a9a2c691ca2101bbbf59eadd90f42e8a3d8
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update FAQ section in docs
+
+ docs/faq.rst | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
+
+commit 03f5d398f9836ba278cd86ae7ecd67c0cf7106c6
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update requirements in demo app
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 200dad30fb4df3d350fbccddae9055646e9bc865
+Merge: 03f5d39 65770d2
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit 846040259a12a43d732c29c3c163951b364b06fd
+Author: Jeppe Vesterbæk <jeppe@apptitude.dk>
+
+    Mark email as read only for user details
+
+ rest_auth/serializers.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit c615cd94aab87cd7d6bea4a5b2d6c611a6913d2b
+Author: Jeppe Vesterbæk <jeppe@apptitude.dk>
+
+    DRF 3 bug: get HttpRequest from DRF request object. Similar to issue #43
+
+ rest_auth/registration/serializers.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit b2316f7de7e5a31c68dacc2f4d6c78e4f1151b3f
+Merge: 200dad3 8460402
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #54 from vesterbaek/readonly_email
+
+commit e8ac019b4c5394522ba5b5894908764c0b0929de
+Merge: b2316f7 c615cd9
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #55 from vesterbaek/fix_drf_request
+
+commit 4e24b2a842462d7a51081b68d67e7884670fb9ed
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8182a33c6660c01dce5f32eeedf71f4d23328651
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    #23 - add test case to cover solcial auth for existing user
+
+ rest_auth/test_urls.py |  3 ++-
+ rest_auth/tests.py     | 92 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------------------
+ rest_auth/views.py     |  1 -
+ 3 files changed, 75 insertions(+), 21 deletions(-)
+
+commit cf780c3ebdb29edce5f2dded23fe30ab011004f3
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fe1eff745e97fd03fecc19db5c22763ca348bff0
+Author: S.Turgut <safaktrgt@gmail.com>
+
+    change PasswordResetConfirmSerializer setpasswordform from token invalid value error to form validation error
+
+ rest_auth/serializers.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 6c69d7eeda2b26b525164e98d435c7d7b40fe77c
+Author: Skyler Berg <skylertheberg@gmail.com>
+
+    Fix missing comma in installation settings documentation
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 926589ac1d9fa1fd7ce8745b41163472398b1a1a
+Merge: cf780c3 6c69d7e
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #59 from skylerberg/missing-comma
+
+commit 3e7d72a4a8939b6a23eb6c4f76b77ca37b816a51
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c152b3995131e786afe56cb06832bdc59bbb3eb5
+Author: Dragoș Alin Rotaru <r.dragos0@gmail.com>
+
+    Update installation.rst
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dddde2d6180e72ff416d71fdedd74ebe63a7169b
+Merge: 3e7d72a c152b39
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #65 from rdragos/patch-1
+
+commit 0a98594a11a4c227176b5dca29eb5ecd2b4785d1
+Author: mjaworski <inferniac@gmail.com>
+
+    Updated gitignore
+
+ .gitignore | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 8d4a227509b65d7615cfe578ea532714a6fd5b7b
+Author: mjaworski <inferniac@gmail.com>
+
+    Added simple redirect to fix #66
+
+ demo/demo/urls.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 32ebd551b35ddaca08945b6fd674b702cbd1a28d
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update .travis.yml
+
+ .travis.yml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit d0c5f0a6d9af58b21285d2bb80974fc48f220560
+Merge: 8d4a227 32ebd55
+Author: mjaworski <inferniac@gmail.com>
+
+    Merge branch 'master' of https://github.com/Tivix/django-rest-auth
+
+commit d4d390e74df52c64729765c2508fe0cdb2d3ef8c
+Merge: d0c5f0a fe1eff7
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #56 from safaktrgt/master
+
+commit bef10740527d09cb5420d8cfab64ae156f56b7fc
+Author: mjaworski <inferniac@gmail.com>
+
+    Replaced references to contrib.auth.model.User with get_user_model(). Closes #68
+
+ rest_auth/tests.py | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
+
+commit e6d56c9e020b30d46cce15ed4b588ed692bdd7c7
+Merge: bef1074 d4d390e
+Author: mjaworski <inferniac@gmail.com>
+
+    Merge branch 'master' of https://github.com/Tivix/django-rest-auth
+
+commit 4e2cb5beafb8e3edc162672f9d41c172918d39f3
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update .travis.yml
+
+ .travis.yml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 6eb0146c2b422cff27b051bd7c91cc5f98f92b64
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Revert "Update .travis.yml"
+
+ .travis.yml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 80a7988a9b5b54288e732f96a3eb8c4a2cb98cb8
+Author: mjaworski <inferniac@gmail.com>
+
+    Django 1.8 compatibility fixes
+
+ .travis.yml                           |   3 +++
+ rest_auth/django_test_urls.py         | 103 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/registration/serializers.py |   2 +-
+ rest_auth/test_urls.py                |   4 ++--
+ rest_auth/tests.py                    |  15 +--------------
+ test_requirements.pip                 |   2 +-
+ 6 files changed, 111 insertions(+), 18 deletions(-)
+
+commit 92ca2e33d66df305de9735de524dd008ec99567e
+Merge: 6eb0146 80a7988
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #75 from Tivix/django-1.8
+
+commit ee55380a6c1e73d37ede7ec992791ab36cc112b4
+Author: Antoine <antoine@opensignal.com>
+
+    Switched to standard import_module as the Django embedded one is deprecated and will be removed in next version
+
+ rest_auth/utils.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit ea782b83e2ad5b831b7e95d6fcba94c875359ad4
+Author: mjaworski <inferniac@gmail.com>
+
+    fixed url conf in example
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f31827d642826e10af47cc9cb57c58f7a2af1ea9
+Merge: ee55380 ea782b8
+Author: Antoine <antoine@opensignal.com>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit 7aa2fdb18cbe4c114ab3bdd39b7825652ed8360f
+Author: Antoine <antoine@opensignal.com>
+
+    Fixed version check
+
+ rest_auth/utils.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 24af3512deabe40c1157c563e9e8073191ee07d4
+Merge: ea782b8 7aa2fdb
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #76 from Antwan86/master
+
+commit 4b9b6317449ef93e218b69df77f016784bb78270
+Author: Marco Badan <badan@pentaonline.it>
+
+    Fix TabError: inconsistent use of tabs and spaces in indentation
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c1f2bb48dd5b4eb83bca2be5d281aa572c698089
+Merge: 24af351 4b9b631
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #81 from itbabu/master
+
+commit 9803d9f941163f4efda31316ae4e415ed6971050
+Author: mjaworski <inferniac@gmail.com>
+
+    adding static code analysis
+
+ .travis.yml                   |  2 ++
+ flake8                        |  4 ++++
+ rest_auth/app_settings.py     | 18 ++++++++++++------
+ rest_auth/django_test_urls.py |  6 ++++--
+ rest_auth/test_urls.py        |  3 ++-
+ rest_auth/urls.py             |  9 ++++++---
+ rest_auth/utils.py            |  1 -
+ test_requirements.pip         |  1 +
+ 8 files changed, 31 insertions(+), 13 deletions(-)
+
+commit ece4c01ada9d5179e7017639e4e49bdedbbcd737
+Merge: 9803d9f c1f2bb4
+Author: mjaworski <inferniac@gmail.com>
+
+    Merge branch 'master' into flake8
+
+commit a60df71c075df1ce0a39be9aeddfbee17a65b207
+Author: mjaworski <inferniac@gmail.com>
+
+    Flake8 style fixes
+
+ rest_auth/registration/serializers.py |   6 ++++--
+ rest_auth/registration/urls.py        |   4 ++--
+ rest_auth/serializers.py              |  25 ++++++++++++++++---------
+ rest_auth/tests.py                    | 106 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------------------------------
+ rest_auth/views.py                    |  34 +++++++++++++++++++++-------------
+ runtests.py                           |   1 +
+ 6 files changed, 119 insertions(+), 57 deletions(-)
+
+commit 14261d69edb463d6a3ec62ad1911ddc2bcdf650c
+Merge: c1f2bb4 a60df71
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #82 from Tivix/flake8
+
+commit d35103755501b88b9d3487aceb0df8d3baf9f173
+Author: mjaworski <inferniac@gmail.com>
+
+    upgrade flake version
+
+ test_requirements.pip | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 86f55483ee92d58b0e97ac86565e26e1d1440217
+Merge: d351037 14261d6
+Author: mjaworski <inferniac@gmail.com>
+
+    merge fix
+
+commit b228791e3b7c0ed34973b0c40d18c0a2fc0f8f26
+Author: mjaworski <inferniac@gmail.com>
+
+    updated version to 0.4.0
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bd97eee65a223d7ade0055d3778678a023d7d866
+Author: mjaworski <inferniac@gmail.com>
+
+    Added changeog notes and updated requirements in demo app
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 4 ++++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit f4160f6577e0e1dc4ee159d3706d47fc485b596d
+Author: Ray Ch <ray1midea@gmail.com>
+
+    Added old password to Password Change
+
+ docs/api_endpoints.rst | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ce81906f59bd56364fcba1bfdaab9e676015965a
+Author: Ray Ch <ray1midea@gmail.com>
+
+    Note for old_password.
+
+ docs/api_endpoints.rst | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit f43a6b8d585b6c1669d7071b2e97670a287ac032
+Author: Nikolay Golub <nikolay.v.golub@gmail.com>
+
+    move SocialAccount population to the separate method in the SocialLoginSerializer.
+
+ rest_auth/registration/serializers.py | 41 +++++++++++++++++++++++++++--------------
+ 1 file changed, 27 insertions(+), 14 deletions(-)
+
+commit a9d2a24011f0ebe1a3b34805da1d051630a876fa
+Author: Nikolay Golub <nikolay.v.golub@gmail.com>
+
+    Make names more consistent
+
+ rest_auth/registration/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit dd3db28325341c085a206d6d02a840b5a897a5fa
+Author: Andy Wong <awong@cogolabs.com>
+
+    replaced request.DATA with request.data for compatibility with DRF 3.2
+
+ rest_auth/registration/views.py |  4 ++--
+ rest_auth/views.py              | 10 +++++-----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+commit 8ea935ef4027500c54f8a4ad2e2efda6dceeb24b
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    conditional import
+
+ rest_auth/registration/serializers.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 74f2ffec7f7207c9651901db9323e3320e9e6b71
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    now also accepting authorization codes from social login (e.g. facebook)
+
+ docs/api_endpoints.rst                |  1 +
+ rest_auth/registration/serializers.py | 42 ++++++++++++++++++++++++++++++++++++++++--
+ rest_auth/registration/views.py       | 38 ++++++++++++++++++++++++++++++++++----
+ 3 files changed, 75 insertions(+), 6 deletions(-)
+
+commit bd193a1401a5e2a243f300d8db8ecca82d6e6621
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    you can now login with email and password, without username
+
+ rest_auth/serializers.py | 61 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 56 insertions(+), 5 deletions(-)
+
+commit 4a3ea85f44f80af12ebd12eafead15680419fd72
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    well, that was an easy cleanup, now it is nice and consistent
+
+ rest_auth/registration/views.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ad9400850371fe8a494acd7be57c9950e0424aa7
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    appending all views with View
+
+ docs/configuration.rst                | 12 ++++++------
+ docs/faq.rst                          |  2 +-
+ docs/installation.rst                 |  6 +++---
+ rest_auth/registration/serializers.py |  2 +-
+ rest_auth/registration/urls.py        |  6 +++---
+ rest_auth/registration/views.py       | 12 ++++++------
+ rest_auth/test_urls.py                |  4 ++--
+ rest_auth/urls.py                     | 16 ++++++++--------
+ rest_auth/views.py                    | 12 ++++++------
+ 9 files changed, 36 insertions(+), 36 deletions(-)
+
+commit 02bf6fbe5bb489acdd43bf64dbb922f21d441a1a
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    bugfix, request.DATA is deprecated, replaced with request.data
+
+ rest_auth/registration/views.py |  4 ++--
+ rest_auth/views.py              | 10 +++++-----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+commit 5a6c8f549be6a97b6a43281fba7852240d4f6bfa
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    bugfix
+
+ rest_auth/registration/serializers.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 7f86c4ce025a041e0cf3635c1d41ee8456025328
+Merge: bd97eee dd3db28
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #94 from alacritythief/master
+
+commit 17398ab363bbf80b51cb1c9c1ccd06bcde01772e
+Author: Serge Mosin <svmosin@gmail.com>
+
+    Update installation.rst
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 64ab8be2f0c0b89f6c38f00e10c2136c6f4ef79f
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    catching incorrect input
+
+ rest_auth/registration/serializers.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit cb27b9fef9d4bf4f8ddff2453343bacc8acce5da
+Merge: 7f86c4c 17398ab
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #97 from Greyvend/patch-1
+
+commit 1b667fa4ab7f68d600aaa67bb8799970434e9e07
+Merge: 7f86c4c 64ab8be
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'development' of https://github.com/philippeluickx/django-rest-auth into philippeluickx-development
+
+commit 388314f831dcfb51b5922028101efda0ffb92861
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix flake8
+
+ rest_auth/registration/serializers.py | 2 +-
+ rest_auth/registration/views.py       | 2 +-
+ rest_auth/serializers.py              | 1 -
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+
+commit f9ef1ff4c5caa69a37390bd6e8067259619708d6
+Merge: 7f86c4c 388314f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'philippeluickx-development'
+
+commit 4d2c302ce2b56e902dadb38272cc04011256b874
+Merge: f9ef1ff cb27b9f
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit 1cdbc95dbb0a647ae1fa9ad04f91bb61409455a3
+Merge: 4d2c302 ce81906
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #85 from iraycd/patch-1
+
+commit 7d23048316c7b68e82b6cf6e554f3519115d9649
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update .travis.yml
+
+ .travis.yml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 3527afccc6d3f3f03bae21151ccdf3b10f4cf758
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Update README.rst
+
+ README.rst | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 4cf33ff9fa6d7c3637b36e725de875168ac4b6b1
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    SocialLoginSerializer allow_blank fix
+
+ rest_auth/registration/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c22b77724db27efb1b9a7ea892b64bcc0e0d9046
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    LoginSerializer allow_blank fix
+
+ rest_auth/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 316d5c42336c9cbb8aa8c08880c4685cfc06510c
+Merge: 3527afc c22b777
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #100 from philippeluickx/master
+
+commit d25df33a7921ca6d4a3d036535528ed9a395cd48
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    version 0.5.0
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 7 +++++++
+ setup.py              | 2 +-
+ 3 files changed, 9 insertions(+), 2 deletions(-)
+
+commit 0ae97701c8934db1860b19e6b34b01e2f59f6d3f
+Author: Nick Spacek <nick.spacek@bluespurs.com>
+
+    Adds check for optional deps in INSTALLED_APPS
+
+ rest_auth/registration/serializers.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 74fa6cdf38b39d9587fdf65072ba472aa8aa7176
+Merge: d25df33 0ae9770
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #107 from nickspacek/fixes-optional-socialaccount
+
+commit 680f24e43d6ba5cf4c713dcda3e8699fb979c066
+Author: mario <mario16@poczta.fm>
+
+    Fix the optional deps for `allauth.socialaccount`
+
+ rest_auth/registration/serializers.py | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit 296a49a04bef305c0a8a62a191c17589979e5908
+Author: Bhaarat Sharma <bhaarat.sharma@aerstone.com>
+
+    Don't log the user out after change password - Django 1.7
+
+ docs/api_endpoints.rst   | 5 +++--
+ docs/configuration.rst   | 2 ++
+ rest_auth/serializers.py | 6 ++++++
+ 3 files changed, 11 insertions(+), 2 deletions(-)
+
+commit 48eb40ae4793dd0b2ef8df95e291f59089d9fa64
+Author: Bhaarat Sharma <bhaarat.sharma@aerstone.com>
+
+    adding not
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6ba1916c48bdfe513ef80df63ab1b96965d15b85
+Merge: 680f24e 48eb40a
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #112 from Aerstone/master
+
+commit ba5edbaf62a3a94169c2be2023438c229561e7e7
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix update_session_auth_hash for django <1.7
+
+ rest_auth/serializers.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 7fbdcff5e03999421e50e2196476cd69e1933284
+Author: Matt d'Entremont <mattdentremont@gmail.com>
+
+    Alter a statement to make it python3 compatible
+
+ rest_auth/tests.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f1858e4ce44bf5fa3b4f880595d7bc1c254cda78
+Author: Karl Fleischmann <fleischmann.karl@gmail.com>
+
+    Bypass AssertionErrors on nested Hyperlinked fields
+
+ rest_auth/registration/views.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 77db2d8d645c70ae2da498ad544484c722ae927c
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    change auth method demo app
+
+ demo/demo/settings.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5afed21ab2b83302dcd92da8ac6a2c6e9391625f
+Merge: 77db2d8 f1858e4
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #119 from fleischie/master
+
+commit 60581fc3750026d7267586a6253a72c420ba573b
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix issue with setting POST attribute in request
+
+ rest_auth/registration/views.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 57a879f6c07da278643b2f3149197bada6e79418
+Merge: 60581fc 5afed21
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    Merge branch 'master' of github.com:Tivix/django-rest-auth
+
+commit 3eaa491fb1424d827782486b5e2089adb8f3d4bc
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    fix flake8
+
+ rest_auth/registration/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 51c7e78c4521cc7544143ed9da500a61f439b0f9
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    disable travis cache
+
+ .travis.yml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8a6e13c1fe2a1f86d06141060c7403175c8c5ca0
+Author: Mateusz Sikora <m.sikora@skytale.pl>
+
+    update travis config
+
+ .travis.yml | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+commit 315f6f2844ec1a6db22875fc84ad400f324fface
+Merge: 8a6e13c 7fbdcff
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #118 from mdentremont/topic/py3-fix
+
+commit 6ace9de268fb0e9eacdcaa9d545624ccc9e620e7
+Author: mario <mario16@poczta.fm>
+
+    Compatibility updates
+
+ demo/demo/urls.py        |  2 +-
+ rest_auth/serializers.py | 18 ++++++++----------
+ rest_auth/tests.py       |  7 ++++---
+ rest_auth/utils.py       |  6 +-----
+ setup.py                 |  4 ++--
+ test_settings.py         | 14 +++++---------
+ 6 files changed, 21 insertions(+), 30 deletions(-)
+
+commit 680bb56e999707a9be23aad327989ecdfc10c9e7
+Author: mario <mario16@poczta.fm>
+
+    Clean up demo codebase
+
+ demo/demo/settings.py |  8 ++++++--
+ demo/requirements.pip |  4 ++--
+ docs/installation.rst | 10 +++++-----
+ 3 files changed, 13 insertions(+), 9 deletions(-)
+
+commit d90717e9bdb5720866bcebafbd45ec34882b70a3
+Author: mario <mario16@poczta.fm>
+
+    Added SO link to README.rst
+
+ README.rst | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit fac959ea80e4946e1f879fe78f3d78fdf8451f42
+Author: ron8mcr <gorbil@saritasa.com>
+
+    raise_exception=True for views
+
+ rest_auth/views.py | 22 ++++------------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
+
+commit 52283aed70513ae40603e3f3e8b7032b4dbb4aab
+Merge: d90717e fac959e
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #129 from ron8mcr/master
+
+commit d9b8f3faf671a1b4b5150c6dd268245281648918
+Author: mario <mario16@poczta.fm>
+
+    Added non existing e-mail validation on password reset
+
+ rest_auth/serializers.py |  8 ++++++--
+ rest_auth/tests.py       | 19 ++++++++++++-------
+ 2 files changed, 18 insertions(+), 9 deletions(-)
+
+commit f3151ad5c0ec5d2bef3e4a0ee2cee1eb71de8122
+Author: mario <mario16@poczta.fm>
+
+    Fixed try/catch in logout view
+
+ rest_auth/views.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit b8c3ae9c68b51d1666aa7e3a50648f687f788cb4
+Author: mario <mario16@poczta.fm>
+
+    version 0.6.0
+
+ README.rst            |  2 +-
+ demo/requirements.pip |  2 +-
+ docs/changelog.rst    | 10 ++++++++++
+ setup.py              |  2 +-
+ 4 files changed, 13 insertions(+), 3 deletions(-)
+
+commit 10ae7acac924258b073f7fbf47b342b1436c93bc
+Author: Roman Gorbil <gorbil@saritasa.com>
+
+    Rewrite registration logic
+
+ docs/api_endpoints.rst                 | 13 +------------
+ docs/configuration.rst                 |  8 ++++++++
+ rest_auth/registration/app_settings.py | 11 +++++++++++
+ rest_auth/registration/serializers.py  | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/registration/views.py        | 90 ++++++++++++++++++++++++++++--------------------------------------------------------------
+ 5 files changed, 98 insertions(+), 74 deletions(-)
+
+commit 30fd6414ceb94a766401952ec7cfd03cb00ef882
+Author: ron8mcr <gorbil@saritasa.com>
+
+    Explict Allow Any for register view
+
+ rest_auth/registration/views.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 65b29d351560f82d6ea0b2a95cf06d4d2bb7296f
+Author: ron8mcr <gorbil@saritasa.com>
+
+    None as success_url for complete_signup in RegisterView
+
+ rest_auth/registration/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 52f04ba22447eee8629923eb61ef0337dcf9b541
+Author: ron8mcr <gorbil@saritasa.com>
+
+    Update tests and fix register serializer
+
+ rest_auth/registration/serializers.py | 10 ++++++++--
+ rest_auth/tests.py                    |  6 ++----
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+
+commit cc963ca1a169506ee46c926fd7e7bc41f0b46780
+Author: anyone_j <artem.sudoma@gmail.com>
+
+    fix import complete_social_login
+
+ rest_auth/registration/serializers.py | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit 72062408aa74cc6127cc786510cf359be4273273
+Author: mario <mario16@poczta.fm>
+
+    Reorganized test files
+
+ .travis.yml                                               |   2 +-
+ rest_auth/tests/__init__.py                               |   0
+ rest_auth/{django_test_urls.py => tests/django_urls.py}   |   0
+ test_requirements.pip => rest_auth/tests/requirements.pip |   0
+ test_settings.py => rest_auth/tests/settings.py           |   1 +
+ rest_auth/{tests.py => tests/test_api.py}                 | 230 ++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ rest_auth/tests/test_base.py                              | 106 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests/test_social.py                            | 128 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/{test_urls.py => tests/urls.py}                 |   4 ++--
+ runtests.py                                               |   4 ++--
+ 10 files changed, 242 insertions(+), 233 deletions(-)
+
+commit afcf2a5043ead2db1dfcfcf74d1fb72b65a63c05
+Author: mario <mario16@poczta.fm>
+
+    Fixed reqs path for travis
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f1e96be7e6bb7c5fb0df53118fd743dac6f1b1e9
+Merge: b8c3ae9 afcf2a5
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #133 from Tivix/cleanup_tests
+
+commit 9b7ede752b9a06fa4abce846ea08ab01a83a905e
+Author: Poderyagin Egor <egor.poder@list.ru>
+
+    Make email in password reset serializer Case unsensetive
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 41946d16a0d23f33e3fb681e34dae32894d62ed0
+Merge: f1e96be 9b7ede7
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #137 from Akay7/PasswordResetCaseUnsensetive
+
+commit fb435fbea485dbb0d71bce680a2b975ff29a2ccc
+Author: Tom Counsell <other@tomcounsell.com>
+
+    Update installation.rst
+
+ docs/installation.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 4889cb551800687c55a993fdefe229efd2735387
+Merge: 41946d1 fb435fb
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #138 from tomcounsell/patch-1
+
+commit 56773d86185bd73e4031ff743b794d5a39d0e928
+Merge: f1e96be 4889cb5
+Author: Egor <Akay7@users.noreply.github.com>
+
+    Merge pull request #1 from Tivix/master
+
+commit a93b7f5cec9873a6eb97a92f055306b11330548b
+Author: Poderyagin Egor <egor@crazyrussian.pro>
+
+    Added test case for reset by email in different case
+
+ rest_auth/tests/test_api.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit bb2fb65f7d82775122b21c65cf6797b1ff5a2505
+Author: Poderyagin Egor <egor@crazyrussian.pro>
+
+    Auth by email
+
+ rest_auth/serializers.py    | 13 ++++++++++---
+ rest_auth/tests/test_api.py | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 56 insertions(+), 3 deletions(-)
+
+commit f848c8b6fa1b690486780b458ba207931d13e319
+Merge: 52f04ba 4889cb5
+Author: ron8mcr <gorbil@saritasa.com>
+
+    Merge remote-tracking branch 'Tivix/django-rest-auth/master'
+
+commit 411cc298b3a43a772ef906d9a773d37712a473fc
+Author: Will <William.Q.Liu@gmail.com>
+
+    Update demo.rst
+
+ docs/demo.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 991178a9d5e8e38edc78a3b9b84a0d7878d26e22
+Merge: 4889cb5 411cc29
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #142 from Tivix/update-demo-rst
+
+commit 4d9e33e9a82082c12358c10b87a6ffd4dffad0b2
+Author: Will Liu <will.liu@tivix.com>
+
+    fix demo by add csrf and modify account settings
+
+ demo/demo/settings.py                                     | 4 ++--
+ demo/templates/fragments/email_verification_form.html     | 2 +-
+ demo/templates/fragments/login_form.html                  | 2 +-
+ demo/templates/fragments/password_change_form.html        | 3 +--
+ demo/templates/fragments/password_reset_confirm_form.html | 2 +-
+ demo/templates/fragments/password_reset_form.html         | 2 +-
+ demo/templates/fragments/signup_form.html                 | 2 +-
+ demo/templates/fragments/user_details_form.html           | 2 +-
+ 8 files changed, 9 insertions(+), 10 deletions(-)
+
+commit 7bd792480152f7e9d0f36cb0818150d4c30c3d03
+Merge: 991178a 4d9e33e
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #143 from Tivix/issue_116_fix_csrf_tokens_email_login
+
+commit 23eb6e5be5897ebd5c60003d24597c94a2288763
+Author: mario <mario16@poczta.fm>
+
+    Added `coverage_html` to .gitignore
+
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4c8db510b0fa526732c94deabfa3e5bf5c98951e
+Author: mario <mario16@poczta.fm>
+
+    Fixed test exception.
+
+ rest_auth/tests/settings.py | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 4a56a9e7e5cdabf3b10c65b536f3f2f37cdbe958
+Merge: 4c8db51 a93b7f5
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #140 from Akay7/TestResetPass
+
+commit eb61b24087ad61f5218e7f07dc744668eb096aa8
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Add support for custom Token model
+
+ docs/configuration.rst          | 4 +++-
+ rest_auth/app_settings.py       | 4 +++-
+ rest_auth/models.py             | 9 ++++++++-
+ rest_auth/registration/views.py | 4 ++--
+ rest_auth/serializers.py        | 5 +++--
+ rest_auth/utils.py              | 6 ++++++
+ rest_auth/views.py              | 9 ++++-----
+ 7 files changed, 29 insertions(+), 12 deletions(-)
+
+commit ec916205503e17c5c32a0e7f7c0c7e1fdac6a04d
+Merge: f848c8b 4a56a9e
+Author: mario <mario16@poczta.fm>
+
+    Merge branch 'master' into pr/130
+
+commit c9d55f768c2142d1c3e7201bb46067a90d7b8bd0
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Add support for custom Token model
+
+ docs/configuration.rst          | 4 +++-
+ rest_auth/app_settings.py       | 4 +++-
+ rest_auth/models.py             | 9 ++++++++-
+ rest_auth/registration/views.py | 4 ++--
+ rest_auth/serializers.py        | 5 +++--
+ rest_auth/utils.py              | 6 ++++++
+ rest_auth/views.py              | 9 ++++-----
+ 7 files changed, 29 insertions(+), 12 deletions(-)
+
+commit 57e7fb998f2a0716af2e6af88083bf4363bfde85
+Merge: c9d55f7 eb61b24
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Merge branch 'custom-token' of github.com:caruccio/django-rest-auth into custom-token
+
+commit d36a9bc1cbd43af52f43f36dedeed7b6c1e8f7c0
+Author: Matt d'Entremont <mattdentremont@gmail.com>
+
+    #131: Do not raise 400 when resetting password for non-existing account
+
+ rest_auth/serializers.py    | 3 ---
+ rest_auth/tests/test_api.py | 5 ++++-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 1d9c2d647e640809fc4d4974fa9468185d53825d
+Author: Matt d'Entremont <mattdentremont@gmail.com>
+
+    #86: Add missing dependencies to setup.py
+
+ docs/installation.rst | 2 +-
+ setup.py              | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+commit 19e234d1dc3cfde37e3494faad4fd1ad29973cd3
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    * Added support for REST_USE_JWT
+    * Added JWTSerializer
+    * Added JWT encoding support, based on django-rest-framework-jwt
+    * Tests for JWT authentication
+
+ docs/configuration.rst           |  4 +++-
+ rest_auth/app_settings.py        |  4 ++++
+ rest_auth/registration/views.py  | 38 +++++++++++++++++++++++++++++++-------
+ rest_auth/serializers.py         |  7 ++++++-
+ rest_auth/tests/requirements.pip |  1 +
+ rest_auth/tests/settings.py      | 11 ++++++++++-
+ rest_auth/tests/test_api.py      | 30 ++++++++++++++++++++++++++++++
+ rest_auth/tests/test_base.py     |  5 ++++-
+ rest_auth/tests/test_social.py   | 26 ++++++++++++++++++++++++++
+ rest_auth/utils.py               | 12 ++++++++++++
+ rest_auth/views.py               | 39 ++++++++++++++++++++++++++++++---------
+ 11 files changed, 157 insertions(+), 20 deletions(-)
+
+commit 317db1b811d633699ebe3006221b417a1b072e7a
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Bump version
+
+ docs/changelog.rst | 4 ++++
+ setup.py           | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit 0e3fb4a5c943bf25cc9501ec9003e8063f73cc21
+Author: Tabatha Memmott <tabatha.memmott@tivix.com>
+
+    closes PR #134 and adds same syntax to demo
+
+ demo/demo/urls.py              | 6 +++---
+ rest_auth/registration/urls.py | 7 +++----
+ rest_auth/urls.py              | 7 +++----
+ 3 files changed, 9 insertions(+), 11 deletions(-)
+
+commit 99c4dc9d05aa3385ed2a4574fde64b553e4d043f
+Author: mario <mario16@poczta.fm>
+
+    Brought back pass verification + added test
+
+ docs/api_endpoints.rst                |  3 ++-
+ rest_auth/registration/serializers.py | 19 +++++++++++++------
+ rest_auth/tests/test_api.py           |  9 ++++++++-
+ rest_auth/tests/test_social.py        |  3 ++-
+ 4 files changed, 25 insertions(+), 9 deletions(-)
+
+commit 073dd3e76513b9b11ceda7de75e8ca9550783f79
+Author: mario <mario16@poczta.fm>
+
+    Fixed flake8 warnings
+
+ rest_auth/tests/test_api.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ef17cb316592199d00f730b1d56ef26dc3a3b342
+Merge: 073dd3e 1d9c2d6
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #146 from mdentremont/topic/86
+
+commit 29669be29602c5fa5564dd3b7dba0b90a89bfff6
+Merge: 0e3fb4a ef17cb3
+Author: Tabatha Memmott <tabatha.memmott@tivix.com>
+
+    Merge branch 'master' into developDemo
+
+commit 2bddb944ccbe4eb66482649b0f52cf0819349369
+Merge: ef17cb3 29669be
+Author: Tabatha Memmott <tabatha.r.memmott@gmail.com>
+
+    Merge pull request #148 from Tivix/developDemo
+
+commit 55fb36ec9108bbdf78d73b1abced4a0d12c299c0
+Author: Tabatha Memmott <tabatha.memmott@tivix.com>
+
+    url change for tests
+
+ rest_auth/tests/urls.py | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+commit 37dda5d7be6aed26c13b3a34f0c4d83d377b4d4c
+Merge: 2bddb94 55fb36e
+Author: Tabatha Memmott <tabatha.r.memmott@gmail.com>
+
+    Merge pull request #149 from Tivix/test_fail_url
+
+commit b12ed79bb1caabd38ac5718feec50eefbd3837b7
+Merge: bb2fb65 073dd3e
+Author: mario <mario16@poczta.fm>
+
+    Merge branch 'master' into pr/141
+
+commit 54eb54ad653e9d10cc7ad0d8fa243b0d3ac8cde6
+Author: mario <mario16@poczta.fm>
+
+    Cleaned up LoginSerializer codebase
+
+ docs/api_endpoints.rst   |  1 +
+ rest_auth/serializers.py | 79 +++++++++++++++++++++++++++++++++++++++++++++++++++----------------------------
+ 2 files changed, 52 insertions(+), 28 deletions(-)
+
+commit d63232224e771bc081eb24f51411eb16ef549861
+Merge: 37dda5d 54eb54a
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #150 from Tivix/pr/141
+
+commit 334a29c4d976d826d8d19123611e6184656016e9
+Merge: d632322 99c4dc9
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #151 from Tivix/pr/130
+
+commit ccc261d57fd7434724ee3b84ff5e6c5207348ab9
+Merge: c9d55f7 334a29c
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Merge branch 'master' of https://github.com/Tivix/django-rest-auth
+
+commit c08789931113e8b7de0f0040a1e6faaee2340137
+Merge: 57e7fb9 ccc261d
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Merge branch 'master' into custom-token
+
+commit f9547f62e8bdaf3a48ac362cf97465a405ace841
+Merge: 334a29c c087899
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #144 from caruccio/custom-token
+
+commit 70a4dc9a13af6ecb1cd99681f056a05c0c780c84
+Author: Mateus Caruccio <mateus.caruccio@getupcloud.com>
+
+    Allow logout on GET
+
+ docs/api_endpoints.rst      |  4 +++-
+ rest_auth/tests/test_api.py | 26 ++++++++++++++++++++++++++
+ rest_auth/views.py          | 18 ++++++++++++++++++
+ 3 files changed, 47 insertions(+), 1 deletion(-)
+
+commit ae8a26b708f96cf1b945d892ff42ebf052698a1c
+Author: mario <mario16@poczta.fm>
+
+    Return token only when verification is mandatory
+
+ rest_auth/registration/views.py | 12 +++++++++---
+ rest_auth/tests/test_api.py     |  7 +++++--
+ 2 files changed, 14 insertions(+), 5 deletions(-)
+
+commit 97dbb528a2168bf890ea33baae3d79a057de1e8e
+Merge: f9547f6 ae8a26b
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #153 from Tivix/pr/128
+
+commit 1af16ae7ba68300ee562d8dc1685af7ba73331fa
+Author: Tevin Joseph K O <tevinjosephko@gmail.com>
+
+    Added a Serializer for Twitter oauth
+
+ rest_auth/social_serializers.py | 78 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 78 insertions(+)
+
+commit af9dcbd79b890fafa76bb3c2efdcde9b055ea545
+Author: mario <mario16@poczta.fm>
+
+    Added FAQ issue.
+
+ docs/faq.rst | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 7e85667208cd77a8ace6cdd1d7a1dd54e66069a8
+Author: mario <mario16@poczta.fm>
+
+    Made e-mail options more extendible for `PasswordResetSerializer`
+
+ rest_auth/serializers.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 811dc30830e996c9efada8990935d89d97e5eedb
+Merge: af9dcbd 7e85667
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #156 from Tivix/pr/155
+
+commit 00415301d61a7326b77cd269ce59a80732e57616
+Merge: 811dc30 d36a9bc
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #145 from mdentremont/topic/131
+
+commit 152b0a6fb622703b19e568df138fb96eaf1060af
+Author: Nicola Hauke <jasinai@jasinai.de>
+
+    Adds ugettext_lazy to more texts
+
+ rest_auth/locale/de/LC_MESSAGES/django.po | 99 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/registration/serializers.py     | 17 +++++++++--------
+ rest_auth/registration/views.py           |  2 +-
+ rest_auth/serializers.py                  |  2 +-
+ rest_auth/views.py                        | 12 +++++-------
+ 5 files changed, 115 insertions(+), 17 deletions(-)
+
+commit 7c8a34f7001ef949cad9415a3207c4826d3a72c5
+Merge: 0041530 cc963ca
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #132 from asudoma/master
+
+commit 8d91e1881e41eefa8f28891a508b2ea2a4f280aa
+Author: Billy Ferguson <william.d.ferg@gmail.com>
+
+    Added logout functionality to demo project
+
+ demo/demo/urls.py                         |  2 ++
+ demo/templates/base.html                  |  1 +
+ demo/templates/fragments/logout_form.html | 20 ++++++++++++++++++++
+ demo/templates/logout.html                |  8 ++++++++
+ 4 files changed, 31 insertions(+)
+
+commit 37c49e0c86b7c42c513dd4e8c3f0650485072623
+Author: Billy Ferguson <william.d.ferg@gmail.com>
+
+    Adds token to logout API documentation
+
+ docs/api_endpoints.rst | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit dae38d4e108faf8d03441b11506dddb14bff64e8
+Author: Haos616 <Haos616@Gmail.com>
+
+    Fixed errors messages for PasswordResetSerializer
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f8a9cc152dfaf77c64e111e74ccc6f9253befede
+Merge: 317db1b 7c8a34f
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Merge branch 'master' into jwt-support
+
+commit e3a1ba520ed316c87c7cfb6055e4a61b750cd09f
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Added tests for JWT, fixed merge issues
+
+ docs/configuration.rst          |  4 ++++
+ docs/installation.rst           | 15 +++++++++++++++
+ rest_auth/registration/views.py | 15 +++++++++++++--
+ rest_auth/tests/test_api.py     | 43 +++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/views.py              | 16 +++++++---------
+ 5 files changed, 82 insertions(+), 11 deletions(-)
+
+commit 8b5e5173d0a2d881101d82f56997398da23c86ab
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Added newline to pip file
+
+ rest_auth/tests/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 511329c30a768a47d016154732dc5aac5c64273f
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Fixing merge tool induced file endings
+
+ rest_auth/registration/views.py | 2 +-
+ rest_auth/utils.py              | 2 +-
+ rest_auth/views.py              | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 2acf4dd115059d379972f25114703c2a13fd7e39
+Merge: 56773d8 7c8a34f
+Author: Egor <Akay7@users.noreply.github.com>
+
+    Merge pull request #3 from Tivix/master
+
+commit cc9552adda97012f2c90aa8636fb6d2f80f53bae
+Author: Poderyagin Egor <egor.poder@list.ru>
+
+    update for accept login users of CustomUserModel objects where doesn't exist username field and setted USERNAME_FIELD property
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 1a964f9056d88d9769ea47d72694fb7cbcf56818
+Merge: 2acf4dd cc9552a
+Author: Egor <Akay7@users.noreply.github.com>
+
+    Merge pull request #4 from Akay7/CanLoginWithCustomUserModel
+
+commit 40ac97b847d11e0c0aa47b62a0a1ed282bf05920
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update index.rst
+
+ docs/index.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c282a1309e35cdca06605e1cc8d31d2bec5991b5
+Merge: 40ac97b cc9552a
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #171 from Akay7/CanLoginWithCustomUserModel
+
+commit 23221dc4d5e77a38aa6807cbff1bf326f30565d9
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update .travis.yml
+
+ .travis.yml | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 3bcabe6b173faf11c112b2d22ed1b05813c356fb
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update serializers.py
+
+ rest_auth/registration/serializers.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 282ac5b51771f9f4f41a306c2693490fe46e0c84
+Merge: c282a13 3bcabe6
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #175 from Tivix/Update-test-requirements,-added-Django-1.9
+
+commit 1a0ab4488e2dfa20bbf92f7909f0c1872c606f0c
+Merge: 282ac5b 152b0a6
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #165 from jasinai/AddTranslation
+
+commit aa839f97d218f8c84c7b4d8bf24b1fdd7eee245d
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Added missing import
+
+ rest_auth/registration/views.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit b34ef24dd78f250280b30ce1b5f5267cc8a86a02
+Merge: aa839f9 37c49e0
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #167 from fergyfresh/master
+
+commit e6c5be4b69759df8f9d8d94c3709a6255e9c8cbf
+Author: Tevin Joseph K O <tevinjosephko@gmail.com>
+
+    Updated index.rst with twitter login
+
+ docs/installation.rst | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+commit 8f05f200514bf74f85b695724d08d04ea2720e5b
+Author: Tevin Joseph K O <tevinjosephko@gmail.com>
+
+    Updated api_endpoints.rst with twitter login
+
+ docs/api_endpoints.rst | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit ee9e848694b5848761a30962b8a8c378d338d805
+Author: Tevin Joseph K O <tevinjosephko@gmail.com>
+
+    URL for twitter login added.
+
+ docs/installation.rst | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit b6e991e787cb1dd8c3199f1b6038568ba555c2b1
+Merge: b34ef24 ee9e848
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #154 from tevinjoseph/master
+
+commit bb7b1270b7c1a621e7f86f32dbe5e431162c2677
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Adjusted phrasing and layout of social integration examples
+
+ docs/installation.rst | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
+
+commit b2edfffc91380cc0554504a67ee2a556cf9c360c
+Author: Tevin Joseph K O <tevinjosephko@gmail.com>
+
+    fixed pep8 error in social_serializers
+
+ rest_auth/social_serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit b6dfd690095349b65dda1c69510630aa07324e8a
+Merge: bb7b127 b2edfff
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #177 from tevinjoseph/master
+
+commit f01ed78d59243034b80c21ceece19ce5b21d41ea
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update changelog.rst
+
+ docs/changelog.rst | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit ed42925053b7e3d17e8a3f633dea1a555129b5ae
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update setup.py
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0850fb47ae279d9a8b34b0d66475a0347f922751
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Update requirements.pip
+
+ demo/requirements.pip | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ff0664a66e3d675a2b55aa18f171ef7bbc127af4
+Author: Nicola Hauke <jasinai@jasinai.de>
+
+    Unignores translation files
+
+ .gitignore | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 340f0651c931f089b77b713923f7b84b7932257e
+Author: Nicola Hauke <jasinai@jasinai.de>
+
+    Adds the german mo file
+
+ rest_auth/locale/de/LC_MESSAGES/django.mo | Bin 0 -> 2300 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 42b860b8bf739cd92da6889e15bcd6060d2f1cbc
+Author: Nicola <jasinai@jasinai.de>
+
+    Change the variable name in the doc
+
+ docs/configuration.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 837d9a6e46338e4c12eaa21006921476f5d1125e
+Merge: 0850fb4 42b860b
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #182 from jasinai/patch-1
+
+commit ef56efc0c8c1c0be42d9b825f0c16c0f34e5560c
+Merge: 837d9a6 70a4dc9
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #152 from caruccio/logout-on-get
+
+commit 9a0cbc81ebb2da08978732b98d1fbc2f210b24d4
+Author: Andreas Bissinger <mail@bissinger-andreas.de>
+
+    typo fix
+
+ rest_auth/registration/urls.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b22a55b0fa95e086e513ace52049841b08cebe6d
+Merge: ef56efc 9a0cbc8
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #183 from be-ndee/patch-1
+
+commit e3901516cb9c69d8ef5f0bd0351d3c5f81e05c39
+Merge: 511329c ef56efc
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Merge branch 'master' into jwt-support
+
+commit b4c122ee5da818ea2cc2874be6cbf5e343024a5d
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Bump
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 85c2fe466188839804e23d3099b402009f964a7b
+Merge: b4c122e b22a55b
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Merge branch 'master' into jwt-support
+
+commit 1eb4b45e509810f2cbeefffbdb5105da5f9a636c
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Fixing tests
+
+ rest_auth/registration/views.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4ba9841bc5700f5874eaa49b21f1bceed195a03d
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Merge changes
+
+ docs/changelog.rst              | 2 +-
+ rest_auth/registration/views.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 9baeb2883b10131852738084a38a07f046885e08
+Author: Jon Gregorowicz <jonathan.gregorowicz@gmail.com>
+
+    Docs comment
+
+ docs/changelog.rst | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4018d6a52aacb6c72b0a29dad14288eaf5a70db4
+Merge: b22a55b 9baeb28
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #147 from jgr3go/jwt-support
+
+commit eda3d7b6d242fe815be70276b6daa9602edaccb2
+Merge: 4018d6a dae38d4
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #168 from Haos616/master
+
+commit 25724759719bb08dd49cc0956757160e97c7b009
+Author: mjaworski <inferniac@gmail.com>
+
+    fixed code quality
+
+ rest_auth/registration/views.py | 1 +
+ rest_auth/serializers.py        | 3 +++
+ rest_auth/tests/test_api.py     | 9 +++------
+ rest_auth/tests/test_social.py  | 3 +--
+ rest_auth/utils.py              | 3 ++-
+ rest_auth/views.py              | 3 +--
+ 6 files changed, 11 insertions(+), 11 deletions(-)
+
+commit e3fc4e64e95c6e23743556cf0e6b04798f4cf392
+Merge: 2572475 340f065
+Author: Maciej Jaworski <mjaworski@users.noreply.github.com>
+
+    Merge pull request #178 from jasinai/UnignoreMoFiles
+
+commit 86a487fe2137826a19a32b883bb89ffcb9d3b2d6
+Author: Mario Rodas <marsam@users.noreply.github.com>
+
+    Import allauth.socialaccount only when declared in INSTALLED_APPS
+
+ rest_auth/registration/serializers.py | 6 +-----
+ rest_auth/social_serializers.py       | 8 +++-----
+ 2 files changed, 4 insertions(+), 10 deletions(-)
+
+commit 0737da0077ad063eb56a9b832a32ece2af7ea32b
+Author: Mario Rodas <marsam@users.noreply.github.com>
+
+    Capture OAuthError in TwitterLoginSerializer
+
+ rest_auth/social_serializers.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit a661f02b8f75d6e1a1de7c407824421ac22c7c34
+Author: Christopher Grebs <cg@webshox.org>
+
+    Fix typo in configuration.rst
+
+ docs/configuration.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f95c42036bd3aafeff460550ec0e89f3c0c172b5
+Merge: e3fc4e6 a661f02
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #188 from EnTeQuAk/patch-1
+
+commit e8cd780ae22a3b42ff272987d2bbf8ce8732e542
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove unreachable code in LogoutView
+
+ rest_auth/views.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit adf22bcc78656cc16cceae1ca33a77d572364492
+Author: Ross Patterson <me@rpatterson.net>
+
+    Fix reference to missing `extras_require`
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4463fb8afaf6cde9e8f1e14e00bdba3a009daffd
+Author: Ross Patterson <me@rpatterson.net>
+
+    Fix docs settings default value
+
+ docs/configuration.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 49ccfe92a9e691ac4224de7a878c87402181c09e
+Merge: e8cd780 4463fb8
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #190 from rpatterson/master
+
+commit 50087549e82c8f2b42ea8a6748cc66cbe3f3e472
+Author: Christopher Grebs <cg@webshox.org>
+
+    Fix social-adatper tests for allauth>=0.25.0
+
+ rest_auth/registration/serializers.py | 2 +-
+ setup.py                              | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit f9b6a6cd9fa6bf9e4a81cc604affe9217e2d76f8
+Author: mariuccio <mariotaddei@rocketmail.com>
+
+    'detail' keyword in success response messages
+
+ rest_auth/registration/views.py | 2 +-
+ rest_auth/views.py              | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+commit 22667230bb9a3267dbd34837a35cf8473daec217
+Author: Girish <girishkumarkh@gmail.com>
+
+    passing on the context/request to serializer
+
+ rest_auth/views.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5e4d85bca99571f1c381dc1f5c78b163b5bae897
+Merge: 2266723 5008754
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #191 from EnTeQuAk/bugfix/fix-social-login-test
+
+commit 3189a5c7a0be6540f8b57642cce71176879205e2
+Merge: 5e4d85b 0737da0
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #187 from marsam/master
+
+commit 2a0fa1ab4eff07b5ec5169b7fe98a0f2c97a3e94
+Author: vsevolod kolchinsky <vsevolod-kolchinsky@users.noreply.github.com>
+
+    allows registration throttle control
+
+ rest_auth/registration/views.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8ffb292b70edb077227226a6e068d1f3290be5c0
+Author: Corey Farwell <coreyf@rwell.org>
+
+    Update Travis CI config to run on Python 3.5.
+
+ .travis.yml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 2c4f7c2ec51d183b179a854de3e5e67efeec1928
+Merge: 3189a5c 8ffb292
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #202 from frewsxcv/patch-1
+
+commit 8a004bb48adfdee12c055838ee1b496a72107a65
+Author: mariodev <mario16@poczta.fm>
+
+    Increased test coverage
+
+ .coveragerc                     | 26 ++++++++++++++++++++++++++
+ rest_auth/registration/views.py |  3 ---
+ rest_auth/tests/django_urls.py  | 68 --------------------------------------------------------------------
+ rest_auth/tests/settings.py     | 21 +++++++++++++++++++++
+ rest_auth/tests/test_api.py     | 58 +++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+ rest_auth/tests/test_base.py    |  6 ++++--
+ rest_auth/tests/test_social.py  |  3 +--
+ 7 files changed, 105 insertions(+), 80 deletions(-)
+
+commit 118b17328213127fcacf32143a76764f5e36eaf5
+Merge: 8a004bb 2c4f7c2
+Author: mariodev <mario16@poczta.fm>
+
+    Merge remote-tracking branch 'origin/master'
+
+commit c4e7bdc77f03b2e1dc4a5f98a78f8133c53719c4
+Author: mariodev <mario16@poczta.fm>
+
+    pep8
+
+ rest_auth/registration/views.py | 1 -
+ rest_auth/tests/django_urls.py  | 9 +--------
+ rest_auth/tests/test_api.py     | 2 +-
+ rest_auth/tests/test_base.py    | 2 +-
+ 4 files changed, 3 insertions(+), 11 deletions(-)
+
+commit 8812ba11af884424abc7f0106f44f069d1680216
+Author: Henk Kraal <h.kraal@tiw.nl>
+
+    Added ``django.contrib.sites`` and SITE_ID setting requirements of ``allauth`` to installation instructions
+
+ docs/installation.rst | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 976b3bbe4dded03552218c1022ee95d8bdf1176c
+Merge: c4e7bdc 8812ba1
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #220 from hkraal/docs-installation-include-django-sites
+
+commit 8635cec373a57569d03c324124f9044ab9c50aa2
+Author: Omid Raha <omidraha@users.noreply.github.com>
+
+    Fix patterns function name on the installation pgae.
+
+ docs/installation.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c5e0382d2504193d5eac2f316dc4f9bd9d9243c4
+Author: mariodev <mario16@poczta.fm>
+
+    Increased test coverage (#229)
+
+ rest_auth/registration/views.py |   4 ++++
+ rest_auth/social_serializers.py |   9 +++------
+ rest_auth/tests/settings.py     |   1 +
+ rest_auth/tests/test_base.py    |   3 +++
+ rest_auth/tests/test_social.py  | 160 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ rest_auth/tests/urls.py         |  30 ++++++++++++++++++++++++++++++
+ rest_auth/views.py              |  14 +++++++++++---
+ 7 files changed, 208 insertions(+), 13 deletions(-)
+
+commit d26661400db5d00319161d046ed0df5187ab4321
+Merge: c5e0382 8635cec
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #230 from omidraha/patch-1
+
+commit 235efa4ec1a61a25ecb147a131789780f252f1fd
+Author: mario <mario16@poczta.fm>
+
+    Dropping django 1.7 support
+
+ .travis.yml           | 7 +++----
+ demo/requirements.pip | 2 +-
+ setup.py              | 2 +-
+ 3 files changed, 5 insertions(+), 6 deletions(-)
+
+commit ff641cf31c041da3b508252f242872228f117e49
+Author: vsevolod kolchinsky <vsevolod-kolchinsky@users.noreply.github.com>
+
+    Throttling documentation added
+
+ docs/configuration.rst | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 0ffc5734820eebaaa29eb308f31d6f1fe058f603
+Merge: 235efa4 ff641cf
+Author: mariodev <mario16@poczta.fm>
+
+    Merge pull request #209 from vsevolod-kolchinsky/patch-1
+
+commit 9df528f482871673107de38649bb621090ca66f1
+Author: mario <mario16@poczta.fm>
+
+    Changed confirm email url path + test fixes
+
+ rest_auth/registration/urls.py  | 2 +-
+ rest_auth/registration/views.py | 1 +
+ rest_auth/tests/test_api.py     | 3 ++-
+ rest_auth/tests/test_social.py  | 3 ++-
+ rest_auth/tests/urls.py         | 2 +-
+ 5 files changed, 7 insertions(+), 4 deletions(-)
+
+commit 18f8178ce62111fb6b4c5d73d3c6d4efc009514f
+Author: mario <mario16@poczta.fm>
+
+    More release changes (0.8.0)
+
+ demo/requirements.pip | 4 ++--
+ docs/changelog.rst    | 1 +
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit e9215f41057de358a7335c54cc9893a6dcf5dfcd
+Author: mario <mario16@poczta.fm>
+
+    Bump to v0.8.1
+
+ demo/requirements.pip | 2 +-
+ setup.py              | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit acf15b6360e39d9dfcdef305c7a8daebf366afbd
+Author: Syam Mohan <syamvilakudy@hotmail.com>
+
+    Added missing variable "token"
+
+ docs/api_endpoints.rst | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit abc72e88f009f99b8f623390b2ce8e543c6e9fc7
+Author: greenstatic <greenstatic@users.noreply.github.com>
+
+    changed login into logout in the templates logout_form.html
+
+ demo/templates/fragments/logout_form.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2d541178638307facad07528989adbb491e6f678
+Author: Poderyagin Egor <egor@crazyrussian.pro>
+
+    added russian language
+
+ rest_auth/locale/ru/LC_MESSAGES/django.mo | Bin 0 -> 2667 bytes
+ rest_auth/locale/ru/LC_MESSAGES/django.po |  97 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 97 insertions(+)
+
+commit 5086eebfdb8415224cf091dccf4bdf6a86445e6d
+Merge: 1a964f9 e9215f4
+Author: Egor <Akay7@users.noreply.github.com>
+
+    Merge pull request #5 from Tivix/master
+
+commit 2546b170674f6cf63423093988c3c1d4555c3dfd
+Author: Poderyagin Egor <egor@crazyrussian.pro>
+
+    fix import allauth error
+
+ rest_auth/views.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 8949b1ffded179db82edc26f8d05c5ef14446702
+Author: jberends <jberends@jbits.nl>
+
+    Refactored the settings of the demo to confirm to the use of TEMPLATE_* settings in django.
+
+ demo/demo/settings.py | 33 ++++++++++++++++++---------------
+ 1 file changed, 18 insertions(+), 15 deletions(-)
+
+commit f07429c252c1c09a75ecdb4952d4f5db2c6b3c2e
+Merge: e9215f4 2546b17
+Author: mario <mario16@poczta.fm>
+
+    Merge pull request #244 from Akay7/FixImportAllauthError
+
+commit 8365d729ac558a9a2ca24b8488d789238bd41f53
+Merge: f07429c 8949b1f
+Author: mario <mario16@poczta.fm>
+
+    Merge pull request #248 from jberends/master
+
+commit 53094041b866441391bf4452b1566efa3e420416
+Merge: 8365d72 abc72e8
+Author: mario <mario16@poczta.fm>
+
+    Merge pull request #236 from greenstatic/master
+
+commit 4246511fb1c4d9c9eaa5fd7519cdd526edd7d07f
+Merge: 5309404 acf15b6
+Author: mario <mario16@poczta.fm>
+
+    Merge pull request #235 from syamvilakudy/patch-1
+
+commit 3b80fcbca9b3d9f9f918cda27db86ee0869556cd
+Author: mario <mario16@poczta.fm>
+
+    fix: removed --use-mirrors from pip
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f793447baec2ae3a3d2b277d192be63db868713a
+Author: Le Pogam Brivael <briva@owls.co>
+
+    Return ID user on /rest-auth/user/
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 83e200e57658b35fa427d2c4ef751d966f1e4a1a
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Revert "allows registration throttle control"
+
+ docs/configuration.rst          | 17 -----------------
+ rest_auth/registration/views.py |  1 -
+ 2 files changed, 18 deletions(-)
+
+commit 0472b442412ce4e6050dd92623523ceb736e266f
+Merge: 3b80fcb 83e200e
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #273 from Tivix/revert-209-patch-1
+
+commit e662736e4a690c5e499e3dfedbc2c4d7c7a6b449
+Merge: 0472b44 f793447
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #256 from briva/patch-1
+
+commit 35fe1ae590051f26a9b2bfdc3cde1aa2aef7480d
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Return `pk` in /rest-auth/user/ instead of `id`
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 37375461df148eda5cda9ce558c3ad3b2087894b
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add info to docs and comments
+
+ docs/api_endpoints.rst                | 2 ++
+ docs/changelog.rst                    | 1 +
+ docs/faq.rst                          | 4 ++--
+ rest_auth/registration/serializers.py | 2 +-
+ rest_auth/registration/urls.py        | 2 +-
+ rest_auth/social_serializers.py       | 2 +-
+ 6 files changed, 8 insertions(+), 5 deletions(-)
+
+commit 5330e0cfb190c6cab0a12364939dfe6f8180b6b9
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add swagger API docs to demo project
+
+ demo/demo/settings.py    | 8 +++++++-
+ demo/demo/urls.py        | 3 +++
+ demo/requirements.pip    | 2 ++
+ demo/templates/base.html | 1 +
+ 4 files changed, 13 insertions(+), 1 deletion(-)
+
+commit 70d03e3e9be99e86967a568fee370dd24dab0f6d
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update docstring for UserDetailsView and cleanup
+
+ rest_auth/registration/serializers.py |  4 ++--
+ rest_auth/views.py                    | 17 ++++++++---------
+ 2 files changed, 10 insertions(+), 11 deletions(-)
+
+commit a907efc06b6b31971a79df17139256649b1440fa
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Allow using custom UserDetailsSerializer with JWTSerializer
+
+ rest_auth/serializers.py | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+commit a989de8624894ac4f217406046bcc0c28da1170b
+Merge: 70d03e3 5330e0c
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #277 from Tivix/demo-site-swagger
+
+commit 667e70c40f7c4ebccf3a63c12f0e10e5fd64983d
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update configs and changelog for version 0.8.2
+
+ demo/requirements.pip |  2 +-
+ docs/changelog.rst    | 10 +++++++++-
+ setup.py              |  2 +-
+ 3 files changed, 11 insertions(+), 3 deletions(-)
+
+commit 4599adf92b841c518cadb89b1fce8e015d214fa7
+Author: Ankit Popli <ankitpopli1891@gmail.com>
+
+    fix: social login using auth code flow
+
+ rest_auth/registration/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit a9c6900e26f70e26cba72b185f8f12ebc2275cfc
+Merge: 667e70c 2d54117
+Author: Egor Poderyagin <egor@crazyrussian.pro>
+
+    Merge branch 'RussianLanguage' of https://github.com/Akay7/django-rest-auth into RussianLanguage
+
+commit 89b48ce053b0c56d6fc69a4bfb39f21421019c02
+Author: Egor Poderyagin <egor@crazyrussian.pro>
+
+    update language file
+
+ rest_auth/locale/ru/LC_MESSAGES/django.po | 44 ++++++++++++++++++++++----------------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
+
+commit 49ddf00d57f93ee4d68d8270b1ed13a88d27ad5e
+Author: Egor Poderyagin <egor@crazyrussian.pro>
+
+    update messages in agreement to comment of pull request
+
+ rest_auth/locale/ru/LC_MESSAGES/django.mo | Bin 2667 -> 2697 bytes
+ rest_auth/locale/ru/LC_MESSAGES/django.po |   6 +++---
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 7fc875a4f5839db3b070024807c8ea2f0f50d288
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Change handling for logout on GET
+
+ docs/api_endpoints.rst |  2 +-
+ rest_auth/views.py     | 11 ++++-------
+ 2 files changed, 5 insertions(+), 8 deletions(-)
+
+commit dd6db3563f9205e4a42d171f25948cc110e13b8b
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Allow using custom UserDetailsSerializer with JWTSerializer - update
+
+ rest_auth/serializers.py | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+commit 139dd4a4e416186b1e3b1db8520712dbfdb59308
+Author: Ankit Popli <ankitpopli1891@gmail.com>
+
+    refactor: remove redundant check as suggested by @maxim-kht
+
+ rest_auth/registration/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 42ae22152adeb664c9df2d8b444454e486433bd3
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove dependency on allauth for logout on GET
+
+ docs/api_endpoints.rst | 2 +-
+ rest_auth/views.py     | 5 +----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+commit cef8d679684a50690928ab8600bb5ca39a9ce5ee
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Move note under info on accepted params
+
+ docs/api_endpoints.rst | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit ebf6a92b1755987094020376d9c88da627c1a8c9
+Merge: 667e70c cef8d67
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #288 from Tivix/logout_on_get
+
+commit 45bda640e5663ca51d354a8da524af36ec7b7242
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add note to docs for defining custom REGISTER_SERIALIZER
+
+ docs/configuration.rst | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit ca62f440611e5c225cf7c98ed30fe33998eeb8e6
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Append more information to comment
+
+ rest_auth/serializers.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f09bbaf877135ae0621e26996c61c30a55f89935
+Merge: 45bda64 139dd4a
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #283 from DigiCred/master
+
+commit 6812deeeb400d5e7cdccf445b8ccc8b9af6c8a03
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Rename variable for clarity
+
+ rest_auth/registration/serializers.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f79537de77f9734005c4132945fa44c15b9df66b
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update API endpoints docs and docstring
+
+ docs/api_endpoints.rst | 20 ++++++++------------
+ rest_auth/views.py     |  7 ++++---
+ 2 files changed, 12 insertions(+), 15 deletions(-)
+
+commit f200b8d6f0ffaa2c1774442b0051e64b7f1bf627
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove redundant `required=True` from serializer fields
+
+ rest_auth/serializers.py | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit d2917e9f3fc61176f1b5ea9d9f27f32bc56b6127
+Author: Bang Dao <bang.dao@eastagile.com>
+
+    refactor allow VerifyEmailView display data field in swagger
+
+ rest_auth/registration/views.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit d20a601fddaa8bbb7ac5da9fe05bf6093975362b
+Merge: f200b8d ca62f44
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #286 from Tivix/jwt-serializer-with-custom-user-model
+
+commit 5ec3b73dec14fc8f6fb0703a64428bd57037e32e
+Merge: d20a601 49ddf00
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #284 from Akay7/RussianLanguage
+
+commit 592ea78edc52faecd6fbfe829854327239c950a6
+Merge: 5ec3b73 d2917e9
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #289 from squallcs12/refactor/allow-VerifyEmailView-work-with-swagger
+
+commit a673db87f811d297a1cc5aae00d1d4e171854974
+Merge: 592ea78 f9b6a6c
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #200 from mariuccio/master
+
+commit e81ed716ecb6b2a14522dfcc900cd2052f9f44d6
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add `verification e-mail sent` message
+
+ rest_auth/registration/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9df96086317c324b46b9eb9fecb031ec676e6c4f
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add `get_queryset` method to UserDetailsView due to issue with Swagger
+
+ rest_auth/views.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 5bcf31f54521498705dead5fb0437e6292e72212
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove redundant `required=True` from serializer fields
+
+ rest_auth/registration/serializers.py | 4 ++--
+ rest_auth/social_serializers.py       | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit aa677d51c0d4eb46c60a20c8beea152348b582d5
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    PEP8 cleanup and small text fixes
+
+ demo/templates/base.html              |  2 +-
+ flake8                                |  2 +-
+ rest_auth/registration/serializers.py | 20 +++++++++++---------
+ rest_auth/registration/views.py       |  7 ++++---
+ rest_auth/serializers.py              |  8 +-------
+ rest_auth/social_serializers.py       | 14 ++++++++------
+ rest_auth/views.py                    | 19 +++++++++----------
+ 7 files changed, 35 insertions(+), 37 deletions(-)
+
+commit 951f3ce28441835b6408104465c01654add1c74a
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Compile translations and small text fixes
+
+ docs/api_endpoints.rst                    |   2 +-
+ rest_auth/locale/de/LC_MESSAGES/django.mo | Bin 2300 -> 2271 bytes
+ rest_auth/locale/de/LC_MESSAGES/django.po |  39 +++++++++++++++++++--------------------
+ rest_auth/locale/ru/LC_MESSAGES/django.mo | Bin 2697 -> 2814 bytes
+ rest_auth/locale/ru/LC_MESSAGES/django.po |  48 ++++++++++++++++++++++++++----------------------
+ rest_auth/utils.py                        |   2 +-
+ 6 files changed, 47 insertions(+), 44 deletions(-)
+
+commit ce58da58b29354c15c6769816fe5f0898c544542
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update configs and changelog for version 0.9.0
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 8 ++++++++
+ setup.py              | 2 +-
+ 3 files changed, 10 insertions(+), 2 deletions(-)
+
+commit 971072ae374291888ec808afcc33d8e8d1064ee8
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add `sensitive_post_parameters` decorator to several views
+
+ rest_auth/registration/views.py | 15 ++++++++++++---
+ rest_auth/views.py              | 20 ++++++++++++++++++++
+ 2 files changed, 32 insertions(+), 3 deletions(-)
+
+commit beb073f35fddbe5264dd9fc0a5aabce31dd45031
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update `travis.yml` and add latest Django 1.10 to tests
+
+ .travis.yml | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+commit 09a30742f720b4d4e663e25a71cc664b9b80bf6d
+Author: Carlos <cahersan@gmail.com>
+
+    Added Spanish translations
+
+ rest_auth/locale/es/LC_MESSAGES/django.mo | Bin 0 -> 2446 bytes
+ rest_auth/locale/es/LC_MESSAGES/django.po |  99 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 99 insertions(+)
+
+commit 60a585339bb415e6a205fc1558401e74bcd8f61a
+Author: Joao Ricardo <joaoricardo000@gmail.com>
+
+    Fix typo on test variable name
+
+ rest_auth/tests/test_api.py    | 2 +-
+ rest_auth/tests/test_base.py   | 2 +-
+ rest_auth/tests/test_social.py | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 60a12107baf7fc945f440908c3e454dcd6d25439
+Author: Joao Ricardo <joaoricardo000@gmail.com>
+
+    Add djangorestframework-jwt on test_require
+
+ setup.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 49eaf0feea21ae19156d90be9fafc3f6f425e5f7
+Author: Stephen Stack <sstack@punchthrough.com>
+
+    deps: require django-allauth>=0.25.0
+
+ setup.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 9cf4c4e730c8f9281949b1ee9b78cbb0b747fd32
+Author: Stephen Stack <sstack@punchthrough.com>
+
+    deps: dev-requirements.txt to install developer dependencies
+
+ dev-requirements.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit be17865b0040b70fa9400abffeb11139503aaa91
+Author: Stephen Stack <sstack@punchthrough.com>
+
+    registration: allow custom permission classes
+
+ rest_auth/registration/app_settings.py | 8 ++++++++
+ rest_auth/registration/views.py        | 4 ++--
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+commit 3f7035eb686d48efee3e0070c0d55c89023e78b8
+Author: Antoine d'Otreppe <a.dotreppe@aspyct.org>
+
+    Added French translations
+
+ rest_auth/locale/fr/LC_MESSAGES/django.mo | Bin 0 -> 2334 bytes
+ rest_auth/locale/fr/LC_MESSAGES/django.po |  98 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 98 insertions(+)
+
+commit 955ff3a280158df6efb709846fbf3e880b16c5e4
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Change retrieving user details serializer to avoid import error
+
+ rest_auth/serializers.py | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
+
+commit 48dba428d8b4308ce6a07aec0de8ff59c9993c9e
+Merge: 955ff3a 60a1210
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #308 from joaoricardo000/master
+
+commit 5b94deb5c54f454812eb80363e5c3cde0fce28f3
+Merge: 48dba42 09a3074
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #300 from Cahersan/master
+
+commit 469e4af82bbbaf7646a76a216ac565e4e7272730
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Compile translations
+
+ rest_auth/locale/de/LC_MESSAGES/django.mo | Bin 2271 -> 2271 bytes
+ rest_auth/locale/de/LC_MESSAGES/django.po |  12 ++++++------
+ rest_auth/locale/es/LC_MESSAGES/django.mo | Bin 2446 -> 2446 bytes
+ rest_auth/locale/es/LC_MESSAGES/django.po |  42 +++++++++++++++++++++---------------------
+ rest_auth/locale/ru/LC_MESSAGES/django.mo | Bin 2814 -> 2814 bytes
+ rest_auth/locale/ru/LC_MESSAGES/django.po |  14 +++++++-------
+ 6 files changed, 34 insertions(+), 34 deletions(-)
+
+commit 819fbf768f4f88c8e66be3b91b25be78ff95b368
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update configs and changelog for version 0.9.1
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 6 ++++++
+ setup.py              | 2 +-
+ 3 files changed, 8 insertions(+), 2 deletions(-)
+
+commit 50325ddb4fd0b1685631cf873987a606290d5d20
+Author: mpuhacz <marcinpuhacz@gmail.com>
+
+    polish translation
+
+ rest_auth/locale/pl/pl.mo | Bin 0 -> 2306 bytes
+ rest_auth/locale/pl/pl.po |  99 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 99 insertions(+)
+
+commit d0d348bf6b12474f1771b793ec821492ad0db1b6
+Author: mpuhacz <marcinpuhacz@gmail.com>
+
+    polish translation
+
+ rest_auth/locale/pl/{ => LC_MESSAGES}/pl.mo | Bin
+ rest_auth/locale/pl/{ => LC_MESSAGES}/pl.po |   0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit bf96f6ab8e397586aba74982c71917357e9765bc
+Author: mpuhacz <marcinpuhacz@gmail.com>
+
+    polish translation
+
+ rest_auth/locale/pl/LC_MESSAGES/{pl.mo => django.mo} | Bin
+ rest_auth/locale/pl/LC_MESSAGES/{pl.po => django.po} |   0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e665b9564368ac9d54f0a3e4bdbab20144a0b37d
+Merge: 819fbf7 be17865
+Author: mario <mario@tivix.com>
+
+    Merge pull request #312 from swstack/custom-registration-permissions
+
+commit dd3eb3e8c6dde1027010a9d85f4088dbd6beab56
+Author: mario <mariusz.karwala@tivix.com>
+
+    fix: few fixes for #312
+
+ rest_auth/registration/app_settings.py | 2 +-
+ rest_auth/tests/requirements.pip       | 2 +-
+ setup.py                               | 2 --
+ 3 files changed, 2 insertions(+), 4 deletions(-)
+
+commit 8c58782e30a80cacb78bd671bc798d7751ccbf1f
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Change requirements in setup.py: allauth is only required for tests
+
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 052094d43cd42f76aef1c781a9cb4e178361bad7
+Author: Vladislav Manchev <blablacio@users.noreply.github.com>
+
+    Pass context to user defined USER_DETAILS_SERIALIZER
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 13863991ca05d62986ab7ae3a46555c04edff7c8
+Merge: 8c58782 bf96f6a
+Author: mario <mario@tivix.com>
+
+    Merge pull request #321 from mpuhacz/polish-translation
+
+commit cbda9ee075a3ea916dc26a76215f489919bc51bd
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add Django 1.11 to Travis CI
+
+ .travis.yml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 937162bd9709be2ab3aaaadd5a1abb05a77e5e2e
+Author: Nathanael Gordon <nathanael.l.gordon@gmail.com>
+
+    Fix docs settings typo
+
+ docs/configuration.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 90219295a48bc29393a6232fdd295e47903fd737
+Author: Jacob Rief <jacob.rief@gmail.com>
+
+    return user object from upstream method invocation
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit eb9e6eb05a28533e9c19f8e91dd06c50d63bdc66
+Merge: cbda9ee 937162b
+Author: mario <mario@tivix.com>
+
+    Merge pull request #331 from nattyg93/patch-1
+
+commit 8981317b1c94eb3dc713122959b3469212b3720f
+Author: Daniel Vitiello <Vitiell0@users.noreply.github.com>
+
+    Add step to remind user to migrate their database
+
+ docs/installation.rst | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 606858fba7235ea2e44cafb0267c45b64ddbe90e
+Merge: eb9e6eb 8981317
+Author: mario <mario@tivix.com>
+
+    Merge pull request #336 from Vitiell0/patch-1
+
+commit f0175b4aac31cf47d8d5a5cbf170e0068e74a429
+Author: David Gunter <david.gunter@tivix.com>
+
+    Update JWT Support documentation to explain how the library uses django-rest-framework-jwt to handle token encoding.
+
+ docs/installation.rst | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit 98306a35c1fd4648f1eb724530164d55c2282862
+Author: bIgBV <bhargav@recruiterbox.com>
+
+    Pass request in the context when initializing `LoginSerializer`
+
+ rest_auth/views.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9d1f65eedcd437003f5bef13fdc1f27d0fb0ee1a
+Merge: 606858f f0175b4
+Author: David Gunter <david@davidgunter.ca>
+
+    Merge pull request #338 from verkaufer/jwt_docs_fix
+
+commit 6da0703b0daefcc1d569027b5d5862bda86c5ee0
+Author: Grigoriy Beziuk <gbezyuk@gmail.com>
+
+    LoginView.get_response modified in order to respect rest_framework_jwt.JWT_AUTH_COOKIE setting
+
+ rest_auth/views.py | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 18e98d333b36c3c10f6861c37d93c70d71afc5e2
+Merge: 8c58782 9d1f65e
+Author: Grigoriy Beziuk <me@gbezyuk.ru>
+
+    Merge pull request #1 from Tivix/master
+
+commit 26722631002db6c6a2fbb89f15a38dd45d9cacf7
+Merge: 18e98d3 6da0703
+Author: Grigoriy Beziuk <me@gbezyuk.ru>
+
+    Merge pull request #2 from gbezyuk-on-software/master
+
+commit 46fd16700a9e64fc23d843a9c3ff8c1798d60cd0
+Author: Grigoriy Beziuk <gbezyuk@gmail.com>
+
+    also for cookie deletion
+
+ rest_auth/views.py | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+commit b124aaf273cf923a4a47091a567f3b49d5f6a555
+Merge: 9d1f65e 9021929
+Author: Mateusz Sikora <sikora2048@gmail.com>
+
+    Merge pull request #334 from jrief/fixes/bypass-user-object
+
+commit 53398f8727aa153ad957b36aaf7da68be97fc854
+Merge: b124aaf 052094d
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #327 from blablacio/user-details-serializer-context
+
+commit 99b68b29145778bdff469f7b73d837c3087d6841
+Author: Nikita Sobolev <mail@sobolevn.me>
+
+    Updates README.rst with svg badges
+
+ README.rst | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit d16ec273e6928a4a339d481bab7d052615c23304
+Merge: 53398f8 99b68b2
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #366 from sobolevn/patch-1
+
+commit 7a0fa017d3ac3a6cabfe8796a4331400592223be
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add MANIFEST.in change from #335 to master branch
+
+ MANIFEST.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8afba8ca16a95468b558aaebba3eb89f3d0e213c
+Merge: 7a0fa01 98306a3
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #341 from bIgBV/add-request-to-context
+
+commit 30c89b1cc69c846976626d4ac4b08855fd3a372d
+Author: mario <mariusz.karwala@tivix.com>
+
+    chore: added new test case for custom permission classes + general test module cleanups
+
+ rest_auth/tests/{test_base.py => mixins.py} | 33 +++++++++------------------------
+ rest_auth/tests/test_api.py                 | 25 ++++++++++++++++++++++---
+ rest_auth/tests/test_social.py              |  4 ++--
+ 3 files changed, 33 insertions(+), 29 deletions(-)
+
+commit 7e708d9ca770f7f135e01277aef7fe313fd034f1
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update configs and changelog for version 0.9.2
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 6 ++++++
+ rest_auth/views.py    | 3 ++-
+ setup.py              | 2 +-
+ 4 files changed, 10 insertions(+), 3 deletions(-)
+
+commit 42d039b473bc18080d58656f50f379005cd70499
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Fix urlpatterns format in docs
+
+ docs/installation.rst | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+commit 945008d326bdbed6b85d69a0aaf184157cfd741f
+Author: Philippe Luickx <philippe.luickx@gmail.com>
+
+    Checking for pre-existing accounts from a different flow when using social connect
+
+ rest_auth/registration/serializers.py | 15 +++++++++++++++
+ rest_auth/tests/requirements.pip      |  1 +
+ rest_auth/tests/test_social.py        |  8 ++++++--
+ 3 files changed, 22 insertions(+), 2 deletions(-)
+
+commit 05e5c647faca2aa5d1272ba0a989e578495a351c
+Author: Steven Loria <sloria1@gmail.com>
+
+    Test against Python 3.6
+
+ .travis.yml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit b34250ec94fa13bfcac1fc21ff1dcbb3fd84c052
+Author: Steven Loria <sloria1@gmail.com>
+
+    Handle extra args and kwargs in all POST endpoints
+
+ rest_auth/views.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit e4c04528a2c3aaf21f638589639d84df278866ec
+Merge: 42d039b b34250e
+Author: mario <mario@tivix.com>
+
+    Merge pull request #373 from sloria/versioning-compat
+
+commit be2ac99a342c2676f8ed249097531d01d27a885b
+Author: mario <mariusz.karwala@tivix.com>
+
+    fix: changed travis.yml and setup.py configuration
+
+ .travis.yml | 8 ++++----
+ setup.py    | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 2c1649daf166b0e9e656fad34048454e4d64a436
+Author: mario <mariusz.karwala@tivix.com>
+
+    fix: revert setup.py changes
+
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 1b51eb8732c540149e9e70a593ab3a942e4f456e
+Merge: e4c0452 2c1649d
+Author: mario <mario@tivix.com>
+
+    Merge pull request #380 from Tivix/travis-conf-fixes
+
+commit a670fa96877cc2ba14c9c9bd148f13e90b50f174
+Merge: 1b51eb8 05e5c64
+Author: mario <mario@tivix.com>
+
+    Merge pull request #372 from sloria/test-py36
+
+commit f89471f980304b1c66c7a92fded22acbb64919a0
+Author: mario <mariusz.karwala@tivix.com>
+
+    pep8 cleanups
+
+ rest_auth/registration/serializers.py | 13 +++++++------
+ rest_auth/tests/test_social.py        | 11 ++++-------
+ 2 files changed, 11 insertions(+), 13 deletions(-)
+
+commit ee791a402ec6a57d54eec6e0f44150691f99eedd
+Merge: a670fa9 945008d
+Author: mario <mario@tivix.com>
+
+    Merge pull request #367 from philippeluickx/d/pre_existing_acounts_check
+
+commit 658664a7d4240e3c5abfe9bbcb123cfc13df0f1b
+Merge: f89471f ee791a4
+Author: mario <mariusz.karwala@tivix.com>
+
+    Merge branch 'master' into pr/367
+
+commit 8bd8d604ff886f37e87fcc2f9367a672c92098e0
+Author: Nic Ducheneaut <ducheneaut@gmail.com>
+
+    Prevent double-validation in LoginSerializer
+
+ rest_auth/serializers.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ed164557127af1c959d3a2ec1a617d7559f97d75
+Merge: 658664a 8bd8d60
+Author: mario <mario@tivix.com>
+
+    Merge pull request #386 from ducheneaut/patch-1
+
+commit 864aa60f924e168ff726bf7dc628bdaf9e60a5d2
+Author: Michael <michael-k@users.noreply.github.com>
+
+    Run tests against Django 2.0
+
+ .travis.yml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 3a2a25682114aa6486c8f10f9069a1812c2fb63d
+Author: Michael K <michael-k@users.noreply.github.com>
+
+    Fixes import path for django's reverse
+
+ rest_auth/tests/mixins.py   | 6 +++++-
+ rest_auth/tests/test_api.py | 6 +++++-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+commit fcca39643e7998dabea91a7b2195af83e15cd45e
+Merge: ed16455 3a2a256
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #391 from michael-k/patch-1
+
+commit 7ad440f7a2322ed936478fbbceab7c6afd4d8847
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove Django 1.10 from tests and move imports to top of the file
+
+ .travis.yml               |  1 -
+ rest_auth/tests/mixins.py | 11 +++++------
+ 2 files changed, 5 insertions(+), 7 deletions(-)
+
+commit 98d5ce314f1ba4ab8d8707d0924187223234fea3
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Fix unit tests
+
+ rest_auth/tests/settings.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 5e6c5a75ea5367d1d97bdaffe6942f6f54f9aabb
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Changes in demo project settings for Django 2.0 compatibility
+
+ demo/demo/settings.py | 6 ++++--
+ demo/demo/urls.py     | 2 +-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+commit a892ca3fa5dadf5e66d07544712a12afee6717ad
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Upgrade requirements for demo project
+
+ demo/requirements.pip | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 8a4afe746c1ed2d7159deb7f2ed340c5d1f68473
+Author: Aleksi Häkli <aleksi.hakli@vincit.fi>
+
+    Implement connect social accounts functionality
+
+ docs/installation.rst                 |  20 ++++++++++++++++----
+ rest_auth/registration/serializers.py |  45 +++++++++++++++++++++++++++++++++++++++++----
+ rest_auth/registration/views.py       | 120 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------------------------
+ rest_auth/social_serializers.py       | 135 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------------------------------------------------
+ 4 files changed, 223 insertions(+), 97 deletions(-)
+
+commit 41ae498be09879209bae7257b4c12336e2004cee
+Merge: a892ca3 8a4afe7
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Merge pull request #387 from aleksihakli/master
+
+commit fed6b9840c46eefd99cb695687de307e2855cc4a
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Refactor social connect views and serializers
+
+ rest_auth/registration/serializers.py |  78 +++++++++++++++++++++++++++++++++++-------------------------------------------
+ rest_auth/registration/views.py       | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------------------------------------------------------------------
+ rest_auth/social_serializers.py       | 137 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------------------------------------------------------
+ 3 files changed, 178 insertions(+), 192 deletions(-)
+
+commit 3eb546f63354382a127d902aff312157b82b171f
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add extra info to docs for social connect
+
+ docs/installation.rst | 29 +++++++++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
+
+commit 6a84d85d9180954c7be47c940a6373e752b0a8d0
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Add change in documentation and tests for social connect
+
+ docs/installation.rst          |  42 ++++++++++++++++++++++++++++--------------
+ rest_auth/tests/mixins.py      |   3 +++
+ rest_auth/tests/test_social.py | 149 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/tests/urls.py        |  23 +++++++++++++++++++++--
+ 4 files changed, 201 insertions(+), 16 deletions(-)
+
+commit bcd6ab4401d382cffd09deaa5a6bd0c18ab9692a
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update configs and changelog for version 0.9.3 + additional fixes
+
+ demo/requirements.pip                 |  2 +-
+ docs/changelog.rst                    |  7 +++++++
+ docs/installation.rst                 |  6 +++---
+ rest_auth/registration/serializers.py | 11 ++++++++---
+ rest_auth/tests/test_social.py        |  9 +--------
+ 5 files changed, 20 insertions(+), 15 deletions(-)
+
+commit c009bb997509fed2d7a544d54b25322efbee57d9
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Change conditional import from allauth.socialaccount
+
+ rest_auth/registration/serializers.py | 10 +++-------
+ setup.py                              |  2 +-
+ 2 files changed, 4 insertions(+), 8 deletions(-)
+
+commit a3057b7aa1963da834ffc33edaf188b0e0e4556d
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Flake8 fix - unused import
+
+ rest_auth/registration/serializers.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 801bad7c6134e84016d4d1d6ade85c416ce442a5
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Update copyright and version number in Docs config
+
+ docs/conf.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 95fafe5e0f6716296a1c664c2b870876a6b4e0cc
+Author: Maxim Kukhtenkov <maxim.kht@gmail.com>
+
+    Remove Django 1.8 from Travis config
+
+ .travis.yml | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 90760548f6905c5f251a3df6c9f00057b954bac3
+Author: Daniel <33256939+dgilge@users.noreply.github.com>
+
+    Add DRF 3.8 to Travis config
+
+ .travis.yml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit db60e433974018d30baf72e224c94463822c387f
+Author: Daniel <33256939+dgilge@users.noreply.github.com>
+
+    Exclude Python 2.7 for Django 2.0
+
+ .travis.yml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit a1845aef434c788561b88616bb151abaa7e9c67b
+Author: Daniel <33256939+dgilge@users.noreply.github.com>
+
+    Pass request to authenticate
+
+ rest_auth/serializers.py | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit b9fd4aba96a99f329c71dfe9a68ccf289d7d020a
+Author: Václav Dohnal <vaclav.dohnal@gmail.com>
+
+    add czech (cs) translations stub
+
+ rest_auth/locale/cs/LC_MESSAGES/django.po | 103 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 103 insertions(+)
+
+commit fa3000e8bd5b1c7c3622056d25badb953fbc5cb8
+Author: Václav Dohnal <vaclav.dohnal@gmail.com>
+
+    add cs translations
+
+ rest_auth/locale/cs/LC_MESSAGES/django.mo | Bin 0 -> 2376 bytes
+ rest_auth/locale/cs/LC_MESSAGES/django.po |  63 +++++++++++++++++++++++++++++++--------------------------------
+ 2 files changed, 31 insertions(+), 32 deletions(-)
+
+commit 98212a83f5ddacd78b11ea975bbdebc4f15a1fde
+Author: Vašek Dohnal <vaclav.dohnal@gmail.com>
+
+    fix typo
+
+ rest_auth/locale/cs/LC_MESSAGES/django.po | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit b778a5085b5086527edf706e110ea03f980e77d3
+Author: Vašek Dohnal <vaclav.dohnal@gmail.com>
+
+    add full project name
+
+ rest_auth/locale/cs/LC_MESSAGES/django.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3af4f1a3438bd7add61c549669c8bd35a68b68db
+Author: Vašek Dohnal <vaclav.dohnal@gmail.com>
+
+    fix typo
+
+ rest_auth/locale/cs/LC_MESSAGES/django.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 53f901b3c887d4f12219aca64bb6b5ea633b0681
+Author: Václav Dohnal <vaclav.dohnal@gmail.com>
+
+    refresh .mo file
+
+ rest_auth/locale/cs/LC_MESSAGES/django.mo | Bin 2376 -> 2488 bytes
+ rest_auth/locale/cs/LC_MESSAGES/django.po |   2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 033ee8f483e7c552ed5382120dbd00481fe80ac1
+Author: Ryan P Kilby <rpkilby@ncsu.edu>
+
+    Remove deprecated EZ setup
+
+ setup.py | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+commit f0941b4cc2d23e81c75660a9b032dbab785456ff
+Author: Ryan P Kilby <rpkilby@ncsu.edu>
+
+    Merge tools configs into setup.cfg
+
+ flake8                   |  4 ----
+ .coveragerc => setup.cfg | 15 ++++++++++-----
+ 2 files changed, 10 insertions(+), 9 deletions(-)
+
+commit 691c73d5569834d82c7e1df03e74bbdbc089ade3
+Author: Ryan P Kilby <rpkilby@ncsu.edu>
+
+    Update .gitignore from GH
+
+ .gitignore | 77 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 62 insertions(+), 15 deletions(-)
+
+commit 4b07c3ca92d64927d0b8ea454bc44ef0d9691000
+Author: Ryan P Kilby <rpkilby@ncsu.edu>
+
+    Add wheel & metdata config
+
+ setup.cfg | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit f5fcf9f0839c566c1b36142f3da54564b2f32ae7
+Merge: 95fafe5 4b07c3c
+Author: mario <mario@tivix.com>
+
+    Merge pull request #452 from rpkilby/gardening
+
+commit 834e4c474776ea253a9e7bb88373163caff14ac8
+Merge: f5fcf9f db60e43
+Author: mario <mario@tivix.com>
+
+    Merge pull request #434 from dgilge/DRF3.8
+
+commit 25263b3e4ac8bd4b6c2be6c0f643bab45ea735de
+Merge: 834e4c4 53f901b
+Author: mario <mario@tivix.com>
+
+    Merge pull request #442 from illagrenan/master
+
+commit 479a40d2ccd69d69f7a05d716f30239dd3ef2343
+Merge: 25263b3 a1845ae
+Author: mario <mario@tivix.com>
+
+    Merge pull request #437 from dgilge/request
+
+commit 5d318b3a4ba3572755a631a272594f2342ab04ae
+Author: erdtsksn <erdal@taskesen.me>
+
+    feat: Add Turkish(tr) translation
+
+ rest_auth/locale/tr/LC_MESSAGES/django.po | 95 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 95 insertions(+)
+
+commit f5fe62ce913f52a41fec7c0aef1b50a2d422e523
+Author: Kurt Neufeld <kneufeld@burgundywall.com>
+
+    expand JWT acronym in docs
+
+ docs/installation.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit ca39ba7ea99c7c6716fc0da9695da2a839808525
+Author: Magnun Leno <magnun.leno@gmail.com>
+
+    Adds django-allauth to dev-requirements.txt
+
+ dev-requirements.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 9913f8eb03ec42bdae16100744b227f3ea52d2a6
+Author: yihuang <yi.codeplayer@gmail.com>
+
+    add translation for Chinese
+
+ rest_auth/locale/zh_Hans/LC_MESSAGES/django.mo | Bin 0 -> 2284 bytes
+ rest_auth/locale/zh_Hans/LC_MESSAGES/django.po | 104 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ rest_auth/locale/zh_Hant/LC_MESSAGES/django.mo | Bin 0 -> 414 bytes
+ rest_auth/locale/zh_Hant/LC_MESSAGES/django.po | 103 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 207 insertions(+)
+
+commit c437ca22ff2e37838f78253c5320c89f8282f5ba
+Author: Oskar Persson <oskar.persson@polken.se>
+
+    Translate msg when providing incorrect old password
+
+ rest_auth/serializers.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 25b94db0cc4022df2bd80240dc10e06c28e09ac1
+Author: vthorey <valentin@dreem.com>
+
+    Update installation.rst
+
+ docs/installation.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e891a76c3f7426a047afa6e2cb988eeecc699612
+Author: Valentino <v.thorey@gmail.com>
+
+    Add example of github API in installation doc.
+
+ docs/installation.rst | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+
+commit a3d38f4c59a9b9dbe1ca8c3408b103f307d47e81
+Author: Jasper Wan <wanjixiang819@hotmail.com>
+
+    disable django_logout if REST_SESSION_LOGIN is False
+
+ rest_auth/views.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c7cc41e07ca7f2328de9e261f682d419e1a71310
+Merge: 479a40d a3d38f4
+Author: mario <mario@tivix.com>
+
+    Merge pull request #506 from Jasper0819X/master
+
+commit 51d6bf454240f4145b21df9b20f75cfcc226f2f3
+Merge: c7cc41e 9913f8e
+Author: mario <mario@tivix.com>
+
+    Merge pull request #472 from yihuang/master
+
+commit 22a76d91ac59f1953a3ffcf7df7d7b4077c23f6d
+Merge: 51d6bf4 ca39ba7
+Author: mario <mario@tivix.com>
+
+    Merge pull request #470 from magnunleno/fix/add-missing-allauth-requirement
+
+commit 5c556cd09ac0b2c1ab5fe50dc6bdf9545ab2c3b3
+Merge: 22a76d9 5d318b3
+Author: mario <mario@tivix.com>
+
+    Merge pull request #463 from erdtsksn/feat/translation-tr
+
+commit bb3b082895299bd94b6bf910cdf294f033d605b1
+Merge: 5c556cd 46fd167
+Author: mario <mario@tivix.com>
+
+    Merge pull request #345 from gbezyuk/master
+
+commit 64b5572172ea664dd2354a78787a06d0a5f39943
+Author: Jeongsoo Park <toracle@gmail.com>
+
+    add a korean translation
+
+ rest_auth/locale/ko/LC_MESSAGES/django.po | 99 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 99 insertions(+)
+
+commit 11e877ba50771892782fb9a2213812a03a259030
+Author: Jeongsoo Park <toracle@gmail.com>
+
+    add a korean translation mo file
+
+ rest_auth/locale/ko/LC_MESSAGES/django.mo | Bin 0 -> 2562 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d2cd31a5603c0a65b05cc9d817542d3349fc0c8d
+Author: Jeongsoo Park <toracle@gmail.com>
+
+    update revision date
+
+ rest_auth/locale/ko/LC_MESSAGES/django.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f39d93042e89912e28d73c4d9e82f60ff0bfe5f4
+Author: Gaurav Sheni <gvsheni@gmail.com>
+
+    Update installation.rst
+
+ docs/installation.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 043cb8537466ae1059407282f80d8482e29803e3
+Merge: bb3b082 f39d930
+Author: mario <mario@tivix.com>
+
+    Merge pull request #522 from gsheni/patch-1
+
+commit 39252820f7af67564f8c2a6a88d9846273b5a25c
+Merge: 043cb85 d2cd31a
+Author: mario <mario@tivix.com>
+
+    Merge pull request #521 from toracle/master
+
+commit ac44fbe07ad57dd5228c1d2890596c19df78ea49
+Merge: 3925282 e891a76
+Author: mario <mario@tivix.com>
+
+    Merge pull request #483 from vthorey/vthorey/installation-doc
+
+commit c7ff94ced701a9134630682a1ace7a279bddcbc5
+Author: mario <mariusz.karwala@tivix.com>
+
+    feat: prep for new release (0.9.4)
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 8 ++++++++
+ docs/conf.py          | 4 ++--
+ setup.py              | 2 +-
+ 4 files changed, 12 insertions(+), 4 deletions(-)
+
+commit 998b2b1fbc883f929cf23d50b867b68913ed6dfa
+Author: mario <mariusz.karwala@tivix.com>
+
+    feat: prep for new release (0.9.5)
+
+ demo/requirements.pip | 2 +-
+ docs/changelog.rst    | 4 ++++
+ docs/conf.py          | 4 ++--
+ setup.py              | 2 +-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
+
+commit 07d2bd5c5629e5bfff6ecdd605c29027d7380559
+Author: Bruno Barreto Freitas <bruno.freitas@intmed.com.br>
+
+    Brazilian Portuguese Translation
+
+ rest_auth/locale/pt_BR/LC_MESSAGES/django.po | 99 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 99 insertions(+)
+
+commit bd843f9460d67b3e3cf4f75a556c07896f1c00f5
+Merge: 998b2b1 07d2bd5
+Author: mario <mario@tivix.com>
+
+    Merge pull request #526 from brunobarretofreitas/portugueseBrazilTranslation
+
+commit 4cf813262f38e3052241ffc9824b7e4a5316f9e4
+Merge: bd843f9 c437ca2
+Author: mario <mario@tivix.com>
+
+    Merge pull request #481 from OskarPersson/old-password-error-msg
+
+commit 04c692bba6b24742b1cbb38b1fe286adc2a51a1a
+Merge: 4cf8132 f5fe62c
+Author: mario <mario@tivix.com>
+
+    Merge pull request #468 from kneufeld/master
+
+commit 624ad01afbc86fa15b4e652406f3bdcd01f36e00
+Merge: 04c692b 3f7035e
+Author: mario <mario@tivix.com>
+
+    Merge pull request #313 from aspyct/feature/fr_localization

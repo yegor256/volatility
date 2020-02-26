@@ -1,15 +1,13 @@
 import unittest
 import sys
-#import requests
 
-class Test1(unittest.TestCase):
+class Test2(unittest.TestCase):
     def test_deepbugs(self):
-        # sys.path.append(".")
         from main import parse
-        with open('tests/out.txt', 'r') as f:
+        with open('tests/django-rest-auth.txt', 'r') as f:
             content = f.read()
             res = parse(content)
-            self.assertEqual(res['files']['README.md'], 8)
+            self.assertEqual(res['commits'], 517)
 
 
 if __name__ == '__main__':

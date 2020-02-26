@@ -110,7 +110,7 @@ def calculate(dir):
                              '--format=short',
                              '--stat=1000', '--stat-name-width=950'],
                             stdout=subprocess.PIPE)
-    parse(result.stdout.decode("utf-8"))
+    return parse(result.stdout.decode("utf-8"))
 
 
 def find_next_commit(pos1, input):
@@ -147,7 +147,7 @@ def parse(input):
     if pos1 >= 0:
         logging.info('Commit: {}'.format(num))
     num = num + 1
-    with open("out.txt","w+") as f:
+    with open("git_out.txt","w+") as f:
         f.write(input)
     while(pos1 < len(input) and pos1 >= 0):
         pos2 = input.find('|', pos1)
@@ -160,7 +160,9 @@ def parse(input):
                 num = num + 1
                 continue
             else:
-                with open('out.txt', 'w+') as the_file:
+                if line[0:6] == 'commit':
+                    logging.info('Commit: {}'.format(num))
+                with open('files_out.txt', 'w+') as the_file:
                     the_file.write(str(files))
                 break
         else:
@@ -180,7 +182,7 @@ def parse(input):
                 else:
                     files[file] = 1
         pos1 = pos3 + 1
-    return files
+    return {'files': files, 'commits': num}
 
 
 def run_application():
