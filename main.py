@@ -147,7 +147,7 @@ def parse(input):
     if pos1 >= 0:
         logging.info('Commit: {}'.format(num))
     num = num + 1
-    with open("git_out.txt","w+") as f:
+    with open("git_out.txt", "w+") as f:
         f.write(input)
     while(pos1 < len(input) and pos1 >= 0):
         pos2 = input.find('|', pos1)
