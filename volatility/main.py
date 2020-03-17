@@ -27,6 +27,7 @@ import subprocess
 import re
 import argparse
 import logging
+import codecs
 
 
 files = {}
@@ -58,14 +59,13 @@ def find_next_commit(pos1, input):
 
 
 def parse(input):
-    files = {}
     line = ''
     num = 1
     pos1 = find_next_commit(0, input)
     if pos1 >= 0:
         logging.info('Commit: {}'.format(num))
     num = num + 1
-    with open("git_out.txt", "w+") as f:
+    with codecs.open("git_out.txt", "w+", "utf-8") as f:
         f.write(input)
     while(pos1 < len(input) and pos1 >= 0):
         pos2 = input.find('|', pos1)
