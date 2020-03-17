@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # The MIT License (MIT)
 #
 # Copyright (c) 2020 Aibolit
@@ -22,86 +24,12 @@
 
 
 import subprocess
-import matplotlib.pyplot as plt
 import re
-import requests
 import argparse
 import logging
 
 
 files = {}
-token = ''
-logging.basicConfig(level=logging.DEBUG)
-
-
-def process_file(name):
-    import json
-    with open(name) as json_file:
-        data = json.load(json_file)
-        show_histogram(list(data.values()))
-
-
-def start(url):
-    prev = '{}{}{}'.format('https://api.github.com/repos/', url,
-                           '/commits?per_page=100')
-    r = requests.get(prev,
-                     headers={'Content-Type': 'application/json',
-                              'Authorization': 'token {}'.format(token)})
-    data = r.json()
-    if 'Link' in r.headers:
-        links = r.headers['Link'].split(', ')
-        for link in links:
-            t = link.split('; ')
-            if t[1] == 'rel="last"':
-                prev = t[0].replace('<', '').replace('>', '')
-
-    while(prev is not None):
-        print(prev)
-        r = requests.get('{}'.format(prev),
-                         headers={'Content-Type': 'application/json',
-                                  'Authorization': 'token {}'.format(token)})
-        data = r.json()
-        if len(data) == 0:
-            break
-        prev = None
-        if 'Link' in r.headers:
-            links = r.headers['Link'].split(', ')
-            for link in links:
-                t = link.split('; ')
-                if t[1] == 'rel="prev"':
-                    prev = t[0].replace('<', '').replace('>', '')
-        get_commits(data)
-    print('\n', '\n', '\n', '\n', '\n', '\n', '\n', files)
-    show_histogram(list(files.values()))
-
-
-def get_commits(data):
-    for commit in reversed(data):
-        r1 = requests.get(commit['url'],
-                          headers={'Content-Type': 'application/json',
-                                   'Authorization': 'token {}'.format(token)}
-                          )
-        thecommit = r1.json()
-        if 'files' not in thecommit:
-            print('{}{}'.format(commit['url'], ' does not have files'))
-        else:
-            for file in thecommit['files']:
-                if 'previous_filename' in file and \
-                   file['previous_filename'] != file['filename']:
-                    prev = 0
-                    if file['filename'] in files and \
-                       files[file['filename']] > prev:
-                        prev = files[file['filename']]
-                    if file['previous_filename'] in files:
-                        prev = files[file['previous_filename']]
-                        del files[file['previous_filename']]
-                    files[file['filename']] = prev
-                if file['additions'] > 0 or file['deletions'] > 0 or \
-                   file['changes'] > 0:
-                    if file['filename'] in files:
-                        files[file['filename']] = files[file['filename']] + 1
-                    else:
-                        files[file['filename']] = 1
 
 
 def calculate(dir):
@@ -127,16 +55,6 @@ def find_next_commit(pos1, input):
         return pos2
     pos1 = pos2 + 1
     return pos1
-
-
-def show_histogram(values):
-    cnt = len(values)
-    values.sort()
-    values = values[:-(int(0.05*cnt))]
-    plt.xlabel('Changes', fontsize=18)
-    plt.ylabel('Files count', fontsize=16)
-    plt.hist(values, bins=10)
-    plt.show()
 
 
 def parse(input):
@@ -187,19 +105,34 @@ def parse(input):
 
 def run_application():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('--token', type=str, required=False, default='')
-    parser.add_argument('--folder', type=str, required=False, default='')
+    parser.add_argument('--path', type=str, required=False, default='')
     args = parser.parse_args()
-    token = args.token
-    folder = args.folder
-    if len(token) > 0:
-        start('yegor256/volatility')
-    elif len(folder) > 0:
-        calculate(folder)
+    folder = args.path
+    if len(folder) > 0:
+        data = calculate(folder)
     else:
-        print('Either --token or --folder parameter should be set')
-        return 0
-    show_histogram(list(files.values()))
+        print('Either --token or --path parameter should be set')
+        return -1
+    vals = list(data['files'].values())
+    vals.sort(reverse=True)
+    calcmax = max(vals)
+    cnt = len(vals)
+    X = []
+    p = []
+    sum1 = 0
+    sum2 = 0
+    for i in range(cnt):
+        p.append(vals[i]/calcmax)
+        X.append(i/cnt)
+        sum1 = sum1 + i/cnt * vals[i]/calcmax
+        sum2 = sum2 + vals[i]/calcmax
+
+    mu = sum1/sum2
+    sum1 = 0
+    for i in range(cnt):
+        sum1 = sum1 + (X[i] - mu) * (X[i] - mu) * p[i]
+
+    return round(sum1/sum2 * 100, 2)
 
 
 if __name__ == "__main__":

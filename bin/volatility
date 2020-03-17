@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import sys, os
+sys.path.append(os.getcwd())
+import volatility
+res = volatility.run_application()
+if res >= 0:
+    print(volatility.run_application(), '%')
