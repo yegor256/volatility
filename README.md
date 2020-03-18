@@ -8,30 +8,22 @@ source code repository, by comparing the amount of dead code (rarely touched)
 with the amount of actively modified one. More or less detailed theoretical summary
 is in [theory.pdf](https://github.com/downloads/yegor256/volatility/theory.pdf).
 
-You need to have [cloc.pl](http://sourceforge.net/projects/cloc/files/) installed first.
-Also, you need PHP 5.3+.
-
-First, collect lines-of-code data (we assume that your source code
-has been already checked-out/cloned into the `PROJECT` directory):
-
-```bash
-$ ./cloc.pl --xml --quiet --progress-rate=0 PROJECT > cloc.xml
+### Build
+```
+python3 setup.py sdist bdist_wheel
 ```
 
-Next, calculate the volatility, using `volatility.php` script.
+### Upload package
+```
+python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+```
+
+Next, calculate the volatility, using `volatility` command.
 For a Git repository:
 
 ```
-$ git --git-dir PROJECT/.git log --reverse --format=short --stat=1000 --stat-name-width=950 | \
-  php volatility.php --git > vol.json
+$ volatility --path .
 ```
-
-For a Subversion repository:
-
-```
-$ svn log -r1:HEAD -v PROJECT | php volatility.php --svn > vol.json
-```
-
-The `vol.json` file will contain the metrics collected.
+Volatility will be output in percentages.
 
 That's it.
