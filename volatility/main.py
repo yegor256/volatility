@@ -111,7 +111,7 @@ def run_application():
     if len(folder) > 0:
         data = calculate(folder)
     else:
-        print('Either --token or --path parameter should be set')
+        print('Missing --path parameter')
         return -1
     vals = list(data['files'].values())
     vals.sort(reverse=True)

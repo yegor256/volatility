@@ -3,7 +3,7 @@ import sys
 
 class Test2(unittest.TestCase):
     def test_deepbugs(self):
-        from main import parse
+        from volatility.main import parse
         with open('tests/django-rest-auth.txt', 'r') as f:
             content = f.read()
             res = parse(content)

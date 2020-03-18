@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="volatility-pkg-zuoqin", # Replace with your own username
-    version="0.0.3",
+    name="volatility-zuoqin",
+    version="0.0.1",
     author="Alexey Zorchenkov",
     author_email="zorchenkov.alexey@huawei.com",
     description="Calculating git repository volatility",

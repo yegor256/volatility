@@ -1,10 +1,9 @@
-language: php
-php:
-  - '7.0'
-cache:
-  directories:
-  - vendor
+language: python
+sudo: false
 install:
-  - composer install
+  - gem install xcop
+  - pip install codecov
 script:
-  - ./vendor/phing/phing/bin/phing
+  - make
+after_success:
+  - codecov
