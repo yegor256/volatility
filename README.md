@@ -4,7 +4,7 @@
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![Build Status](https://travis-ci.org/yegor256/volatility.svg)](https://travis-ci.org/yegor256/volatility)
-[![Build status](https://ci.appveyor.com/api/projects/status/tbeaa0d4dk38xdb5?svg=true)](https://ci.appveyor.com/project/yegor256/volatility)
+[![Build status](https://ci.appveyor.com/api/projects/status/ndp6dbqajjgr7y7y?svg=true)](https://ci.appveyor.com/project/yegor256/volatility-jm2bc)
 [![PDD status](http://www.0pdd.com/svg?name=yegor256/volatility)](http://www.0pdd.com/p?name=yegor256/volatility)
 [![Gem Version](https://badge.fury.io/rb/volatility.svg)](http://badge.fury.io/rb/volatility)
 [![Maintainability](https://api.codeclimate.com/v1/badges/74c909f06d4afa0d8001/maintainability)](https://codeclimate.com/github/yegor256/volatility/maintainability)
