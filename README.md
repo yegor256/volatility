@@ -16,7 +16,7 @@
 It's an experimental way to calculate how "volatile" is a project
 source code repository, by comparing the amount of dead code (rarely touched)
 with the amount of actively modified one. More or less detailed theoretical summary
-is in [theory.pdf](https://github.com/downloads/yegor256/volatility/theory.pdf).
+is in [theory.pdf](https://github.com/yegor256/volatility/raw/master/theory.pdf).
 
 You need to have Ruby 2.6+ installed. Then you install this tool:
 
