@@ -55,7 +55,7 @@ Options are:"
   end
   files = {}
   home = File.expand_path(opts[:home])
-  puts "Home: #{home}"
+  put "Home: #{home}"
   `git --git-dir=#{home}/.git log --numstat`.split("\n").each do |t|
     add, del, file = t.split("\t", 3)
     next if file.nil?
