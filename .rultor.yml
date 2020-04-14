@@ -1,7 +1,7 @@
 assets:
   rubygems.yml: yegor256/home#assets/rubygems.yml
 install: |
-  sudo bundle install
+  sudo bundle install --no-color "--gemfile=$(pwd)/Gemfile"
 release:
   script: |-
     bundle exec rake
