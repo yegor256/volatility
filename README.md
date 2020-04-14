@@ -3,6 +3,7 @@
 [![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/volatility)](http://www.rultor.com/p/yegor256/volatility)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
+[![latex](https://github.com/yegor256/volatility/workflows/latex/badge.svg)](https://github.com/yegor256/volatility/actions?query=latex)
 [![Build Status](https://travis-ci.org/yegor256/volatility.svg)](https://travis-ci.org/yegor256/volatility)
 [![Build status](https://ci.appveyor.com/api/projects/status/tbeaa0d4dk38xdb5?svg=true)](https://ci.appveyor.com/project/yegor256/volatility)
 [![PDD status](http://www.0pdd.com/svg?name=yegor256/volatility)](http://www.0pdd.com/p?name=yegor256/volatility)
