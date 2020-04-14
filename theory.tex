@@ -1,0 +1,77 @@
+% Copyright (c) 2012-2020, Yegor Bugayenko
+% All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met: 1) Redistributions of source code must retain the above
+% copyright notice, this list of conditions and the following
+% disclaimer. 2) Redistributions in binary form must reproduce the above
+% copyright notice, this list of conditions and the following
+% disclaimer in the documentation and/or other materials provided
+% with the distribution. 3) Neither the name of Yegor Bugayenko nor
+% the names of other contributors may be used to endorse or promote
+% products derived from this software without specific prior written
+% permission.
+%
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+% NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+% FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+% THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+% INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+% SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+% STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+% ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+% OF THE POSSIBILITY OF SUCH DAMAGE.
+%
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Source Code Volatility (SCV)\\to Spot Dead Code}
+\author{Yegor Bugayenko}
+\maketitle
+
+\section{Introduction}
+
+Volatility of source code is an experimental metric that
+shows how big is the difference between actively and rarely changed (possibly dead)
+code. It is assumed that a big percentage of dead code is
+an indicator of maintainability problems in the project.
+
+\section{Details}
+
+First, by looking at Git history,
+it is observed how many times every source code file $i$ out of $N$ was touched
+during the lifetime of the repository:
+
+\begin{eqnarray}
+T = [t_1, t_2, \dots, t_N]
+\end{eqnarray}
+
+Then, $t$ that relate to the files already absent in the
+repository are deleted and the array $T$ is ``normalized''
+to keep all values within the $[0,1]$ range:
+
+\begin{eqnarray}
+X = [x_1, x_2, \dots, x_M],\quad \text{where}\ x_i = \frac{t_i - \hat{T}}{\check{T} - \hat{T}}
+\end{eqnarray}
+
+Then, the mean $\mu$ is calculated as:
+
+\begin{eqnarray}
+\mu = \frac{1}{M}\sum{x_i}
+\end{eqnarray}
+
+Finally, the variance is calculated as:
+
+\begin{eqnarray}
+Var(x) = \frac{1}{M}\sum{|x_i - \mu|^2}
+\end{eqnarray}
+
+The variance $Var(x)$ is the volatility of the source code. The smaller
+the volatility the more cohesive is the repository and the smaller
+the amount of the dead code inside it.
+
+\end{document}

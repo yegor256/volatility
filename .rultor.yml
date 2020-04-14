@@ -1,0 +1,26 @@
+assets:
+  rubygems.yml: yegor256/home#assets/rubygems.yml
+install: |
+  export GEM_HOME=~/.ruby
+  export GEM_PATH=$GEM_HOME:$GEM_PATH
+  sudo apt-get -y update
+  sudo gem install pdd -v 0.20.5
+  bundle install
+release:
+  script: |-
+    bundle exec rake
+    rm -rf *.gem
+    sed -i "s/1\.0\.snapshot/${tag}/g" lib/volatility/version.rb
+    git add lib/volatility/version.rb
+    git commit -m "version set to ${tag}"
+    gem build volatility.gemspec
+    chmod 0600 ../rubygems.yml
+    gem push *.gem --config-file ../rubygems.yml
+merge:
+  script: |-
+    bundle exec rake
+    pdd -f /dev/null
+deploy:
+  script: |-
+    echo "There is nothing to deploy"
+    exit -1

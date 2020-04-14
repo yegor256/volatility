@@ -5,5 +5,8 @@ Gemfile.lock
 .bundle/
 .DS_Store
 rdoc/
-vendor/
-composer.lock
+*.pdf
+*.log
+*.aux
+*.fdb_latexmk
+*.fls

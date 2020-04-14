@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - 'assets/**/*'
+  DisplayCopNames: true
+  TargetRubyVersion: 2.3
+
+Style/GlobalVars:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+Layout/EndOfLine:
+  EnforcedStyle: lf
+Metrics/BlockLength:
+  Max: 30
+Layout/AlignParameters:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+

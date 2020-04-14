@@ -8,30 +8,28 @@ source code repository, by comparing the amount of dead code (rarely touched)
 with the amount of actively modified one. More or less detailed theoretical summary
 is in [theory.pdf](https://github.com/downloads/yegor256/volatility/theory.pdf).
 
-You need to have [cloc.pl](http://sourceforge.net/projects/cloc/files/) installed first.
-Also, you need PHP 5.3+.
-
-First, collect lines-of-code data (we assume that your source code
-has been already checked-out/cloned into the `PROJECT` directory):
+You need to have Ruby 2.6+ installed. Then you install this tool:
 
 ```bash
-$ ./cloc.pl --xml --quiet --progress-rate=0 PROJECT > cloc.xml
+$ gem install volatility
 ```
 
-Next, calculate the volatility, using `volatility.php` script.
-For a Git repository:
+Then, you run it:
 
-```
-$ git --git-dir PROJECT/.git log --reverse --format=short --stat=1000 --stat-name-width=950 | \
-  php volatility.php --git > vol.json
+```bash
+$ volatility --help
 ```
 
-For a Subversion repository:
+## How to contribute
+
+Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
+Make sure your build is green before you contribute
+your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2.3+ and
+[Bundler](https://bundler.io/) installed. Then:
 
 ```
-$ svn log -r1:HEAD -v PROJECT | php volatility.php --svn > vol.json
+$ bundle update
+$ bundle exec rake
 ```
 
-The `vol.json` file will contain the metrics collected.
-
-That's it.
+If it's clean and you don't see any error messages, submit your pull request.

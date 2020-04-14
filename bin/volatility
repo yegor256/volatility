@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Copyright (c) 2019-2020 Yegor Bugayenko
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the 'Software'), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+STDOUT.sync = true
+
+VERSION = '0.0.0'
+
+require 'slop'
+require 'backtrace'
+
+$verbose = false
+
+def put(msg)
+  puts msg if $verbose
+end
+
+begin
+  begin
+    opts = Slop.parse(ARGV, strict: true, help: true) do |o|
+      o.banner = "Usage (#{VERSION}): volatility [options]
+Options are:"
+      o.bool '--verbose', 'Print all details' do
+        $verbose = true
+      end
+      o.string '--home',
+        'The path to the repository (current dir by default)',
+        default: '.'
+      o.bool '--help', 'Read this: https://github.com/yegor256/volatility' do
+        puts o
+        exit
+      end
+    end
+  rescue Slop::Error => ex
+    raise ex.message
+  end
+  files = {}
+  home = File.expand_path(opts[:home])
+  puts "Home: #{home}"
+  `git --git-dir=#{home}/.git log --numstat`.split("\n").each do |t|
+    add, del, file = t.split("\t", 3)
+    next if file.nil?
+    files[file] = 0 if files[file].nil?
+    files[file] += add.to_i
+    files[file] += del.to_i
+  end
+  raise "No Git history found in #{home}" if files.empty?
+  put "N = #{files.count}"
+  values = files.select { |f, _| File.exist?(File.join(home, f)) }.map { |_, v| v }
+  put "M = #{values.count}"
+  min = values.min
+  put "Min = #{min}"
+  max = values.max
+  put "Max = #{max}"
+  values = values.map { |v| (v - min).to_f / (max - min) }
+  mu = values.inject(&:+) / values.count
+  put "µ = #{mu}"
+  var = values.map { |v| (v - mu)**2 }.inject(&:+).to_f / values.count
+  put "Var(X) = #{var}"
+  puts var
+rescue StandardError => ex
+  puts Backtrace.new(ex).to_s
+  exit(255)
+end
