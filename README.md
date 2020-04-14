@@ -1,7 +1,17 @@
+[![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
+[![Managed by Zerocracy](https://www.0crat.com/badge/C3RFVLU72.svg)](https://www.0crat.com/p/C3RFVLU72)
+[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/volatility)](http://www.rultor.com/p/yegor256/volatility)
+[![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
+
 [![Build Status](https://travis-ci.org/yegor256/volatility.svg)](https://travis-ci.org/yegor256/volatility)
-[![Maintainability](https://api.codeclimate.com/v1/badges/45932400a1661926a3ba/maintainability)](https://codeclimate.com/github/yegor256/volatility/maintainability)
-[![Hits-of-Code](https://hitsofcode.com/github/yegor256/volatility)](https://hitsofcode.com/github/yegor256/volatility)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
+[![Build status](https://ci.appveyor.com/api/projects/status/tbeaa0d4dk38xdb5?svg=true)](https://ci.appveyor.com/project/yegor256/volatility)
+[![PDD status](http://www.0pdd.com/svg?name=yegor256/volatility)](http://www.0pdd.com/p?name=yegor256/volatility)
+[![Gem Version](https://badge.fury.io/rb/volatility.svg)](http://badge.fury.io/rb/volatility)
+[![Maintainability](https://api.codeclimate.com/v1/badges/74c909f06d4afa0d8001/maintainability)](https://codeclimate.com/github/yegor256/volatility/maintainability)
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/volatility/master/LICENSE.txt)
+[![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/volatility.svg)](https://codecov.io/github/yegor256/volatility?branch=master)
+[![Hits-of-Code](https://hitsofcode.com/github/yegor256/volatility)](https://hitsofcode.com/view/github/yegor256/volatility)
 
 It's an experimental way to calculate how "volatile" is a project
 source code repository, by comparing the amount of dead code (rarely touched)
