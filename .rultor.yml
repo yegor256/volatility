@@ -6,9 +6,9 @@ release:
   script: |-
     bundle exec rake
     rm -rf *.gem
-    sed -i "s/0\.0\.0/${tag}/g" bin/volatility.rb
+    sed -i "s/0\.0\.0/${tag}/g" bin/volatility
     sed -i "s/0\.0\.0/${tag}/g" volatility.gemspec
-    git add bin/volatility.rb
+    git add bin/volatility
     git add volatility.gemspec
     git commit -m "version set to ${tag}"
     gem build volatility.gemspec
