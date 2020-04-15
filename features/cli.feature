@@ -9,7 +9,9 @@ Feature: Command Line Processing
   Scenario: Volatility can be calculated
     When I run bash with:
     """
-    if git config user.email; then echo OK; else
+    if git config user.email; then
+      echo Git email already set
+    else
       git config user.name "NoName"
       git config user.email "noname@example.com"
     fi
