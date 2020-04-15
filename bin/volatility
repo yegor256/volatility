@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Copyright (c) 2019-2020 Yegor Bugayenko
+# Copyright (c) 2012-2020 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -42,6 +42,7 @@ Options are:"
       o.bool '--verbose', 'Print all details' do
         $verbose = true
       end
+      o.integer '--sectors', 'Total sectors to use', default: 64
       o.string '--home',
         'The path to the repository (current dir by default)',
         default: '.'
@@ -71,10 +72,14 @@ Options are:"
   put "Min = #{min}"
   max = values.max
   put "Max = #{max}"
-  values = values.map { |v| (v - min).to_f / (max - min) }
-  mu = values.inject(&:+) / values.count
+  delta = (max - min) / opts[:sectors]
+  delta = 1 if delta.zero?
+  put "D = #{delta}"
+  s = values.group_by { |v| (v - min) / delta }.values.map(&:count).sort.reverse
+  put "S = #{s}"
+  mu = s.inject(&:+) / s.count
   put "µ = #{mu}"
-  var = values.map { |v| (v - mu)**2 }.inject(&:+).to_f / values.count
+  var = s.map { |v| (v - mu)**2 }.inject(&:+).to_f / s.count
   put "Var(X) = #{var}"
   puts format('%.8f', var)
 rescue StandardError => ex

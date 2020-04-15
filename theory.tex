@@ -43,34 +43,36 @@ an indicator of maintainability problems in the project.
 \section{Details}
 
 First, by looking at Git history,
-it is observed how many times every source code file $i$ out of $N$ was touched
-during the lifetime of the repository:
+it is observed how many times every source code file out of $N$ was touched
+during the lifetime of the repository (excluding the files that don't exist
+in the repository anymore):
 
 \begin{eqnarray}
 T = [t_1, t_2, \dots, t_N]
 \end{eqnarray}
 
-Then, $t$ that relate to the files already absent in the
-repository are deleted and the array $T$ is ``normalized''
-to keep all values within the $[0,1]$ range:
+Then, the entire interval between $\check{T}$ (the maximum value)
+and $\hat{T}$ (the minimum value) is divided to $Z$ equivalent groups:
 
-\begin{eqnarray}
-X = [x_1, x_2, \dots, x_M],\quad \text{where}\ x_i = \frac{t_i - \hat{T}}{\check{T} - \hat{T}}
-\end{eqnarray}
+\begin{align}
+G &= [g_1, g_2, \dots, g_{Z}] \\
+\delta &= ( \check{T} - \hat{T} ) / Z \\
+g_j &= \sum_{i=1}^N [ j(\delta-1) < t_i < j\delta ]
+\end{align}
 
 Then, the mean $\mu$ is calculated as:
 
 \begin{eqnarray}
-\mu = \frac{1}{M}\sum{x_i}
+\mu = \frac{1}{Z}\sum_{j=1}^{Z}{g_j}
 \end{eqnarray}
 
 Finally, the variance is calculated as:
 
 \begin{eqnarray}
-Var(x) = \frac{1}{M}\sum{|x_i - \mu|^2}
+Var(g) = \frac{1}{Z}\sum_{j=1}^{Z}{|g_j - \mu|^2}
 \end{eqnarray}
 
-The variance $Var(x)$ is the volatility of the source code. The smaller
+The variance $Var(g)$ is the volatility of the source code. The smaller
 the volatility the more cohesive is the repository and the smaller
 the amount of the dead code inside it.
 
