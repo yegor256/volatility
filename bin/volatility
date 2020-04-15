@@ -76,7 +76,7 @@ Options are:"
   put "µ = #{mu}"
   var = values.map { |v| (v - mu)**2 }.inject(&:+).to_f / values.count
   put "Var(X) = #{var}"
-  puts var
+  puts format('%.8f', var)
 rescue StandardError => ex
   puts Backtrace.new(ex).to_s
   exit(255)
