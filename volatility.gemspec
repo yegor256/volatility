@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = '2.2'
   s.required_ruby_version = '>= 2.3'
   s.name = 'volatility'
-  s.version = '0.0.0'
+  s.version = '0.1.2'
   s.license = 'MIT'
   s.summary = 'Source Code Volatility'
   s.description = 'The command line tool calculates the SCV metric for a Git repo'
