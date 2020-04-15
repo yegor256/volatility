@@ -9,8 +9,10 @@ Feature: Command Line Processing
   Scenario: Volatility can be calculated
     When I run bash with:
     """
-    git config --global user.name "NoName"
-    git config --global user.email "noname@example.com"
+    if git config user.email; then echo OK; else
+      git config user.name "NoName"
+      git config user.email "noname@example.com"
+    fi
     mkdir tmp
     cd tmp
     git init .
