@@ -9,15 +9,15 @@ Feature: Command Line Processing
   Scenario: Volatility can be calculated
     When I run bash with:
     """
+    mkdir tmp
+    cd tmp
+    git init .
     if git config user.email; then
       echo Git email already set
     else
       git config user.name "NoName"
       git config user.email "noname@example.com"
     fi
-    mkdir tmp
-    cd tmp
-    git init .
     touch test.txt
     git add test.txt
     git commit -am 'test'
