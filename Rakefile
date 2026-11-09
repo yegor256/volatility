@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (c) 2019-2020 Yegor Bugayenko
+# Copyright (c) 2019-2026 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -55,7 +55,6 @@ end
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true
-  task.requires << 'rubocop-rspec'
 end
 
 require 'cucumber/rake/task'
