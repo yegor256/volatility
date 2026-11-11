@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-STDOUT.sync = true
+$stdout.sync = true
 
 VERSION = '0.0.0'
 
@@ -44,15 +44,15 @@ Options are:"
       end
       o.integer '--sectors', 'Total sectors to use', default: 64
       o.string '--home',
-        'The path to the repository (current dir by default)',
-        default: '.'
+               'The path to the repository (current dir by default)',
+               default: '.'
       o.bool '--help', 'Read this: https://github.com/yegor256/volatility' do
         puts o
         exit
       end
     end
-  rescue Slop::Error => ex
-    raise ex.message
+  rescue Slop::Error => e
+    raise e.message
   end
   files = {}
   home = File.expand_path(opts[:home])
@@ -82,7 +82,7 @@ Options are:"
   var = s.map { |v| (v - mu)**2 }.inject(&:+).to_f / s.count
   put "Var(X) = #{var}"
   puts format('%.8f', var)
-rescue StandardError => ex
-  puts Backtrace.new(ex).to_s
+rescue StandardError => e
+  puts Backtrace.new(e)
   exit(255)
 end

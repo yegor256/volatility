@@ -44,13 +44,14 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
-  s.add_runtime_dependency 'backtrace', '~> 0.3'
+  s.add_runtime_dependency 'backtrace', '~> 0.4'
   s.add_runtime_dependency 'slop', '~> 4.6'
-  s.add_development_dependency 'codecov', '0.1.10'
-  s.add_development_dependency 'cucumber', '~> 1.3.17'
-  s.add_development_dependency 'minitest', '5.5.0'
-  s.add_development_dependency 'rake', '12.0.0'
-  s.add_development_dependency 'rspec-rails', '3.1.0'
-  s.add_development_dependency 'rubocop', '0.61.0'
-  s.add_development_dependency 'rubocop-rspec', '1.31.0'
+  s.add_development_dependency 'cucumber', '~> 12.0'
+  s.add_development_dependency 'minitest', '6.1.0'
+  s.add_development_dependency 'nokogiri', '~> 1.19'
+  s.add_development_dependency 'rake', '13.4.2'
+  s.add_development_dependency 'rdoc', '~> 8.0'
+  s.add_development_dependency 'rubocop', '1.92.2'
+  s.add_development_dependency 'rubocop-rspec', '3.10.2'
+  s.add_development_dependency 'simplecov', '~> 1.3'
 end

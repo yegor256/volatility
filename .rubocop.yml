@@ -1,19 +1,25 @@
+plugins: rubocop-rspec
+
 AllCops:
+  NewCops: disable
   Exclude:
     - 'assets/**/*'
   DisplayCopNames: true
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 4.0
 
 Style/GlobalVars:
   Enabled: false
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 Layout/EndOfLine:
   EnforcedStyle: lf
 Metrics/BlockLength:
   Max: 30
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
+# The gem's runtime minimum differs from the Ruby 4 development toolchain.
+Gemspec/RequiredRubyVersion:
+  Enabled: false
