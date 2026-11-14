@@ -22,7 +22,8 @@
 
 SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 SimpleCov.configure do
-  skip '/test/'
-  skip '/features/'
+  root __dir__
+  track_files 'bin/*'
+  skip %r{\A(test|features)/}
   minimum_coverage 60 unless Gem.win_platform?
 end
