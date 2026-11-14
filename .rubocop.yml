@@ -4,6 +4,7 @@ AllCops:
   NewCops: disable
   Exclude:
     - 'assets/**/*'
+    - 'vendor/bundle/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 4.0
 
