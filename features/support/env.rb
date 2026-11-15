@@ -21,5 +21,13 @@
 # SOFTWARE.
 
 require 'simplecov'
+load File.expand_path('../../.simplecov', __dir__)
 SimpleCov.start
-# require 'aruba/cucumber'
+
+# CLI subprocesses contribute coverage; Cucumber enforces the merged minimum.
+if $PROGRAM_NAME == __FILE__
+  SimpleCov.command_name "CLI #{Process.pid}"
+  SimpleCov.external_at_exit = true
+  at_exit { SimpleCov.result }
+  load ARGV.shift
+end

@@ -50,7 +50,7 @@ end
 
 When(%r{^I run bin/volatility with "([^"]*)"$}) do |arg|
   home = File.join(File.dirname(__FILE__), '../..')
-  @stdout = `ruby -I#{home}/lib #{home}/bin/volatility #{arg}`
+  @stdout = `ruby #{home}/features/support/env.rb #{home}/bin/volatility #{arg}`
   @exitstatus = $CHILD_STATUS.exitstatus
 end
 
