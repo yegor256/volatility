@@ -52,6 +52,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '13.4.2'
   s.add_development_dependency 'rdoc', '~> 8.0'
   s.add_development_dependency 'rubocop', '1.92.3'
-  s.add_development_dependency 'rubocop-rspec', '3.10.2'
+  s.add_development_dependency 'rubocop-rspec', '3.11.0'
   s.add_development_dependency 'simplecov', '~> 1.3'
 end
